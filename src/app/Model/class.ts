@@ -1,12 +1,15 @@
 export class Register {
-    fullname: string;
+    name: string;
    
-    phone:string;
+    number:string;
    
     roles: String[];
 }
 
 export class Login {
-    fullname: string;
-    phone: string;
+    name: string;
+    number: string;
 }
+ export class ForgotPassword{
+     number:string;
+ }

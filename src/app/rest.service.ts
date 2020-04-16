@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login } from '../app/Model/class';
+import { Register, Login,ForgotPassword } from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
 const endpoint = 'http://localhost:8080/';
@@ -76,5 +76,15 @@ logout() {
   };
     return this.http.post<Login>(endpoint + 'api/auth/signin' , data,this.httpOptions); 
  }
+
+ forgot(data:ForgotPassword): Observable<any>{
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+     
+        })
+  };
+  return this.http.put<any>(endpoint + 'api/updatepass',data, this.httpOptions);
+}
  
 }

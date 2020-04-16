@@ -7,18 +7,9 @@
   <ion-content fullscreen ion-padding>
     <h3 class="ion-text-center ">Logo goes here</h3>
     <form [formGroup]="formcontrol"> 
-      <div *ngIf="valid">
-        <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
-        </div>
-  
-  <div class="field">
-    <input type="text" formControlName="fullname"
-    name="fullname" id="fullname" placeholder="">
     
   
-    <label for="fullname">FullName</label>
-    
-  </div>
+  
   <div *ngIf="valid">
     <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone required * </p>
     </div>
@@ -32,12 +23,12 @@
     <label for="email">PhoneNumber</label>
   </div>
   
-  <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a></p>
+  
   <ion-grid>
     <ion-row>
       <ion-col></ion-col>
       <ion-col>
-        <ion-button (click)="register()">Register</ion-button>
+        <ion-button (click)="updatepass()">Register</ion-button>
   
       </ion-col>
       <ion-col></ion-col>

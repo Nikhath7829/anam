@@ -8,6 +8,11 @@ form {
    h3{
 margin-top:3em;
    }
+   p{
+    color:red;
+    font-size:10px;
+    //text-align: justify;
+}
   .field {
     display: flex;
     flex-flow: column-reverse;
@@ -19,9 +24,9 @@ margin-top:3em;
   }
   
   input {
-    font-size: 1.5em;
+   // font-size: 1.5em;
     border: 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e7d1d1;
     font-family: inherit;
     -webkit-appearance: none;
     border-radius: 0;

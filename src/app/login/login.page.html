@@ -1,33 +1,52 @@
 
 
 <ion-content fullscreen ion-padding>
-  <form [formGroup]="formcontrol">
-    <div class="content ion-margin-top ion-margin-start ion-margin-end">
-<h2 class="ion-text-center ion-margin-top">Login</h2>
-<ion-grid>
-  <ion-row style="margin-top: 3em;" >
-    <ion-col>
-     
-      <ion-input formControlName="name" placeholder="Name"></ion-input>
-      <ion-icon name="eye" slot="end"></ion-icon>
-    
-    </ion-col>
-    
-  </ion-row>
-
-</ion-grid>
 
 
+  
 
-<ion-grid>
-  <ion-row >
-    <ion-col><ion-input formControlName="number" placeholder="Phone Number"></ion-input></ion-col>
-  </ion-row>
-</ion-grid>
-<p >Forgot Password?</p>
+<ion-content fullscreen ion-padding>
+  <h3 class="ion-text-center ">Logo goes here</h3>
+  <form [formGroup]="formcontrol"> 
+    <div *ngIf="valid">
+      <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
+      </div>
 
-<ion-button class="center ion-margin-start ion-margin-top ion-margin-bottom" (click)="login()">Login</ion-button>
+<div class="field">
+  <input type="text" formControlName="fullname"
+  name="fullname" id="fullname" placeholder="">
+  
 
+  <label for="fullname">FullName</label>
+  
 </div>
+<div *ngIf="valid">
+  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone required * </p>
+  </div>
+
+
+
+<div class="field">
+  <input type="email" name="email" formControlName="number" id="email" placeholder="">
+ 
+
+  <label for="email">PhoneNumber</label>
+</div>
+<p class="ion-text-right ion-margin-end">Forgot?</p>
+<p class="ion-text-center" style="font-size: 12px;">Dont have an account?&nbsp;<a routerLink="/register">Register</a></p>
+<ion-grid>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <ion-button (click)="login()">Login</ion-button>
+
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-grid>
 </form>
+
+
 </ion-content>
+
+  </ion-content>
