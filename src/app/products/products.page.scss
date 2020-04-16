@@ -1,0 +1,41 @@
+ion-toolbar{
+    --background:green!important;
+}
+ion-searchbar{
+  --background:green!important;
+  color:white;
+}
+ion-card{
+  height: 14em;
+    width: 11em;
+}
+
+ion-buttons{
+  color:white;
+}
+ion-footer{
+  --background:green!important;
+}
+ 
+.searchbar-input {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#brief{
+  background: white;
+      color: green;
+      font-size: 20px;
+      border-radius: 20px;
+      padding: 1px 1px 1px 1px;
+  }
+ion-button{
+  --background:red;
+}
+ion-button{
+  font-size: 8px;
+  /* --background: red; */
+  --background: #083a08;
+  border-radius: 16px;
+  height: -1em;
+  height: 29px;
+}

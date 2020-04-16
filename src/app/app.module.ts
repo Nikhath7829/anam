@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -14,10 +17,15 @@ import { AppRoutingModule } from './app-routing.module';
   entryComponents: [],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+
     IonicModule.forRoot(),
     AppRoutingModule
   ],
   providers: [
+    Geolocation,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

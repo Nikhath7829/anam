@@ -1,0 +1,33 @@
+
+
+<ion-content fullscreen ion-padding>
+  <form [formGroup]="formcontrol">
+    <div class="content ion-margin-top ion-margin-start ion-margin-end">
+<h2 class="ion-text-center ion-margin-top">Login</h2>
+<ion-grid>
+  <ion-row style="margin-top: 3em;" >
+    <ion-col>
+     
+      <ion-input formControlName="name" placeholder="Name"></ion-input>
+      <ion-icon name="eye" slot="end"></ion-icon>
+    
+    </ion-col>
+    
+  </ion-row>
+
+</ion-grid>
+
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col><ion-input formControlName="number" placeholder="Phone Number"></ion-input></ion-col>
+  </ion-row>
+</ion-grid>
+<p >Forgot Password?</p>
+
+<ion-button class="center ion-margin-start ion-margin-top ion-margin-bottom" (click)="login()">Login</ion-button>
+
+</div>
+</form>
+</ion-content>

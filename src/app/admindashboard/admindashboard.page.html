@@ -1,0 +1,85 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<ion-header no-border>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+       <ion-label class="ion-margin-top title_text" slot="start">Dashboard</ion-label>
+      </ion-buttons>
+      
+      </ion-toolbar>
+
+
+  <p class="ion-margin-start welcome_line">Hi,Welcome Back!</p>
+  <p  class="ion-margin-start ion-no-margin welcome_below_line">Your product monitoring dashboard</p>
+ </ion-header>
+
+
+ <br><br>
+
+<ion-content full screen>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <ion-card class="card4" >
+          <ion-card-header>
+
+            <ion-card-title>
+              <ion-icon name="cart"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>Total Orders </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+
+
+      
+     
+
+      <ion-col text-center>
+        <ion-card class="card4" >
+          <ion-card-header>
+
+            <ion-card-title>
+              <ion-icon id="cash" name="cash"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>Total Revenue </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col text-center>
+        <ion-card class="card4" [routerLink]="['/chart2']">
+          <ion-card-header>
+
+            <ion-card-title>
+              <ion-icon id="people" name="people"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>Register Users </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col text-center>
+        <ion-card class="card4" >
+          <ion-card-header>
+
+            <ion-card-title>
+              <ion-icon id="images" name="images"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>Total Complaints </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+ 
+  </ion-content>
