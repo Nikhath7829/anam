@@ -1,3 +1,80 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+
+
+          <!------ Refresher ------->
+          <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+              refreshingText="Refreshing...">
+            </ion-refresher-content>
+          </ion-refresher>
+
+
+
+      
+          <div *ngIf="admin">
+          <h5 class="ion-text-center">Hello &nbsp;&nbsp;&nbsp;<ion-label>{{name}}</ion-label></h5>
+          <ion-list lines="none" style="margin-top: 2em;">
+            <ion-menu-toggle auto-hide="true">
+              <ion-item class="ion-margin-start ">
+                <ion-icon name="home" slot="start"></ion-icon>
+                <ion-label>Dashboard</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+
+          <ion-list lines="none">
+            <ion-menu-toggle auto-hide="true">
+              <ion-item class="ion-margin-start">
+                <ion-icon name="people" slot="start"></ion-icon>
+                <ion-label> View Users</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+
+
+          <ion-list lines="none">
+            <ion-menu-toggle auto-hide="true">
+              <ion-item class="ion-margin-start">
+                <ion-icon name="basket" slot="start"></ion-icon>
+                <ion-label>Add Product </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+          <ion-list lines="none">
+            <ion-menu-toggle auto-hide="true">
+              <ion-item class="ion-margin-start">
+                <ion-icon name="pricetags" slot="start"></ion-icon>
+                <ion-label>All orders </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+
+          
+
+
+
+          <hr>
+          <ion-list lines="none">
+            <ion-menu-toggle auto-hide="true">
+              <ion-item class="ion-margin-start">
+                <ion-icon (click)="logout()" name="power" slot="start"></ion-icon>
+                <ion-label (click)="logout()" class="ion-margin-center" routerLink="/login">Log out</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+        </div>
+       
+          </ion-content>
+       
+          </ion-menu>
+          <ion-router-outlet id="main-content"></ion-router-outlet>
+          </ion-split-pane>
+          </ion-app>
+

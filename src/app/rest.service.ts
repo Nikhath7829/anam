@@ -86,5 +86,16 @@ logout() {
   };
   return this.http.put<any>(endpoint + 'api/updatepass',data, this.httpOptions);
 }
+
+userprofile(): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+
+  return this.http.get<any>(endpoint + 'api/userview', this.httpOptions);
+}
  
 }
