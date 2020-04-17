@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-right">addpro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+ 
+  <ion-grid>
+    <ion-row>
+     <ion-col >
+    <ion-input   class="ion-margin-top" type="text" 
+    placeholder="Product Name"></ion-input>
+   </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <ion-grid>
+    <ion-row>
+     <ion-col >
+   <ion-item>
+<ion-textarea  rows="6" cols="20" placeholder="Enter any Description here..."></ion-textarea>
+  </ion-item>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+     <ion-col >
+    <ion-input   (keypress)="keyPress($event)" minlength=8 maxlength=8  class="ion-margin-top"
+     [value]= "Product" type="text" 
+    placeholder="Product Price"></ion-input>
+   
+     </ion-col>
+    </ion-row>
+
+
+
+
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+     <ion-col>
+    <ion-input class="ion-margin-top" [value]="Discount" type="text" 
+    placeholder="Discount"></ion-input>
+   
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+  <ion-grid>
+    <ion-row>
+     <ion-col>
+      <ion-input type="file" (change)="selectFiles($event)" 
+      class="ion-margin-top "></ion-input>
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Post In to </ion-label>
+          <ion-select  value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="Rentals">Category 1</ion-select-option>
+            <ion-select-option value="Buyings">Category 2</ion-select-option>
+            <ion-select-option value="Offer">Category 3</ion-select-option>
+            
+          </ion-select>
+        </ion-item>
+      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  <p class="ion-text-center ion-margin-start">
+    <ion-button (click)="add()" class="ion-text-center">POST</ion-button>
+  </p>
+</ion-content>

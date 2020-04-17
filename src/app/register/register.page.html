@@ -26,10 +26,10 @@
   
   
   <div class="field">
-    <input type="email" name="email" formControlName="number" id="email" placeholder="">
+    <input type="number" [value]="number" (keypress)="keyPress($event)"   name="number" formControlName="number" id="number" placeholder="">
    
   
-    <label for="email">PhoneNumber</label>
+    <label for="number">PhoneNumber</label>
   </div>
   
   <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a></p>

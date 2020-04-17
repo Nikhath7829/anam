@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'forgot',
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'addpro',
+    loadChildren: () => import('./addpro/addpro.module').then( m => m.AddproPageModule)
   }
 ];
 
