@@ -62,6 +62,27 @@
 </ion-grid>
 
 
+<!-----------------------Product Images------------------->
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let l of products" size="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{l.productname}}</ion-card-subtitle>
+    
+        </ion-card-header>
+      
+        <ion-card-content>
+         <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="70" width="70">
+        </ion-card-content>
+        <p> {{l.productprice}}</p>
+        <p> {{l.productdescription}}</p>
+        <p> {{l.productdiscount}}</p>
+      </ion-card>
+      
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 
 

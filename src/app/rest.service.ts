@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login,ForgotPassword } from '../app/Model/class';
+import { Register, Login,ForgotPassword ,Product} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
 const endpoint = 'http://localhost:8080/';
@@ -97,5 +97,79 @@ userprofile(): Observable<any> {
 
   return this.http.get<any>(endpoint + 'api/userview', this.httpOptions);
 }
+ //View All Users
+getuserlist(): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  //const myheader=new HttpHeaders().set('AUTH_TOKEN', auth);
+ // return this.http.get<any>(this.ADD_CART_API+product.productid,{headers:myheader});
+
+  return this.http.get<any>(endpoint + 'api/userList', this.httpOptions);
+}
+
+removefromlist(id){
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  return this.http.delete<Register>(endpoint + 'api/destroyUser/'+id, this.httpOptions);
+}
+
+
+//Admin Upload Product to UserDashboard
+
+addProduct(data: Product): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+     'x-access-token': this.getToken()
+        })          
+  };
+    return this.http.post<Product>(endpoint + 'api/product/admin' , data,this.httpOptions); 
+ }
+
+
+ getproduct(): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  //const myheader=new HttpHeaders().set('AUTH_TOKEN', auth);
+ // return this.http.get<any>(this.ADD_CART_API+product.productid,{headers:myheader});
+
+  return this.http.get<any>(endpoint + 'api/dashproductList', this.httpOptions);
+}
+
+productname(): Observable<any>{
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'  ,
+      'x-access-token': this.getToken() 
+        })          
+  };
+    return this.http.get<any>(endpoint + 'api/productName', this.httpOptions);
  
+ }
+  
+pushfileproducts(file: File): Observable<HttpEvent<{}>> {
+  const formdata: FormData = new FormData();
+
+  formdata.append('file', file);
+
+  const req = new HttpRequest('POST', 'http://localhost:8080/api/file/products', formdata, {
+    reportProgress: true,
+    responseType: 'text'
+  });
+
+  return this.http.request(req);
+}
+
 }

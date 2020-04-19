@@ -79,11 +79,19 @@ export class AppComponent implements OnInit {
           // this.test.getuserDetails();
          this.user=true;
         }
-      }
+      }   
     }, (err) => {
       console.log(err);
   
     });
   }
+  logout() {
+  
+    this.rest.logout();
+    this.route.navigate(['/login']);
+    this.admin = false;
+    this.user = false;
+  }
+  
   
 }

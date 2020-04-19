@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Observable, Subject, merge} from 'rxjs'
 import { RestService } from '../rest.service';
-import { Register } from '../Model/class';
+import { Register,Product } from '../Model/class';
 import {AppComponent} from '../app.component';
 @Component({
   selector: 'app-dashboard',
@@ -19,14 +20,57 @@ export class DashboardPage implements OnInit {
   ar;
   userid;
   public data: Register = new Register();
-  arr;errmsg: boolean;
-  constructor(public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
+  arr;
+  errmsg: boolean;
+  fileUploads: Observable<string[]>;
+  @Input() fileUpload: string;
+
+products: Product[] = [];
+  constructor(private fb: FormBuilder, public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
     public alertController: AlertController,  private route: Router,private test: AppComponent) { }
 
   ngOnInit() {
+      //this.roles();
+      this.retrieval();
+   
+      this.getuserprofile();
+     
+  }
+  getProductName(){
+    this.rest.productname().subscribe((result) => {
+      if (result == undefined) {
+        console.log(result);
+      }
+      else {
+        console.log(result);
+
+    this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
+        // this.states = this.arr[0].value;
+   
+       // console.log(this.states)
+      }
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 
+  retrieval() {
+    this.rest.getproduct().subscribe((Product) => {
+      if (Product === undefined) {
+        console.log(Product);
+      }
+      else {
+        this.products = Product.product;
+        console.log(this.products);
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
+  
+
+  
   getuserprofile() {
     this.rest.userprofile().subscribe((result) => {
       if (result === undefined) {
