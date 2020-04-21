@@ -50,6 +50,10 @@ const routes: Routes = [
   {
     path: 'registeruser',
     loadChildren: () => import('./registeruser/registeruser.module').then( m => m.RegisteruserPageModule)
+  },
+  {
+    path: 'table',
+    loadChildren: () => import('./table/table.module').then( m => m.TablePageModule)
   }
 ];
 

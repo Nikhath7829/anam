@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Observable, Subject, merge} from 'rxjs'
 import { RestService } from '../rest.service';
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import { Register,Product } from '../Model/class';
 import {AppComponent} from '../app.component';
 @Component({
@@ -24,8 +25,8 @@ export class DashboardPage implements OnInit {
   errmsg: boolean;
   fileUploads: Observable<string[]>;
   @Input() fileUpload: string;
+  products: Product[] = [];
 
-products: Product[] = [];
   constructor(private fb: FormBuilder, public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
     public alertController: AlertController,  private route: Router,private test: AppComponent) { }
 
@@ -36,6 +37,10 @@ products: Product[] = [];
       this.getuserprofile();
      
   }
+
+
+
+
   getProductName(){
     this.rest.productname().subscribe((result) => {
       if (result == undefined) {
