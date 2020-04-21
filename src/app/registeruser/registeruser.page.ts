@@ -22,7 +22,7 @@ export class RegisteruserPage implements OnInit {
   doRefresh(event) {
 
     this.getuserDetails();
-  
+   this.retrieval();
    setTimeout(() => {
       
      event.target.complete();

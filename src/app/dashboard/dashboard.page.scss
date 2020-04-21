@@ -25,8 +25,9 @@ font-size: 20px;
 #profile_img{
     border-radius: 37px;
     /* height: -webkit-fill-available; */
-    height: 2em;
+    height: 3em;
     /* width: 35px; */
+    width:100px;
 
 }
 #category{
@@ -35,4 +36,11 @@ font-size: 20px;
     border-radius: 19px;
     /* padding: 1px 1px 1px 1px; */
     padding: 2px 2px 2px 2px;
+}
+.ghgh{
+    font-size:20px!important;
+    color:white;
+}
+ion-icon:hover{
+    background: red;
 }

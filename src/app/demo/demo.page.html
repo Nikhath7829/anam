@@ -6,13 +6,14 @@
 
 <ion-content>
  
-  <div id="map" style="width:100%;height:100%;">
-<ion-label><b>Latitude:{{latitide}}</b></ion-label><br>
-<ion-label><b>Longitude:{{longitude}}</b></ion-label><br>
-<ion-label><b>TimeStamp:{{timestamp}}</b></ion-label>
+  
+  <ion-button (click)="takeSnap()">
+    Take Snap
+  </ion-button>
+ 
+  <img [src]="capturedSnapURL" />
+ 
 
-
-  </div>
  
   
 </ion-content>

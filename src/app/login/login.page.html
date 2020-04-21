@@ -21,16 +21,16 @@
   
 </div>
 <div *ngIf="valid">
-  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone required * </p>
+  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Please enter the mandatory field * </p>
   </div>
 
 
 
 <div class="field">
-  <input type="email" name="email" formControlName="number" id="email" placeholder="">
+  <input type="number" name="number" formControlName="number" id="number" placeholder="">
  
 
-  <label for="email">PhoneNumber</label>
+  <label for="number">PhoneNumber</label>
 </div>
 <p class="ion-text-right ion-margin-end" routerLink="/forgot">forgot password?</p>
 <p class="ion-text-center" style="font-size: 12px;">Dont have an account?&nbsp;<a routerLink="/register">create</a></p>

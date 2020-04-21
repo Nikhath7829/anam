@@ -127,7 +127,7 @@ if (this.formcontrol.valid) {
         productdiscount: ['', Validators.required],
         productcategory: ['', Validators.required],
         productprice: ['', Validators.required],
-        discount: ['', Validators.required],
+       
         image: ['', Validators.required],
        
         status: '0',

@@ -22,8 +22,9 @@ export class LoginPage implements OnInit {
   constructor(private fb: FormBuilder,private alertCtrl: AlertController,
     public rest: RestService, private myRoute: Router,) {
     this.formcontrol = this.fb.group({
-      fullname: ["", []],
-      number: ["", []]
+      fullname: ["",],
+      number: ["", []],
+      
     });
    }
 
@@ -39,8 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    this.formcontrol.get("fullname").setValidators(Validators.required);
-  this.formcontrol.get("fullname").updateValueAndValidity();
+    
   this.formcontrol.get("number").setValidators(Validators.required);
   this.formcontrol.get("number").updateValueAndValidity();
   if (this.formcontrol.valid) {
@@ -48,13 +48,13 @@ export class LoginPage implements OnInit {
   }
   else {
     this.valid=true;
-    console.log("There is still an error in the form");
+    alert('Something went wrong');
   }
  
   Object.assign(this.data, this.formcontrol.value);
   console.log(this.data);
   this.formValid = true;
-  this.formValid = true;
+ 
   if (this.formValid) {
     this.rest.login(this.data).subscribe((result) => {
       console.log(result);
