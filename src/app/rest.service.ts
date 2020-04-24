@@ -159,7 +159,7 @@ productname(): Observable<any>{
  
  }
   
-pushfileproducts(file: File): Observable<HttpEvent<{}>> {
+ pushfileproducts(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 
   formdata.append('file', file);
@@ -171,5 +171,6 @@ pushfileproducts(file: File): Observable<HttpEvent<{}>> {
 
   return this.http.request(req);
 }
+
 
 }

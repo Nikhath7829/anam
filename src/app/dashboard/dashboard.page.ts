@@ -39,8 +39,6 @@ export class DashboardPage implements OnInit {
   }
 
 
-
-
   getProductName(){
     this.rest.productname().subscribe((result) => {
       if (result == undefined) {
@@ -74,7 +72,6 @@ export class DashboardPage implements OnInit {
     });
   }
   
-
   
   getuserprofile() {
     this.rest.userprofile().subscribe((result) => {

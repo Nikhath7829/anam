@@ -2,20 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {NgxDatatableModule } from '@swimlane/ngx-datatable'
+
 import { IonicModule } from '@ionic/angular';
 
-import { TablePageRoutingModule } from './table-routing.module';
+import { DatatablePageRoutingModule } from './datatable-routing.module';
 
-import { TablePage } from './table.page';
+import { DatatablePage } from './datatable.page';
 
 @NgModule({
   imports: [
     CommonModule,
+     NgxDatatableModule,
     FormsModule,
     IonicModule,
-    NgxDatatableModule,
-    TablePageRoutingModule
+    DatatablePageRoutingModule
   ],
-  declarations: [TablePage]
+  declarations: [DatatablePage]
 })
-export class TablePageModule {}
+export class DatatablePageModule {}
