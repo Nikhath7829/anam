@@ -25,7 +25,7 @@ export class AddproPage implements OnInit {
         productname: ['', [Validators.required]],
         productdescription: ['', Validators.required],
         productprice: ['', Validators.required],
-        productdiscount: ['', Validators.required],
+       
         productcategory: ['', Validators.required],
         image: ['', [Validators.required]],
         status: '0',
@@ -94,8 +94,7 @@ add(){
   this.formcontrol.get("productname").updateValueAndValidity();
   this.formcontrol.get("productdescription").setValidators(Validators.required);
   this.formcontrol.get("productdescription").updateValueAndValidity();
-  this.formcontrol.get("productdiscount").setValidators(Validators.required);
-  this.formcontrol.get("productdiscount").updateValueAndValidity();
+  
   this.formcontrol.get("productcategory").setValidators(Validators.required);
   this.formcontrol.get("productcategory").updateValueAndValidity();
   this.formcontrol.get("productprice").setValidators(Validators.required);

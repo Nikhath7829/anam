@@ -34,7 +34,13 @@
 
 <ion-content fullscreen>
   
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
 
+    </ion-refresher-content>
+  </ion-refresher>
+  
 <ion-grid>
     <ion-row class="ion-justify-content-evenly">
       <ion-col >
@@ -71,18 +77,14 @@
   <ion-row>
     <ion-col *ngFor="let l of products" size="6">
       <ion-card>
-        <ion-card-header>
-          
-    
-        </ion-card-header>
-      
+       
         <ion-card-content>
-         <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="70" width="70">
+         <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">
         </ion-card-content>
-        <h3>{{l.productname}}</h3>
-        <p class="ion-text-center"> {{l.productprice}}</p>
-        <p class="ion-text-center"> {{l.productdescription}}</p>
-        <p class="ion-text-center"> {{l.productdiscount}}</p>
+        <p class="ion-text-center product_text">  &#8377;{{l.productprice}}</p>
+        <p class="ion-text-center ion-no-margin product_text">{{l.productname}}</p>
+        <p class="ion-text-center product_text"> {{l.productdescription}}</p>
+        <!-- <p class="ion-text-center product_text"> {{l.productdiscount}}</p> -->
       </ion-card>
       
     </ion-col>

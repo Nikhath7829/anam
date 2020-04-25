@@ -19,7 +19,9 @@ export class DashboardPage implements OnInit {
   lng:any=''
   role;
   ar;
+  showFile = false;
   userid;
+  photo;
   public data: Register = new Register();
   arr;
   errmsg: boolean;
@@ -31,10 +33,8 @@ export class DashboardPage implements OnInit {
     public alertController: AlertController,  private route: Router,private test: AppComponent) { }
 
   ngOnInit() {
-      //this.roles();
       this.retrieval();
-   
-      this.getuserprofile();
+     this.getuserprofile();
      
   }
 
@@ -57,7 +57,15 @@ export class DashboardPage implements OnInit {
     });
   }
 
-
+  doRefresh(event) {
+this.getuserprofile();
+ this.retrieval();
+   setTimeout(() => {
+       //console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+  
   retrieval() {
     this.rest.getproduct().subscribe((Product) => {
       if (Product === undefined) {
@@ -83,7 +91,7 @@ export class DashboardPage implements OnInit {
         /* to get userdetails */
         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
         this.userid = this.arr[1].value;
-       
+        this.photo= this.userid.photo;
         this.rest.sendId(this.userid.id);
         
         /* to get role of user */
@@ -143,6 +151,7 @@ export class DashboardPage implements OnInit {
     });
 
     await alert.present();
+    
   }
 
 

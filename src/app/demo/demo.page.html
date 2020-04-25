@@ -1,19 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>demo</ion-title>
+    <ion-icon (click)="backClicked()" class="ion-margin-start" slot="start" name="arrow-back"></ion-icon>
+
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
- 
-  
-  <ion-button (click)="takeSnap()">
-    Take Snap
-  </ion-button>
- 
-  <img [src]="capturedSnapURL" />
- 
+  <h4> Edit profile</h4>
+  <form [formGroup]="formcontrol">
 
- 
+
+ <!-- Full Name -->
+
+    <ion-grid>
+      <ion-row>
+       <ion-col >
+      <ion-input [(ngModel)]="name"   formControlName="fullname"  class="ion-margin-top "
+      placeholder="Full Name">  </ion-input>
+      <div *ngIf="valid">
+      <p no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
+      </div>
+       </ion-col>
+      </ion-row>
+    </ion-grid>
   
+
+
+
+
+
+ <!-- Phone Number -->
+
+ <ion-grid>
+  <ion-row>
+ <ion-col>
+ <ion-input [(ngModel)]="phone"  (keypress)="keyPress($event)" minlength=10 maxlength=10 formControlName="number" type="phone"  class="ion-margin-top "
+  placeholder="+91 &nbsp; Phone Number">  </ion-input>
+  <div *ngIf="valid">
+    <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
+    </div>
+   </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+  
+<p class="ion-text-center">
+<ion-button (click)="update()" class="ion-margin-bottom ion-margin-top" >Update profile</ion-button></p>
+      
+      
+     
+  </form>
+
+
 </ion-content>
