@@ -59,6 +59,26 @@ const routes: Routes = [
   {
     path: 'datatable',
     loadChildren: () => import('./datatable/datatable.module').then( m => m.DatatablePageModule)
+  },
+  {
+    path: 'userprofile',
+    loadChildren: () => import('./userprofile/userprofile.module').then( m => m.UserprofilePageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'support',
+    loadChildren: () => import('./support/support.module').then( m => m.SupportPageModule)
+  },
+  {
+    path: 'language',
+    loadChildren: () => import('./language/language.module').then( m => m.LanguagePageModule)
+  },
+  {
+    path: 'package',
+    loadChildren: () => import('./package/package.module').then( m => m.PackagePageModule)
   }
 ];
 

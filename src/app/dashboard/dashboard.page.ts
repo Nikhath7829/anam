@@ -28,6 +28,7 @@ export class DashboardPage implements OnInit {
   fileUploads: Observable<string[]>;
   @Input() fileUpload: string;
   products: Product[] = [];
+  
 
   constructor(private fb: FormBuilder, public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
     public alertController: AlertController,  private route: Router,private test: AppComponent) { }
@@ -37,7 +38,7 @@ export class DashboardPage implements OnInit {
      this.getuserprofile();
      
   }
-
+ 
 
   getProductName(){
     this.rest.productname().subscribe((result) => {

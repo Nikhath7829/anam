@@ -18,6 +18,7 @@ export class RegisterPage implements OnInit {
   showMsg: boolean = false;
   valid: boolean;
   flag: any;
+  
   errmsg: any;
   public data: Register = new Register();
  // loadingCtrl: any;
