@@ -35,20 +35,23 @@
       <ion-item-group>
         
       
-        <ion-item>
-          <ion-label>Buy Packages & My Orders</ion-label>
+        <ion-item routerLink="/package">
+          <ion-label routerLink="/package">Buy Packages & My Orders</ion-label>
+       
+          <ion-icon routerLink="/package"  name="chevron-forward-outline" slot="end"></ion-icon>
+          
+         
+        </ion-item>
+        <ion-item  routerLink="/settings">
+          <ion-label routerLink="/settings">Settings</ion-label>
           <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
         </ion-item>
-        <ion-item>
-          <ion-label>Settings</ion-label>
+        <ion-item routerLink="/support">
+          <ion-label routerLink="/support">Help & Support</ion-label>
           <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
         </ion-item>
-        <ion-item>
-          <ion-label>Help & Support</ion-label>
-          <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-        </ion-item>
-        <ion-item>
-          <ion-label>Select Language</ion-label>
+        <ion-item routerLink="/language">
+          <ion-label routerLink="/language">Select Language</ion-label>
           <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
         </ion-item>
 

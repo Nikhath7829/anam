@@ -258,7 +258,9 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
     --color: white;
   }
 }
-
+:focus {
+  outline: none;
+  }
 ion-content{
   font-family: 'Lato', sans-serif!important;
 
