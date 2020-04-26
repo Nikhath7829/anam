@@ -48,11 +48,7 @@ ion-icon:hover{
     font-size: 10px;
 }
 ion-card{
-    box-sizing: border-box;
-    border-top: 1px solid #0505056e;
-    border-bottom: 1px solid #0505056e;
-    border-left: 1px solid #0505056e;
-    border-right: 1px solid #0505056e;
+  border-style: none!important;
     width:11em;
 }
 .product_text{
