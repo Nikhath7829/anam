@@ -11,14 +11,24 @@ export class Login {
  export class ForgotPassword{
      number:string;
  }
+ 
 
     export class Product {
-        name: String;
-        sub: String;
-        price: Number;
+        productname: String;
+       
+        productprice: Number;
         discount: String;
-        desc: String;
-        category: String;
+        productdescription: String;
+        productcategory: String;
+        image: File[];
+        
+    }
+    export class AddtoCart {
+        productname: String;
+        productprice: Number;
+       // quantity: Number;
+        userId: Number;
+       
+        productId: Number;
         image: File[];
     }
- 

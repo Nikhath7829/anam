@@ -19,6 +19,8 @@ export class DashboardPage implements OnInit {
   lng:any=''
   role;
   ar;
+  cart;
+  id;
   showFile = false;
   userid;
   photo;
@@ -38,7 +40,24 @@ export class DashboardPage implements OnInit {
      this.getuserprofile();
      
   }
- 
+
+  change() {
+    
+      this.rest.getCartList().subscribe((AddtoCart) => {
+  
+        if (AddtoCart === undefined) {
+          console.log(AddtoCart);
+        }
+        else {
+          this.cart = Object.entries(AddtoCart).map(([type, value]) => ({ type, value }));
+        //  this.carts = this.cart[0].value;
+  this.route.navigate(['/product-detail'])
+        }
+      }, (err) => {
+        console.log(err);
+      });
+    
+  }
 
   getProductName(){
     this.rest.productname().subscribe((result) => {
@@ -132,6 +151,8 @@ this.getuserprofile();
       loading.dismiss()
       this.lat=resp.coords.latitude
       this.lng=resp.coords.longitude
+      console.log(this.lat);
+      console.log(this.lng);
       },er=>{
         //alert("error getting location")
         loading.dismiss()

@@ -47,10 +47,10 @@ const routes: Routes = [
   },
   
   
-  {
-    path: 'datatable',
-    loadChildren: () => import('./datatable/datatable.module').then( m => m.DatatablePageModule)
-  },
+  // {
+  //   path: 'datatable',
+  //   loadChildren: () => import('./datatable/datatable.module').then( m => m.DatatablePageModule)
+  // },
   {
     path: 'userprofile',
     loadChildren: () => import('./userprofile/userprofile.module').then( m => m.UserprofilePageModule)
@@ -79,6 +79,14 @@ const routes: Routes = [
   {
     path: 'finaledit',
     loadChildren: () => import('./finaledit/finaledit.module').then( m => m.FinaleditPageModule)
+  },
+  {
+    path: 'product-detail',
+    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+  },
+  {
+    path: 'surat',
+    loadChildren: () => import('./surat/surat.module').then( m => m.SuratPageModule)
   }
 ];
 

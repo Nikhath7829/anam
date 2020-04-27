@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login,ForgotPassword ,Product} from '../app/Model/class';
+import { Register, Login,ForgotPassword ,Product,AddtoCart} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
 const endpoint = 'http://localhost:8080/';
@@ -133,7 +133,18 @@ addProduct(data: Product): Observable<any> {
   };
     return this.http.post<Product>(endpoint + 'api/product/admin' , data,this.httpOptions); 
  }
+ productid(): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  //const myheader=new HttpHeaders().set('AUTH_TOKEN', auth);
+ // return this.http.get<any>(this.ADD_CART_API+product.productid,{headers:myheader});
 
+  return this.http.get<any>(endpoint + 'api/productid', this.httpOptions);
+}
 
  getproduct(): Observable<any> {
   this.httpOptions = {
@@ -184,7 +195,7 @@ UpdateRegister(data: Register): Observable<any> {
  }
 
 
-  //Edit Profile
+  //Edit Profile to store in the folder
   profile(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
   
@@ -198,5 +209,20 @@ UpdateRegister(data: Register): Observable<any> {
     return this.http.request(req);
   }
   
+  getCartList(): Observable<any> {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'x-access-token': this.getToken()
+          })
+    };
+    //const myheader=new HttpHeaders().set('AUTH_TOKEN', auth);
+   // return this.http.get<any>(this.ADD_CART_API+product.productid,{headers:myheader});
+  
+    return this.http.get<any>(endpoint + 'api/getcart', this.httpOptions);
+  }
+  
 
+
+  
 }
