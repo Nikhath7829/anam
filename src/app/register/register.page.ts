@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import {  AlertController,ModalController } from '@ionic/angular';
 import {Register} from '../Model/class';
 import { LoadingController } from '@ionic/angular';
-
+import {NavController } from '@ionic/angular'
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -22,7 +22,7 @@ export class RegisterPage implements OnInit {
   errmsg: any;
   public data: Register = new Register();
  // loadingCtrl: any;
-  constructor(public fb: FormBuilder,loadingCtrl  : LoadingController,
+  constructor( private navCtrl:NavController,public fb: FormBuilder,loadingCtrl  : LoadingController,
   private alertCtrl: AlertController,public rest: RestService, private myRoute: Router,private modalCtrl:ModalController) { 
   this.formcontrol = this.fb.group({
     fullname: ["", [Validators.required]],
@@ -42,12 +42,11 @@ export class RegisterPage implements OnInit {
   
   async confirm() {
     let alert = await this.alertCtrl.create({
-   
-      message: ' Register Successfully',
-      
-      buttons: ['OK']
+    message: ' Register Successfully',
+      buttons: ['Click here to Login']
     });
     alert.present().then(() => {
+      // this.navCtrl.navigateRoot("/login");
       this.modalCtrl.dismiss();
 
       
@@ -89,8 +88,9 @@ export class RegisterPage implements OnInit {
                 number: ["", [Validators.required]],
                  roles: this.fb.array(['USER']),
                      });
-              this.confirm();
+                     this.confirm();
               this.myRoute.navigate(['/login']);
+              
             }
             
           }, (err) => {

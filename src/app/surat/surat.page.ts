@@ -21,8 +21,8 @@ this.imgurl = res;
     }).catch(e => {
       console.log(e);
     })
+}
 
-  }
   getGallery(){
     this.camera.getPicture({
       sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,

@@ -38,6 +38,7 @@ export class DashboardPage implements OnInit {
   ngOnInit() {
       this.retrieval();
      this.getuserprofile();
+     this.getProductName();
      
   }
 

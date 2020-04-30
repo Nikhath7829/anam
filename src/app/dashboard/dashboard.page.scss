@@ -41,9 +41,7 @@ font-size: 20px;
     font-size:20px!important;
     color: #262424;
 }
-ion-icon:hover{
-    color: white;
-}
+
 .footer_text{
     font-size: 10px;
 }
@@ -60,3 +58,12 @@ ion-card{
 .card-content-md{
     padding-bottom:0px!important;
 }
+#footer{
+    --background: blue!important;
+    
+}
+// span,ion-col{
+//     background: red;
+//     padding: 2px 2px 2px 2px;
+//     border-radius: 22px;
+// }

@@ -67,59 +67,39 @@
 </ion-content>
 
 
-<!-- Footer without a border -->
-<ion-footer >
-  <ion-toolbar  >
-   
-<ion-grid>
-  <ion-row class="ion-justify-content-center">
 
-  <ion-col>
-    <div>
-      <span class="ghgh material-icons">
-        launch
-        </span>
-        <p class=" footer_text">Explore</p>
-    </div>
-  </ion-col>
-   
-    
-
-    <ion-col>
-      <div>
-        <span class=" ghgh material-icons">
-          library_books
-          </span>
-          <p class="footer_text">Ads</p>
-      </div>
-    </ion-col>
+<ion-footer style="height: 4em;">
+  <ion-grid no-padding>
+    <ion-row no-padding >
+<ion-col>
+  <div>
 
 
-    <ion-col style="background: #1a1ad1de;
-    border-radius: 1px;" >
-      <div routerLink="/offerings">
-        <ion-icon  class="ghgh ion-margin-start" name="camera-outline"></ion-icon>
-        <p class="ion-text-center footer_text">Sell</p>
-      </div>
-    </ion-col>
-    <ion-col>
-      <div>
-        <ion-icon class="ghgh ion-margin-start" name="chatbox-outline"></ion-icon>
-        <p class="ion-text-center footer_text">chats</p>
-      </div>
-    </ion-col>
-    <ion-col >
-      <div>
-        <span class=" ghgh ion-margin-start material-icons" routerLink="/userprofile">
-          person_outline
-          </span>
-        <p class="ion-text-center footer_text" routerLink="/userprofile" >Account</p>
-      </div>
-    </ion-col>
-   
+  <ion-icon class="ion-margin-start" name="home-outline"></ion-icon>
+   <p class=" footer_text ion-margin-start ">Home</p> 
+  </div>
+</ion-col>
+<ion-col>
+  <ion-icon class="ion-margin-start" name="bookmark-outline"></ion-icon>
+  <p class=" footer_text ion-margin-start">Ads</p> 
 
-  </ion-row>
-</ion-grid>
+</ion-col>
+<ion-col>
+  <ion-icon class="ion-margin-start" name="camera-outline"></ion-icon>
+ <p class=" footer_text ion-margin-start">Sell</p> 
 
-  </ion-toolbar>
+
+</ion-col>
+<ion-col>
+  <ion-icon  class="ion-margin-start" name="chatbox-outline"></ion-icon>
+  <p class=" footer_text ion-margin-start">Chat</p>
+
+</ion-col>
+<ion-col routerLink="/userprofile">
+  <ion-icon  class="ion-margin-start" name="person-outline"></ion-icon>
+  <p class="footer_text ion-margin-start">Account</p>
+
+</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>

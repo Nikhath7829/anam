@@ -72,3 +72,8 @@ margin-top:3em;
     transform: translate(0, 0) scale(1);
     cursor: pointer;
   }
+
+  ion-button{
+    --background: #ff1744;
+    text-transform: capitalize;
+  }

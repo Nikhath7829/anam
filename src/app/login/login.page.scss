@@ -3,9 +3,9 @@
 form {
     margin: 11em 0;
   }
-  ion-button{
-     --background: red;
-  }
+  // ion-button{
+  //    --background: red;
+  // }
   
    h3{
 margin-top:3em;
@@ -76,8 +76,11 @@ margin-top:3em;
 
 
 
-
-
+ion-button{
+  --background: #ff1744;
+  text-transform: capitalize;
+}
+ 
 
 
 

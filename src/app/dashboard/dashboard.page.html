@@ -1,55 +1,54 @@
-
-
-
 <ion-header class="ion-no-border">
   <ion-toolbar [class.show-background]="showToolbar">
     <ion-grid>
       <ion-row class="ion-justify-content-evenly">
         <ion-col>
-        <ion-input (click)="getLoc()" ><ion-icon name="location" class="ion-margin-start  
-            location_icon"></ion-icon></ion-input> 
-            
+          <ion-input (click)="getLoc()">
+            <ion-icon name="location" class="ion-margin-start  
+            location_icon"></ion-icon>
+          </ion-input>
+
         </ion-col>
-        
-        <!-- <ion-col size="2" >
+
+        <ion-col size="2" >
         <img  id="profile_img" routerLink="/myprofile" src="../../assets/icon/nikku.jpg" height="50px" width="50px">
-        </ion-col> -->
+        </ion-col>
       </ion-row>
     </ion-grid>
 
 
 
-<ion-grid>
-  <ion-row >
-    <ion-col>
-      <ion-input class="search_box" clearInput placeholder="Search your needs" > 
-        <ion-icon name="search" class="ion-margin-start  location_icon"></ion-icon>
-      </ion-input>
-     </ion-col>
-  </ion-row>
-</ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input class="search_box" clearInput placeholder="Search your needs">
+            <ion-icon name="search" class="ion-margin-start  location_icon"></ion-icon>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-</ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  
-  
-  
-<ion-grid>
+
+
+
+  <ion-grid>
     <ion-row class="ion-justify-content-evenly">
-      <ion-col >
+      <ion-col>
         <p class="ion-margin-start">Catergory</p>
       </ion-col>
-      
-      <ion-col size="3" >
-        <p >See All</p>
+
+      <ion-col size="3">
+        <p routerLink="/surat">See All</p>
       </ion-col>
     </ion-row>
   </ion-grid>
 
 
-<!-- <ion-grid>
+  <!-- <ion-grid>
   <ion-row   class="ion-justify-content-between">
     <ion-col  class="ion-margin-start" size="3">
 <img id="cat1" src="../../assets/icon/wheat.png" height="40px" width="40px">
@@ -67,86 +66,116 @@
 </ion-grid> -->
 
 
-<!-----------------------Product Images------------------->
-<ion-grid>
-  <ion-row>
-    <ion-col *ngFor="let l of products" size="6">
-      <ion-card (click)="change()">
-       
-        <ion-card-content>
-         <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">
-        </ion-card-content>
-        <p class="ion-text-center product_text">  &#8377;{{l.productprice}}</p>
-        <p class="ion-text-center ion-no-margin product_text">{{l.productname}}</p>
-        <p class="ion-text-center product_text"> {{l.productdescription}}</p>
-        <!-- <p class="ion-text-center product_text"> {{l.productdiscount}}</p> -->
-      </ion-card>
-      
-    </ion-col>
-  </ion-row>
-</ion-grid>
+  <!-----------------------Product Images------------------->
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let l of products" size="6">
+        <ion-card (click)="change()">
+
+          <ion-card-content>
+            <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">
+          </ion-card-content>
+          <p class="ion-text-center product_text"> &#8377;{{l.productprice}}</p>
+          <p class="ion-text-center ion-no-margin product_text">{{l.productname}}</p>
+          <p class="ion-text-center product_text"> {{l.productdescription}}</p>
+          <!-- <p class="ion-text-center product_text"> {{l.productdiscount}}</p> -->
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
 
 
- 
+
 
 
 </ion-content>
 
 
 <!-- Footer without a border -->
-<ion-footer >
-  
-   
-<ion-grid>
-  <ion-row >
+<!-- <ion-footer class="footer">
 
-  <ion-col>
-    <div>
-      <span class="ghgh material-icons">
-        home
-        </span>
-        <p class="footer_text">Explore</p>
-    </div>
-  </ion-col>
-   
-    
 
-    <ion-col>
-      <div>
-        <span class=" ghgh material-icons">
-          library_books
-          </span>
+  <ion-grid id="footer">
+    <ion-row  class="ion-align-items-center">
+      <ion-col>
+        <div>
+          <span class="ghgh material-icons ">home</span>
+          <p class="footer_text">Home</p>
+        </div>
+      </ion-col>
+
+
+
+      <ion-col>
+        <div>
+          <span class=" ghgh material-icons">library_books</span>
           <p class="footer_text">Ads</p>
-      </div>
-    </ion-col>
+        </div>
+      </ion-col>
 
 
-    <ion-col>
-      <div>
-        <ion-icon  routerLink="/offerings" class="ghgh ion-margin-start" name="camera-outline"></ion-icon>
-        <p class="ion-text-center footer_text" routerLink="/offerings">Sell</p>
-      </div>
-    </ion-col>
-    <ion-col>
-      <div>
-        <ion-icon class="ghgh ion-margin-start" name="chatbox-outline"></ion-icon>
-        <p class="ion-text-center footer_text">chats</p>
-      </div>
-    </ion-col>
-    <ion-col >
-      <div>
-        <span class=" ghgh ion-margin-start material-icons" routerLink="/userprofile">
-          person_outline
+      <ion-col routerLink="/offerings">
+        <div>
+          <ion-icon  class="ghgh ion-margin-start" name="camera-outline"></ion-icon>
+          <p class="footer_text" routerLink="/offerings">Sell</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-icon class="ghgh ion-margin-start" name="chatbox-outline"></ion-icon>
+          <p class="ion-text-center footer_text">chats</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <span class=" ghgh ion-margin-start material-icons" routerLink="/userprofile">
+            person_outline
           </span>
-        <p class="ion-text-center footer_text" routerLink="/userprofile" >Account</p>
-      </div>
-    </ion-col>
-   
-
-  </ion-row>
-</ion-grid>
+          <p class="ion-text-center footer_text" routerLink="/userprofile">Account</p>
+        </div>
+      </ion-col>
 
 
+    </ion-row>
+  </ion-grid>
+
+
+</ion-footer> -->
+<ion-footer style="height: 4em;">
+  <ion-grid no-padding>
+    <ion-row no-padding >
+<ion-col>
+  <div>
+
+
+  <ion-icon class="ion-margin-start" name="home-outline"></ion-icon>
+   <p class=" footer_text ion-margin-start ">Home</p> 
+  </div>
+</ion-col>
+<ion-col>
+  <ion-icon class="ion-margin-start" name="bookmark-outline"></ion-icon>
+  <p class=" footer_text ion-margin-start">Ads</p> 
+
+</ion-col>
+<ion-col>
+  <ion-icon class="ion-margin-start" name="camera-outline"></ion-icon>
+ <p class=" footer_text ion-margin-start">Sell</p> 
+
+
+</ion-col>
+<ion-col>
+  <ion-icon  class="ion-margin-start" name="chatbox-outline"></ion-icon>
+  <p class=" footer_text ion-margin-start">Chat</p>
+
+</ion-col>
+<ion-col routerLink="/userprofile">
+  <ion-icon  class="ion-margin-start" name="person-outline"></ion-icon>
+  <p class=" footer_text ion-margin-start">Account</p>
+
+</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>

@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
   }
   else {
     this.valid=true;
-    alert('Something went wrong');
+    alert('Please enter the fields');
   }
  
   Object.assign(this.data, this.formcontrol.value);
@@ -75,7 +75,7 @@ export class LoginPage implements OnInit {
     });
   }
   else {
-    alert("something Went Wrong");
+    alert("Something went wrong");
   }
 }
   
