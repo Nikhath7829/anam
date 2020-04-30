@@ -1,85 +1,68 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <ion-header class="ion-no-border">
   <ion-toolbar >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-       <ion-label class="ion-margin-top title_text" slot="start">Dashboard</ion-label>
+       <!-- <p class="ion-margin-top ion-text-center" slot="start">Dashboard</p> -->
+       <ion-col></ion-col>
+       <ion-title class="ion-text-center ion-margin-start">Dashboard</ion-title>
       </ion-buttons>
       
       </ion-toolbar>
 
 
-  <p class="ion-margin-start welcome_line">Hi,Welcome Back!</p>
-  <p  class="ion-margin-start ion-no-margin welcome_below_line">Your product monitoring dashboard</p>
- </ion-header>
+  <p class="ion-margin-start welcome_line">Welcome Back!</p> 
+  <p  class="ion-margin-start ion-no-margin welcome_below_line">Product Dashboard</p>
+ </ion-header> 
 
 
- <br><br>
 
-<ion-content full screen>
+
+ <ion-content>
+  <!-- <section text-center margin-bottom>
+    <ion-icon name="person"></ion-icon>
+    <h1 style="font-size:1.4em" no-margin>Welcome, <br>
+      Mr. John Doe</h1>
+  </section> -->
   <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        <ion-card class="card4" >
-          <ion-card-header>
-
-            <ion-card-title>
-              <ion-icon name="cart"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Total Orders </ion-card-content>
+    <ion-row class="ion-justify-content-center">
+      <ion-col col-6>
+        <ion-card text-center padding color="primary">
+          <ion-icon class="ion-margin-start ion-margin-top" text-center name="cart"></ion-icon>
+          <p class="ion-text-center">Orders</p>
         </ion-card>
       </ion-col>
-
-
-
       
-     
-
-      <ion-col text-center>
-        <ion-card class="card4" >
-          <ion-card-header>
-
-            <ion-card-title>
-              <ion-icon id="cash" name="cash"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Total Revenue </ion-card-content>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card text-center padding color="primary">
+          <ion-icon class="ion-margin-start ion-margin-top"  name="people"></ion-icon>
+          <p class="ion-text-center">Register Users</p>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card text-center padding color="primary">
+          <ion-icon class="ion-margin-start ion-margin-top" name="images"></ion-icon>
+         <p class="ion-text-center">Earn</p>
         </ion-card>
       </ion-col>
     </ion-row>
-
-    <ion-row>
-
-      <ion-col text-center>
-        <ion-card class="card4" [routerLink]="['/chart2']">
-          <ion-card-header>
-
-            <ion-card-title>
-              <ion-icon id="people" name="people"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Register Users </ion-card-content>
+  
+    <ion-row class="ion-justify-content-center">
+      <ion-col col-6>
+        <ion-card text-center padding color="primary">
+          <ion-icon class="ion-margin-start ion-margin-top" text-center name="cash"></ion-icon>
+          <p class="ion-text-center">Revenue</p>
         </ion-card>
       </ion-col>
-
-      <ion-col text-center>
-        <ion-card class="card4" >
-          <ion-card-header>
-
-            <ion-card-title>
-              <ion-icon id="images" name="images"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Total Complaints </ion-card-content>
-        </ion-card>
-      </ion-col>
+      
     </ion-row>
   </ion-grid>
-
-
-
-
- 
-  </ion-content>
+</ion-content>
+<!-- <ion-col col-6>
+        <ion-card text-center padding color="primary">
+          <ion-icon class="ion-margin-start" name="cash"></ion-icon>
+          <p class="ion-text-center">Revenue</p>
+        </ion-card>
+      </ion-col> -->

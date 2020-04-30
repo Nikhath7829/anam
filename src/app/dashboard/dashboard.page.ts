@@ -42,23 +42,23 @@ export class DashboardPage implements OnInit {
      
   }
 
-  change() {
+  // change() {
     
-      this.rest.getCartList().subscribe((AddtoCart) => {
+  //     this.rest.getCartList().subscribe((AddtoCart) => {
   
-        if (AddtoCart === undefined) {
-          console.log(AddtoCart);
-        }
-        else {
-          this.cart = Object.entries(AddtoCart).map(([type, value]) => ({ type, value }));
-        //  this.carts = this.cart[0].value;
-  this.route.navigate(['/product-detail'])
-        }
-      }, (err) => {
-        console.log(err);
-      });
+  //       if (AddtoCart === undefined) {
+  //         console.log(AddtoCart);
+  //       }
+  //       else {
+  //         this.cart = Object.entries(AddtoCart).map(([type, value]) => ({ type, value }));
+  //       //  this.carts = this.cart[0].value;
+  // this.route.navigate(['/product-detail'])
+  //       }
+  //     }, (err) => {
+  //       console.log(err);
+  //     });
     
-  }
+  // }
 
   getProductName(){
     this.rest.productname().subscribe((result) => {

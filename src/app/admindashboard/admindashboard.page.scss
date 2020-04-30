@@ -1,57 +1,16 @@
-ion-content{
-    font-family: 'Abel', sans-serif!important;
-    font-size:20px;
+ion-icon {
+    font-size: 3em;
+    color:darkblue;
 }
-#cash{
-    color:green;
-}
-#people{
-    color: orange;
-
-}
-ion-card-content{
-    color:#002e5b;
+p,h4{
+    font-family: 'Lato', sans-serif!important;
+    font-weight:bold;
 }
 
-#images{
-    color:red;
+ion-title{
+    font-family: 'Lato', sans-serif!important;
+    color:deeppink;
 }
-ion-icon{
-    color:black;  
-    font-size: 43px;
-    }
-    p{
-        color: #2f99c1;
-        font-family: "Abel", sans-serif !important;
-        font-size: 20px;
-    }
-    
-    ion-card-content{
-    
-    font-weight: 600;
-    }
-    ion-buttons{
-    margin-top:-1em;
-    }
-    .title_text{
-    
-    padding-left: 11px;
-    font-size: 30px;
-    font-family: 'Abel', sans-serif;
-    margin-left:2em;
-    padding-top:26px;
-    }
-    .selecttheme{
-    
-    font-family: "Abel", sans-serif;
-    padding: 24px;
-    font-size: 18px;
-    margin-left:3em;
-    }
-    ion-toggle{
-    margin-top:-1em;
-    }
-    ion-label{
-    
-    font-size:23px;
-    }
+ion-menu-button{
+    color:darkblue;
+}
