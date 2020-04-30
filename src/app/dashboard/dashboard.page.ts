@@ -1,7 +1,7 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
+import { AlertController ,PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Observable, Subject, merge} from 'rxjs'
@@ -9,6 +9,7 @@ import { RestService } from '../rest.service';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import { Register,Product } from '../Model/class';
 import {AppComponent} from '../app.component';
+import { LangComponent  } from '../lang/lang.component'; 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -32,7 +33,7 @@ export class DashboardPage implements OnInit {
   products: Product[] = [];
   
 
-  constructor(private fb: FormBuilder, public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
+  constructor(public popoverController:PopoverController ,private fb: FormBuilder, public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
     public alertController: AlertController,  private route: Router,private test: AppComponent) { }
 
   ngOnInit() {
@@ -42,23 +43,17 @@ export class DashboardPage implements OnInit {
      
   }
 
-  // change() {
-    
-  //     this.rest.getCartList().subscribe((AddtoCart) => {
-  
-  //       if (AddtoCart === undefined) {
-  //         console.log(AddtoCart);
-  //       }
-  //       else {
-  //         this.cart = Object.entries(AddtoCart).map(([type, value]) => ({ type, value }));
-  //       //  this.carts = this.cart[0].value;
-  // this.route.navigate(['/product-detail'])
-  //       }
-  //     }, (err) => {
-  //       console.log(err);
-  //     });
-    
-  // }
+
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: LangComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
 
   getProductName(){
     this.rest.productname().subscribe((result) => {

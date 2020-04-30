@@ -4,18 +4,23 @@
       <ion-row class="ion-justify-content-evenly">
         <ion-col>
           <ion-input (click)="getLoc()">
-            <ion-icon color="danger" name="location" class="ion-margin-start  
+            <ion-icon color="primary" name="location" class="ion-margin-start  
             location_icon"></ion-icon>
+            <!-- <p>{{lat}}</p>
+            <p>{{lng}}</p> -->
           </ion-input>
 
         </ion-col>
-
         <ion-col size="2" >
         <!-- <img  id="profile_img" routerLink="/myprofile" src="../../assets/icon/nikku.jpg" height="50px" width="50px"> -->
         <!-- <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
         slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;"> -->
-        <img src="../../assets/icon/social-media.png" >
+        <img src="../../assets/icon/user.png" >
         </ion-col>
+        <ion-col size="2" >
+          <p (click)="presentPopover()" style="font-size:10px; color:darkblue;">Language  <ion-icon style="font-size:10px;"name="chevron-down-outline"></ion-icon></p>
+       
+      </ion-col>
       </ion-row>
     </ion-grid>
 
@@ -51,22 +56,20 @@
   </ion-grid>
 
 
-  <!-- <ion-grid>
+  <ion-grid>
   <ion-row   class="ion-justify-content-between">
     <ion-col  class="ion-margin-start" size="3">
-<img id="cat1" src="../../assets/icon/wheat.png" height="40px" width="40px">
+<img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
     </ion-col>
     <ion-col size="3">
-      <img id="cat2" src="../../assets/icon/tomato.png" height="40px" width="40px">
+      <img id="cat2" src="../../assets/icon/nut.png" height="40px" width="40px">
     </ion-col>
          <ion-col size="3">
-            <img id="cat3" src="../../assets/icon/wheat.png" height="40px" width="40px">
+            <img id="cat3" src="../../assets/icon/food-and-restaurant.png" height="40px" width="40px">
           </ion-col> 
-          <ion-col>
-            <img id="cat1" src="../../assets/icon/healthy-food.png" height="40px" width="40px">
-          </ion-col>
+          
   </ion-row>
-</ion-grid> -->
+</ion-grid>
 
 
   <!-----------------------Product Images------------------->
@@ -81,9 +84,11 @@
           <p class="ion-text-center product_text"> &#8377;{{l.productprice}}</p>
           <p class="ion-text-center ion-no-margin product_text">{{l.productname}}</p>
           <p class="ion-text-center product_text"> {{l.productdescription}}</p>
+  
+
           <!-- <p class="ion-text-center product_text"> {{l.productdiscount}}</p> -->
         </ion-card>
-
+      
       </ion-col>
     </ion-row>
   </ion-grid>
