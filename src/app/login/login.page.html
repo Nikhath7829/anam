@@ -33,12 +33,13 @@
   <label for="number">PhoneNumber</label>
 </div>
 <p class="ion-text-right ion-margin-end" routerLink="/forgot">Forgot Password?</p>
-<p class="ion-text-center" style="font-size: 12px;">Dont have an account?&nbsp;<a routerLink="/register">&nbsp;Create</a></p>
+<p class="ion-text-center" style="font-size:12px;">Don't have an account? &nbsp;<a routerLink="/register">Create</a></p>
+
 <ion-grid>
   <ion-row>
     <ion-col></ion-col>
     <ion-col>
-      <ion-button  (click)="login()">Login</ion-button>
+      <ion-button color="danger" (click)="createpopover(); login();">Login</ion-button>
 
     </ion-col>
     <ion-col></ion-col>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController,PopoverController } from '@ionic/angular';
 import { RestService } from '../rest.service';
 import {Login} from '../Model/class';
+import { LoginpopoverPage } from '../loginpopover/loginpopover.page';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -19,7 +20,7 @@ export class LoginPage implements OnInit {
   formValid: any;
  
   server: any;
-  constructor(private fb: FormBuilder,private alertCtrl: AlertController,
+  constructor(private popover:PopoverController, private fb: FormBuilder,private alertCtrl: AlertController,
     public rest: RestService, private myRoute: Router,) {
     this.formcontrol = this.fb.group({
       fullname: ["",],
@@ -30,7 +31,15 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-
+  createpopover()
+  {
+    this.popover.create({component:LoginpopoverPage,
+   showBackdrop:false}).then((popoverElement)=>{
+   popoverElement.present();
+   
+   })
+ 
+  }
   async confirm() {
     let alert = await this.alertCtrl.create({
       message: 'Successfully Logged In',
@@ -64,7 +73,7 @@ export class LoginPage implements OnInit {
         this.errmsg = true;
       }
       else {
-        this.confirm();
+       this.createpopover();
         this.rest.sendToken(result.accessToken);
         this.myRoute.navigate(['/dashboard']);
         this.formcontrol.reset();

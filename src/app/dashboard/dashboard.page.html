@@ -1,13 +1,15 @@
 <ion-header class="ion-no-border">
   <ion-toolbar [class.show-background]="showToolbar">
+
+    
     <ion-grid>
-      <ion-row class="ion-justify-content-evenly">
-        <ion-col>
+      <ion-row >
+        <ion-col >
           <ion-input (click)="getLoc()">
             <ion-icon color="primary" name="location" class="ion-margin-start  
             location_icon"></ion-icon>
-            <p>{{lat}}</p>
-            <p>{{lng}}</p>
+            <!-- <p>{{lat}}</p>
+            <p>{{lng}}</p> -->
           </ion-input>
 
         </ion-col>
@@ -15,10 +17,10 @@
         <!-- <img  id="profile_img" routerLink="/myprofile" src="../../assets/icon/nikku.jpg" height="50px" width="50px"> -->
         <!-- <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
         slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;"> -->
-        <img src="../../assets/icon/user.png" >
+        <img src="../../assets/icon/user.png" height="50" width="50" >
         </ion-col>
-        <ion-col size="2" >
-          <p (click)="presentPopover()" style="font-size:10px; color:darkblue;">Language  <ion-icon style="font-size:10px;"name="chevron-down-outline"></ion-icon></p>
+        <ion-col size="2"  >
+ <p (click)="presentPopover()" style="font-size:8px; color:darkblue;">Language<ion-icon style="font-size:10px!important;" name="chevron-down-outline"></ion-icon></p>
        
       </ion-col>
       </ion-row>

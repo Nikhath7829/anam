@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -87,7 +87,30 @@ const routes: Routes = [
   {
     path: 'surat',
     loadChildren: () => import('./surat/surat.module').then( m => m.SuratPageModule)
-  }
+  },
+  {
+    path: 'ads',
+    loadChildren: () => import('./ads/ads.module').then( m => m.AdsPageModule)
+  },
+  {
+    path: 'adss',
+    loadChildren: () => import('./adss/adss.module').then( m => m.AdssPageModule)
+  },
+  
+  {
+    path: 'news',
+    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
+  },
+
+  {
+    path: 'registerpopover',
+    loadChildren: () => import('./registerpopover/registerpopover.module').then( m => m.RegisterpopoverPageModule)
+  },
+  {
+    path: 'loginpopover',
+    loadChildren: () => import('./loginpopover/loginpopover.module').then( m => m.LoginpopoverPageModule)
+  },
+  
 ];
 
 @NgModule({

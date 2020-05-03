@@ -12,11 +12,19 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LangComponent  } from './lang/lang.component'; 
+//import { SuperTabsModule } from 'ionic2-super-tabs';
+
+import {RegisterpopoverPageModule} from './registerpopover/registerpopover.module';
+import {LoginpopoverPageModule} from './loginpopover/loginpopover.module'
 @NgModule({
   declarations: [AppComponent,LangComponent],
   entryComponents: [LangComponent],
   imports: [
     BrowserModule,
+    
+    LoginpopoverPageModule,
+    RegisterpopoverPageModule,
+    //SuperTabsModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
