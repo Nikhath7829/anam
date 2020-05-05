@@ -2,22 +2,45 @@ import { Component, OnInit } from '@angular/core';
 import {RestService } from '../rest.service';
 import { Login } from '../Model/class';
 import { MatTableDataSource } from '@angular/material';
+import {Platform} from '@ionic/angular';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.page.html',
   styleUrls: ['./registeruser.page.scss'],
 })
 export class RegisteruserPage implements OnInit {
-  arr;
+  arr:any[]=[];
+  arr1:any[]=[];
+  
   userid;
   public data: Login = new Login();
   displayedColumns: string[] = ['id','fullname','number','delete'];
   listData: MatTableDataSource<any>;
-  constructor(public rest: RestService) { }
-
-  ngOnInit() {
+  constructor(public rest: RestService,private platform:Platform) { 
+    this.platform.ready().then(()=>{
+      
+    })
   }
 
+  ngOnInit() {
+   // this.retrieval();
+  }
+
+
+//  filterArray(ev:any){
+// this.arr=this.arr1;
+// const val = ev.target.value;
+// if(val && val.trim()!= "")
+// {
+//   this.arr = this.arr1.filter((item)=>{
+//     return(item.id.toLowerCase().indexOf(val.toLowerCase())
+//     >-1 || item.fullname.toLowerCase().indexOf(val.toLowerCase())>-1  || 
+//     item.address.toLowerCase().indexOf(val.toLowerCase())>-1
+    
+//   )})
+// }
+//  }
 
   doRefresh(event) {
 

@@ -73,7 +73,7 @@ export class LoginPage implements OnInit {
         this.errmsg = true;
       }
       else {
-       this.createpopover();
+       //this.createpopover();
         this.rest.sendToken(result.accessToken);
         this.myRoute.navigate(['/dashboard']);
         this.formcontrol.reset();

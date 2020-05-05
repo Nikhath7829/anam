@@ -11,20 +11,20 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LangComponent  } from './lang/lang.component'; 
-//import { SuperTabsModule } from 'ionic2-super-tabs';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
 
 import {RegisterpopoverPageModule} from './registerpopover/registerpopover.module';
-import {LoginpopoverPageModule} from './loginpopover/loginpopover.module'
+import {LoginpopoverPageModule} from './loginpopover/loginpopover.module';
 @NgModule({
-  declarations: [AppComponent,LangComponent],
-  entryComponents: [LangComponent],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
     
     LoginpopoverPageModule,
     RegisterpopoverPageModule,
-    //SuperTabsModule.forRoot(),
+  
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
@@ -34,11 +34,13 @@ import {LoginpopoverPageModule} from './loginpopover/loginpopover.module'
     BrowserAnimationsModule
   ],
   providers: [
-    Geolocation,
+    
     StatusBar,
     SplashScreen,
     Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    NativeGeocoder,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

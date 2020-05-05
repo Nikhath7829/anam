@@ -1,6 +1,20 @@
-th{
-    background:linear-gradient( #355c7d,#6c5b7b,#c06c84);
+// th{
+//     background:linear-gradient( #355c7d,#6c5b7b,#c06c84);
+//   }
+
+  
+  #table td, #table th{
+    border:1px solid #ddd;
+    padding:8px;
   }
-  ion-menu-button{
-    color:darkblue;
+  #table  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  #table tr:hover {background-color: #ddd;}
+
+  #table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: dark;
+    color:red;
   }

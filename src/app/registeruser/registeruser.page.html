@@ -1,11 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button ></ion-menu-button>
-    </ion-buttons>
-    <ion-title>USers</ion-title>
+<ion-toolbar color="danger">
+  <ion-buttons><ion-menu-button></ion-menu-button></ion-buttons>  
+</ion-toolbar>
+   
+
+  <ion-toolbar color="danger">
+<ion-searchbar (ionInput)="filterArray($event)"></ion-searchbar>
+
 </ion-toolbar>
 </ion-header>
 
@@ -18,37 +21,39 @@
   </ion-refresher>
 
   
-  <table mat-table [dataSource]="listData" class="table">
+  <table  id ="table" mat-table [dataSource]="listData" class="table">
 
   
 
 
     <ng-container matColumnDef="fullname">
-      <th style="color: white;font-size: 16px;" mat-header-cell *matHeaderCellDef> Name </th>
+      <th style="font-size: 16px;" mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let arr"> {{arr.fullname}} </td>
-     
-    </ng-container>
+     </ng-container>
 
 
- <ng-container matColumnDef="number">
-      <th style="color: white;font-size: 16px;" mat-header-cell *matHeaderCellDef> Phone number
+ <ng-container  matColumnDef="number">
+      <th style="font-size: 16px;"  mat-header-cell *matHeaderCellDef>Phone
       </th>
       <td mat-cell *matCellDef="let arr"> {{arr.number}} </td>
     
     </ng-container>
 
     <ng-container matColumnDef="id">
-      <th style="color: white;font-size: 16px;" mat-header-cell *matHeaderCellDef> Id
-      <td mat-cell *matCellDef="let arr"> {{arr.id}} </td>
+      <th style="font-size: 16px;" mat-header-cell *matHeaderCellDef> Id
+      <td mat-cell *matCellDef="let  arr"> {{arr.id}} </td>
      
     </ng-container>
 
 
     <ng-container matColumnDef="delete">
-      <th style="color: white;font-size: 16px;" mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let arr"><button (click)="delete(arr.id)" class="btn btn-warning">Delete</button></td>
-      <ion-button>Delete</ion-button>
+      <th style="font-size: 16px;" mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let arr">
+        <!-- <button (click)="delete(arr.id)" >Delete</button> -->
+      
+      <ion-button (click)="delete(arr.id)" color="danger">Delete</ion-button>
      
+  </td>
     </ng-container>
 
 
@@ -66,4 +71,21 @@
 
     </table>
     
+    <!-- <table id="table">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Delete User</th>
+       
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arr">
+          <td>{{arr.id}}</td>
+          <td>{{arr.fullname}}</td>
+          <td>{{arr.number}}</td>
+<td><ion-button color="danger">Delete</ion-button></td>
+        </tr>
+      </tbody>
+    </table> -->
 </ion-content>

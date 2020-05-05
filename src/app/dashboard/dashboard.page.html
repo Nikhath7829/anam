@@ -1,28 +1,30 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar [class.show-background]="showToolbar">
+  <ion-toolbar>
 
-    
+
     <ion-grid>
-      <ion-row >
-        <ion-col >
-          <ion-input (click)="getLoc()">
+      <ion-row>
+        <ion-col>
+          <ion-input (click)="GetLocation()">
             <ion-icon color="primary" name="location" class="ion-margin-start  
             location_icon"></ion-icon>
-            <!-- <p>{{lat}}</p>
-            <p>{{lng}}</p> -->
+            <p>{{latitude}}</p>
+            <p>{{longitude}}</p>
           </ion-input>
 
         </ion-col>
-        <ion-col size="2" >
-        <!-- <img  id="profile_img" routerLink="/myprofile" src="../../assets/icon/nikku.jpg" height="50px" width="50px"> -->
-        <!-- <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
-        slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;"> -->
-        <img src="../../assets/icon/user.png" height="50" width="50" >
+        <ion-col size="2">
+          <!-- <img  id="profile_img" routerLink="/myprofile" src="../../assets/icon/nikku.jpg" height="50px" width="50px"> 
+         <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
+        slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;">  -->
+          <img src="../../assets/icon/user.png" height="50" width="50">
         </ion-col>
-        <ion-col size="2"  >
- <p (click)="presentPopover()" style="font-size:8px; color:darkblue;">Language<ion-icon style="font-size:10px!important;" name="chevron-down-outline"></ion-icon></p>
-       
-      </ion-col>
+        <ion-col size="2">
+          <p (click)="presentPopover()" style="font-size:8px; color:darkblue;">Language<ion-icon
+              style="font-size:10px!important;" name="chevron-down-outline"></ion-icon>
+          </p>
+
+        </ion-col>
       </ion-row>
     </ion-grid>
 
@@ -40,6 +42,14 @@
 
   </ion-toolbar>
 </ion-header>
+<!-- <ion-content>
+  <div id="map" style="width:100%;height:100%;">
+
+    <ion-label>Latitude:{{latitude}}</ion-label> <br>
+    <ion-label>Longitude:{{longitude}}</ion-label> <br>
+    <ion-label>TimeStamp:{{timestamp}}</ion-label>
+  </div>
+</ion-content> -->
 
 <ion-content fullscreen>
 
@@ -58,23 +68,26 @@
   </ion-grid>
 
 
-  <ion-grid>
-  <ion-row   class="ion-justify-content-between">
-    <ion-col  class="ion-margin-start" size="3">
-<img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
-    </ion-col>
-    <ion-col size="3">
-      <img id="cat2" src="../../assets/icon/nut.png" height="40px" width="40px">
-    </ion-col>
-         <ion-col size="3">
-            <img id="cat3" src="../../assets/icon/food-and-restaurant.png" height="40px" width="40px">
-          </ion-col> 
-          
-  </ion-row>
-</ion-grid>
+  <ion-grid class="catergory_title">
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-margin-start" size="3">
+        <img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
+        <p class="ion-no-margin">Vegetables</p>
+      </ion-col>
+      <ion-col size="3">
+        <img id="cat2" src="../../assets/icon/nut.png" height="40px" width="40px">
+        <p class="ion-no-margin "> Dry Nuts</p>
+      </ion-col>
+      <ion-col size="2">
+        <img id="cat3" src="../../assets/icon/food-and-restaurant.png" height="40px" width="40px">
+        <p class="ion-no-margin">Fruits</p>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 
 
-  <!-----------------------Product Images------------------->
+
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let l of products" size="6">
@@ -86,11 +99,11 @@
           <p class="ion-text-center product_text"> &#8377;{{l.productprice}}</p>
           <p class="ion-text-center ion-no-margin product_text">{{l.productname}}</p>
           <p class="ion-text-center product_text"> {{l.productdescription}}</p>
-  
 
-          <!-- <p class="ion-text-center product_text"> {{l.productdiscount}}</p> -->
+
+
         </ion-card>
-      
+
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -105,38 +118,36 @@
 
 
 
-<ion-footer color="danger"  style="height: 4em;">
+<ion-footer color="danger" style="height: 4em;">
   <ion-grid no-padding>
-    <ion-row no-padding >
-<ion-col>
-  <div>
+    <ion-row no-padding>
+      <ion-col>
+        <div>
+          <ion-icon color="danger" class="ion-margin-start" name="home-outline"></ion-icon>
+          <p class=" footer_text ion-margin-start ">Home</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-icon color="danger" class="ion-margin-start" name="bookmark-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Ads</p>
+
+      </ion-col>
+      <ion-col>
+        <ion-icon color="primary" class="ion-margin-start" name="camera-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Sell</p>
 
 
-  <ion-icon color="danger" class="ion-margin-start" name="home-outline"></ion-icon>
-   <p class=" footer_text ion-margin-start ">Home</p> 
-  </div>
-</ion-col>
-<ion-col>
-  <ion-icon color="danger"  class="ion-margin-start" name="bookmark-outline"></ion-icon>
-  <p class=" footer_text ion-margin-start">Ads</p> 
+      </ion-col>
+      <ion-col>
+        <ion-icon color="danger" class="ion-margin-start" name="chatbox-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Chat</p>
 
-</ion-col>
-<ion-col>
-  <ion-icon  color="primary" class="ion-margin-start" name="camera-outline"></ion-icon>
- <p class=" footer_text ion-margin-start">Sell</p> 
+      </ion-col>
+      <ion-col routerLink="/userprofile">
+        <ion-icon color="danger" class="ion-margin-start" name="person-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Account</p>
 
-
-</ion-col>
-<ion-col>
-  <ion-icon  color="danger" class="ion-margin-start" name="chatbox-outline"></ion-icon>
-  <p class=" footer_text ion-margin-start">Chat</p>
-
-</ion-col>
-<ion-col routerLink="/userprofile">
-  <ion-icon  color="danger" class="ion-margin-start" name="person-outline"></ion-icon>
-  <p class=" footer_text ion-margin-start">Account</p>
-
-</ion-col>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-footer>

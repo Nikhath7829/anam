@@ -4,11 +4,11 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'adss',
     pathMatch: 'full'
   },
   {
-    path: 'register',
+    path: 'register', 
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
@@ -97,10 +97,7 @@ const routes: Routes = [
     loadChildren: () => import('./adss/adss.module').then( m => m.AdssPageModule)
   },
   
-  {
-    path: 'news',
-    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
-  },
+  
 
   {
     path: 'registerpopover',

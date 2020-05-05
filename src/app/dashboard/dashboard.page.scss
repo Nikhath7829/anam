@@ -5,6 +5,7 @@
 .location_icon{
 font-size: 20px;
 }
+
 #cat1{
     background: bisque;
     
@@ -64,6 +65,11 @@ ion-card{
 #footer{
     --background: blue!important;
     
+}
+.catergory_title{
+    font-family: 'Lato', sans-serif!important;
+    font-weight: bold;
+    font-size:9px;
 }
 // span,ion-col{
 //     background: red;
