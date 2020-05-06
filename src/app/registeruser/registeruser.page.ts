@@ -2,29 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import {RestService } from '../rest.service';
 import { Login } from '../Model/class';
 import { MatTableDataSource } from '@angular/material';
-import {Platform} from '@ionic/angular';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
+// import {Platform} from '@ionic/angular';
+
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.page.html',
   styleUrls: ['./registeruser.page.scss'],
 })
 export class RegisteruserPage implements OnInit {
-  arr:any[]=[];
-  arr1:any[]=[];
+  arr;
   
   userid;
   public data: Login = new Login();
   displayedColumns: string[] = ['id','fullname','number','delete'];
   listData: MatTableDataSource<any>;
-  constructor(public rest: RestService,private platform:Platform) { 
-    this.platform.ready().then(()=>{
-      
-    })
+  constructor(public rest: RestService) { 
+   
   }
 
   ngOnInit() {
-   // this.retrieval();
+   this.retrieval();
   }
 
 

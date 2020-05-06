@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ads.page.scss'],
 })
 export class AdsPage implements OnInit {
-
+  selectTabs = 'recent';
   constructor() { }
 
   ngOnInit() {

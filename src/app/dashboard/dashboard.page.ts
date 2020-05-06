@@ -9,8 +9,10 @@ import { RestService } from '../rest.service';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import { Register,Product } from '../Model/class';
 import {AppComponent} from '../app.component';
- 
-declare let goggle; 
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { Plugins,CameraResultType,CameraSource } from '@capacitor/core';
+import { LangpagecomponentPage } from '../langpagecomponent/langpagecomponent.page';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -19,10 +21,11 @@ declare let goggle;
 export class DashboardPage implements OnInit {
   map:any;
   marker:any;
+  
+  image:SafeResourceUrl;
   timestamp:any;
   latitude:any='';
   longitude:any='';
- 
   role;
   ar;
   cart;
@@ -38,45 +41,46 @@ export class DashboardPage implements OnInit {
   products: Product[] = [];
   
 
-  constructor(public platform:Platform,public popoverController:PopoverController ,private fb: FormBuilder,
+  constructor(private domsanitizer:DomSanitizer,public platform:Platform,public popoverController:PopoverController ,private fb: FormBuilder,
      public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
     public alertController: AlertController,  private route: Router,private test: AppComponent) { 
-      this.platform.ready().then(()=>{
-        var mapOptions = {
-          center:{lat:23.2366,lng:79.3822},
-        zoom:7
-        }
-        this.map = new goggle.maps.Map(document.getElementById("map"),mapOptions);
-        this.GetLocation();
-      })
+      // this.platform.ready().then(()=>{
+      //   var mapOptions = {
+      //     center:{lat:23.2366,lng:79.3822},
+      //   zoom:7
+      //   }
+      //   this.map = new goggle.maps.Map(document.getElementById("map"),mapOptions);
+      //   this.GetLocation();
+      // }
+      // )
     }
-      GetLocation()
-      {
-        var ref= this;
-        let watch= this.geolocation.watchPosition();
-        watch.subscribe((position)=>{
-var gps=new goggle .maps.LatLng
-(position.coords.latitude,position.coords.longitude);
-if(ref.marker=null){
+//       GetLocation()
+//       {
+//         var ref= this;
+//         let watch= this.geolocation.watchPosition();
+//         watch.subscribe((position)=>{
+// var gps=new goggle .maps.LatLng
+// (position.coords.latitude,position.coords.longitude);
+// if(ref.marker=null){
 
-}
- else{
-  ref.marker = new goggle.maps.Marker({
-    position:gps,
-    map:ref.map,
-    title:'jhjhj jhjhj'
-  })
-}
-// else{
-//   ref.marker.setPosition(gps);
 // }
+//  else{
+//   ref.marker = new goggle.maps.Marker({
+//     position:gps,
+//     map:ref.map,
+//     title:'jhjhj jhjhj'
+//   })
+// }
+// // else{
+// //   ref.marker.setPosition(gps);
+// // }
 
-ref.map.panTo(gps);
-ref.latitude = position.coords.latitude.toString();
-ref.longitude = position.coords.longitude.toString();
-ref.timestamp =( new Date(position.timestamp)).toString();
-        })
-      }
+// ref.map.panTo(gps);
+// ref.latitude = position.coords.latitude.toString();
+// ref.longitude = position.coords.longitude.toString();
+// ref.timestamp =( new Date(position.timestamp)).toString();
+//         })
+//       }
     
 
   ngOnInit() {
@@ -86,16 +90,30 @@ ref.timestamp =( new Date(position.timestamp)).toString();
      
   }
 
+  takephoto()
+  {
+const  {Camera}  = Plugins;
+const result =   Camera.getPhoto({
+quality:50, 
+allowEditing:true,
+source :CameraSource.Camera,
+resultType : CameraResultType.DataUrl
+});
+this.image = this.domsanitizer.bypassSecurityTrustResourceUrl( result && result.base64Data,
+)
 
 
-  // async presentPopover(ev: any) {
-  //   const popover = await this.popoverController.create({
-  //     component: LangComponent,
-  //     event: ev,
-  //     translucent: true
-  //   });
-  //   return await popover.present();
-  // }
+
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: LangpagecomponentPage,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
 
 
   getProductName(){

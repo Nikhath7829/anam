@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {LanguageservicesService} from './languageservices.service';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private rest: RestService,
      private route: Router,
+     private lngService:LanguageservicesService
 
   ) {
     this.initializeApp();
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.lngService.setInitialLanguage();
     });
   }
 

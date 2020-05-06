@@ -107,6 +107,18 @@ const routes: Routes = [
     path: 'loginpopover',
     loadChildren: () => import('./loginpopover/loginpopover.module').then( m => m.LoginpopoverPageModule)
   },
+  {
+    path: 'langpagecomponent',
+    loadChildren: () => import('./langpagecomponent/langpagecomponent.module').then( m => m.LangpagecomponentPageModule)
+  },
+  {
+    path: 'chatspage',
+    loadChildren: () => import('./chatspage/chatspage.module').then( m => m.ChatspagePageModule)
+  },
+  {
+    path: 'adspage',
+    loadChildren: () => import('./adspage/adspage.module').then( m => m.AdspagePageModule)
+  },
   
 ];
 

@@ -100,12 +100,13 @@ export class RegisterPage implements OnInit {
                 number: ["", [Validators.required]],
                  roles: this.fb.array(['USER']),
                      });
-                     
-              this.myRoute.navigate(['/login']);
-              this.createpopover();
+                     this.createpopover();
+              
             }
+           
+           
             
-          }, (err) => {
+          },(err) => {
            // err.status(200).send("Error -> " + err);
           // this.server=true;
             

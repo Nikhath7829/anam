@@ -1,0 +1,70 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>CHATS</ion-title>
+    <ion-icon name="search" slot="end" class="ion-margin-end"></ion-icon>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment [(ngModel)]="selectTabs">
+    <ion-segment-button value="ALL">
+      <ion-label>ALL</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="BUYINGS">
+      <ion-label>BUYINGS</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="SELLINGS">
+   
+      <ion-label>SELLINGS</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectTabs == 'ALL'">
+    <h3>nihath</h3>
+  </div>
+
+  <div *ngIf="selectTabs == 'BUYINGS'">
+    <h3>jhjj</h3>
+  </div>
+
+  <div *ngIf="selectTabs == 'SELLINGS'">
+    <h3>nnn</h3>
+  </div>
+</ion-content>
+
+
+<ion-footer color="danger" style="height: 4em;">
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col>
+        <div>
+          <ion-icon color="danger" class="ion-margin-start" name="home-outline"></ion-icon>
+          <p class=" footer_text ion-margin-start ">Home</p>
+        </div>
+      </ion-col>
+      <ion-col routerLink="/adspage">
+        <ion-icon color="danger" class="ion-margin-start" name="bookmark-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Ads</p>
+
+      </ion-col>
+      <ion-col (click)="takephoto()">
+        <ion-icon color="primary" class="ion-margin-start" name="camera-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Sell</p>
+
+
+      </ion-col>
+      <ion-col routerLink="/chatspage">
+        <ion-icon color="danger" class="ion-margin-start" name="chatbox-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Chat</p>
+
+      </ion-col>
+      <ion-col routerLink="/userprofile">
+        <ion-icon color="danger" class="ion-margin-start" name="person-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Account</p>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

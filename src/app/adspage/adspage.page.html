@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>MY ADS</ion-title>
+    
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment [(ngModel)]="selectTabs">
+    <ion-segment-button value="ADS">
+      <ion-label>ADS</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="FAVOURITES">
+      <ion-label>FAVOURITES</ion-label>
+    </ion-segment-button>
+    
+  </ion-segment>
+
+  <div *ngIf="selectTabs == 'ADS'">
+    <h3>nihath</h3>
+  </div>
+
+  <div *ngIf="selectTabs == 'FAVOURITES'">
+    <h3>jhjj</h3>
+  </div>
+
+
+</ion-content>
+
+
+
+<ion-footer color="danger" style="height: 4em;">
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col>
+        <div>
+          <ion-icon color="danger" class="ion-margin-start" name="home-outline"></ion-icon>
+          <p class=" footer_text ion-margin-start ">Home</p>
+        </div>
+      </ion-col>
+      <ion-col routerLink="/adspage">
+        <ion-icon color="danger" class="ion-margin-start" name="bookmark-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Ads</p>
+
+      </ion-col>
+      <ion-col (click)="takephoto()">
+        <ion-icon color="primary" class="ion-margin-start" name="camera-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Sell</p>
+
+
+      </ion-col>
+      <ion-col routerLink="/chatspage">
+        <ion-icon color="danger" class="ion-margin-start" name="chatbox-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Chat</p>
+
+      </ion-col>
+      <ion-col routerLink="/userprofile">
+        <ion-icon color="danger" class="ion-margin-start" name="person-outline"></ion-icon>
+        <p class=" footer_text ion-margin-start">Account</p>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
