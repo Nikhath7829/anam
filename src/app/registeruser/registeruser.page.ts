@@ -80,6 +80,10 @@ export class RegisteruserPage implements OnInit {
       console.log(err);
     });
   }
+
+  filterArray(ev){
+    console.log(event);
+  }
   delete(id) {
     this.rest.removefromlist(id).subscribe((result) => {
       if (result == undefined) {

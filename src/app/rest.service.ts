@@ -170,6 +170,18 @@ productname(): Observable<any>{
  
  }
   
+ pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+  const formdata: FormData = new FormData();
+
+  formdata.append('file', file);
+
+  const req = new HttpRequest('POST', 'http://localhost:8080/api/file/profile', formdata, {
+    reportProgress: true,
+    responseType: 'text'
+  });
+
+  return this.http.request(req);
+}
  pushfileproducts(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 

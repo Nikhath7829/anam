@@ -21,7 +21,8 @@ export class RegisterPage implements OnInit {
   showMsg: boolean = false;
   valid: boolean;
   flag: any;
-  
+  selectedFile: FileList;
+  currentFileUpload: File;
   errmsg: any;
   public data: Register = new Register();
  // loadingCtrl: any;
@@ -30,6 +31,7 @@ export class RegisterPage implements OnInit {
   this.formcontrol = this.fb.group({
     fullname: ["", [Validators.required]],
   number: ["", [Validators.required]],
+  photo: ["", [Validators.required]],
   roles: this.fb.array(['USER']),
    });
            
@@ -38,15 +40,28 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.valid=false;
     this.errmsg=false;
+
   }
 
+  upload() {
+    
+    this.currentFileUpload = this.selectedFile.item(0);
+    this.rest.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        console.log('File is completely uploaded!');
+      } else if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+      }
+    });
+    this.selectedFile = undefined;
+  }
 
   createpopover()
   {
     this.popover.create({component:RegisterpopoverPage,
    showBackdrop:false}).then((popoverElement)=>{
    popoverElement.present();
-   
+    
    })
  
   }
@@ -74,12 +89,17 @@ export class RegisterPage implements OnInit {
   }
 
  
+  selectFile(event) {
+    this.selectedFile = event.target.files;
+  }
 
   register(){
     this.formcontrol.get("fullname").setValidators(Validators.required);
     this.formcontrol.get("fullname").updateValueAndValidity();
      this.formcontrol.get("number").setValidators(Validators.required);
     this.formcontrol.get("number").updateValueAndValidity();
+    this.formcontrol.get("photo").setValidators(Validators.required);
+    this.formcontrol.get("photo").updateValueAndValidity();
     Object.assign(this.data, this.formcontrol.value);
       console.log(this.data);
   
@@ -101,20 +121,14 @@ export class RegisterPage implements OnInit {
                  roles: this.fb.array(['USER']),
                      });
                      this.createpopover();
-              
-            }
-           
-           
-            
-          },(err) => {
+               }
+           },(err) => {
            // err.status(200).send("Error -> " + err);
           // this.server=true;
-            
             console.log(err);
-          
-          });
+        });
         }
-        else{
+else{
           this.valid=true;
         }
         

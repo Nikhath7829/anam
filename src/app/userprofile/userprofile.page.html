@@ -17,7 +17,9 @@
   <ion-row>
     <ion-col size="4">
       <ion-avatar class="ion-margin-start ion-margin-top">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img  type="file"  (change)="selectFile($event)"/>
+        <!-- <ion-input  type="file" (change)="selectFile($event)"
+        name="camera"></ion-input> -->
       </ion-avatar>
     </ion-col>
     <ion-col>
@@ -35,7 +37,7 @@
       <ion-item-group>
         
       
-        <ion-item routerLink="/package">
+        <ion-item >
           <ion-label routerLink="/package">Buy Packages & My Orders</ion-label>
        
           <ion-icon routerLink="/package"  name="chevron-forward-outline" slot="end"></ion-icon>

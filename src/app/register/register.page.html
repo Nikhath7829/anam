@@ -1,51 +1,54 @@
-
-
-
-
-  
-
-  <ion-content fullscreen ion-padding>
-    <h3 class="ion-text-center ">Mobile Mandi</h3>
-    <form [formGroup]="formcontrol"> 
-      <div *ngIf="valid">
-        <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
-        </div>
-  
-  <div class="field">
-    <input type="text" formControlName="fullname"
-    name="fullname" id="fullname" placeholder="">
-    
-  
-    <label for="fullname">FullName</label>
-    
-  </div>
-  <div *ngIf="valid">
-    <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone required * </p>
+<ion-content fullscreen ion-padding>
+  <h3 class="ion-text-center ">Mobile Mandi</h3>
+  <form [formGroup]="formcontrol">
+    <div *ngIf="valid">
+      <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
     </div>
-  
-  
-  
-  <div class="field">
-    <input type="number" [value]="number" (keypress)="keyPress($event)"   name="number" formControlName="number" id="number" placeholder="">
-   
-  
-    <label for="number">PhoneNumber</label>
-  </div>
-  
-  <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a></p>
-  <ion-grid>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-button  (click)="createpopover(); register();">Register</ion-button>
-  
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
+
+    <div class="field">
+      <input type="text" formControlName="fullname" name="fullname" id="fullname" placeholder="">
+
+
+      <label for="fullname">FullName</label>
+
+    </div>
+    <div *ngIf="valid">
+      <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone required * </p>
+    </div>
+
+    <div class="field">
+      <input type="number" [value]="number" (keypress)="keyPress($event)" name="number" formControlName="number"
+        id="number" placeholder="">
+      <label for="number">PhoneNumber</label>
+      
+    </div>
+    <div *ngIf="valid">
+      <p no-margin *ngIf="formcontrol.get('photo').hasError('required')">Profile Photo required
+      </p>
+    </div>
+
+    <div class="field">
+      <ion-input formControlName="photo" type="file" class="ion-margin-top "  (change)="selectFile($event)"
+        placeholder="Pick a Photo"></ion-input>
+    </div>
+
+
+
+
+    <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a>
+    </p>
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-button (click)="register()">Register</ion-button>
+
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
-  
-  
-  </ion-content>
-  
-  
+
+
+</ion-content>
+

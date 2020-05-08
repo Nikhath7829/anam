@@ -13,18 +13,19 @@
           </ion-input>
 
         </ion-col>
-        <ion-col size="2">
-          <!-- <img  id="profile_img" routerLink="/myprofile" src="../../assets/icon/nikku.jpg" height="50px" width="50px"> 
-         <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
-        slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;">  -->
-          <img src="../../assets/icon/user.png" height="50" width="50">
+        <ion-col size="4">
+        
+          <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
+          slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;">
+      
+          <!-- <img src="../../assets/icon/user.png" height="50" width="50"> -->
         </ion-col>
-        <ion-col size="2">
+        <!-- <ion-col size="2">
           <p (click)="presentPopover()" style="font-size:8px; color:darkblue;">Language<ion-icon
               style="font-size:10px!important;" name="chevron-down-outline"></ion-icon>
           </p>
 
-        </ion-col>
+        </ion-col> -->
       </ion-row>
     </ion-grid>
 
@@ -91,7 +92,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let l of products" size="6">
-        <ion-card (click)="change()">
+        <ion-card >
 
           <ion-card-content>
             <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">

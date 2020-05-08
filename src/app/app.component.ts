@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private rest: RestService,
      private route: Router,
-     private lngService:LanguageservicesService
+     //private lngService:LanguageservicesService
 
   ) {
     this.initializeApp();
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.lngService.setInitialLanguage();
+     // this.lngService.setInitialLanguage();
     });
   }
 

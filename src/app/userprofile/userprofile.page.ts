@@ -15,6 +15,8 @@ export class UserprofilePage implements OnInit {
   userid;
   arr;
   name;
+  selectedFile: FileList;
+  currentFileUpload: File;
   ar;
   admin: boolean = false;
 user: boolean = false;
@@ -24,6 +26,11 @@ public data: Register = new Register();
 
   ngOnInit() {
     this.getuserprofiles();
+  }
+
+  
+  selectFile(event) {
+    this.selectedFile = event.target.files;
   }
   doRefresh(event) {
     this.getuserprofiles();

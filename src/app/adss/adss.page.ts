@@ -13,19 +13,19 @@ base64Data:any;
 
   ngOnInit() {
   }
-  takephoto()
-  {
-const  {Camera}  = Plugins;
-const result =   Camera.getPhoto({
-quality:50, 
-allowEditing:true,
-source :CameraSource.Camera,
-resultType : CameraResultType.DataUrl
-});
-this.image = this.domsanitizer.bypassSecurityTrustResourceUrl( result && result.base64Data,
-)
+//   takephoto()
+//   {
+// const  {Camera}  = Plugins;
+// const result =   Camera.getPhoto({
+// quality:50, 
+// allowEditing:true,
+// source :CameraSource.Camera,
+// resultType : CameraResultType.DataUrl
+// });
+// this.image = this.domsanitizer.bypassSecurityTrustResourceUrl( result && result.base64Data,
+// )
 
 
 
-  }
+//   }
 }

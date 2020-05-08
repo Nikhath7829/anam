@@ -9,3 +9,6 @@ ion-label{
 .footer_text{
     font-size: 10px;
 }
+ion-header::after {
+    background-image: none;
+    }

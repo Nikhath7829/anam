@@ -1,6 +1,7 @@
 export class Register {
     fullname: string;
     number:string;
+    photo:string;
     roles: String[];
 }
 

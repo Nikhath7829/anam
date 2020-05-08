@@ -119,6 +119,10 @@ const routes: Routes = [
     path: 'adspage',
     loadChildren: () => import('./adspage/adspage.module').then( m => m.AdspagePageModule)
   },
+  {
+    path: 'array',
+    loadChildren: () => import('./array/array.module').then( m => m.ArrayPageModule)
+  },
   
 ];
 
