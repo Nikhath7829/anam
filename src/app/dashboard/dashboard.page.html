@@ -15,8 +15,9 @@
         </ion-col>
         <ion-col size="4">
         
-          <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
-          slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;">
+          <img  src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
+    slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;">
+
       
           <!-- <img src="../../assets/icon/user.png" height="50" width="50"> -->
         </ion-col>
@@ -90,7 +91,7 @@
 
 
   <ion-grid>
-    <ion-row>
+    <ion-row routerLink="/product-detail">
       <ion-col *ngFor="let l of products" size="6">
         <ion-card >
 
@@ -128,7 +129,7 @@
           <p class=" footer_text ion-margin-start ">Home</p>
         </div>
       </ion-col>
-      <ion-col routerLink="/adspage">
+      <ion-col routerLink="/offerings">
         <ion-icon color="danger" class="ion-margin-start" name="bookmark-outline"></ion-icon>
         <p class=" footer_text ion-margin-start">Ads</p>
 

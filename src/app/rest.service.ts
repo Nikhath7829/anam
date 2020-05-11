@@ -169,7 +169,15 @@ productname(): Observable<any>{
     return this.http.get<any>(endpoint + 'api/productName', this.httpOptions);
  
  }
-  
+ getProduct(id){
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  return this.http.get<any>(endpoint + 'api/productdetails/'+id, this.httpOptions);
+}
  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 

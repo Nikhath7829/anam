@@ -99,8 +99,7 @@ allowEditing:true,
 source :CameraSource.Camera,
 resultType : CameraResultType.DataUrl
 });
-this.image = this.domsanitizer.bypassSecurityTrustResourceUrl( result && result.base64Data,
-)
+//this.image = this.domsanitizer.bypassSecurityTrustResourceUrl( result && result.base64Data,)
 
 
 

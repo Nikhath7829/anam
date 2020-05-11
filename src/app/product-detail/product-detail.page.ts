@@ -20,34 +20,9 @@ products: Product[] = [];
   ngOnInit() {
   }
  
-  // retrieval() {
-  //   this.rest.getproduct().subscribe((Product) => {
-  //     if (Product === undefined) {
-  //       console.log(Product);
-  //     }
-  //     else {
-  //       this.products = Product.product;
-  //       console.log(this.products);
-  //     }
-  //   }, (err) => {
-  //     console.log(err);
-  //   });
-  // }
-  getCarList() {
-    this.rest.getCartList().subscribe((AddtoCart) => {
 
-      if (AddtoCart === undefined) {
-        console.log(AddtoCart);
-      }
-      else {
-        this.cart = Object.entries(AddtoCart).map(([type, value]) => ({ type, value }));
-        this.carts = this.cart[0].value;
 
-      }
-    }, (err) => {
-      console.log(err);
-    });
+  
   }
 
 
-}

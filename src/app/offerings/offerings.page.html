@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar>
- <ion-icon name="close" routerLink="/dashboard" class="ion-margin-start" 
- slot="start" ></ion-icon> 
+ <!-- <ion-icon name="close" routerLink="/dashboard" class="ion-margin-start" 
+ slot="start" ></ion-icon>  -->
+
+ <ion-back-button defaultHref="/" slot="start"></ion-back-button>
   <ion-title>what are your offerings</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,13 +13,13 @@
   <ion-row class="ion-margin-top">
     <ion-col>
       <ion-card>
-        <ion-icon class="ion-margin-start category-icons" name="eye"></ion-icon>
+       <p>Category</p>
       </ion-card>
     </ion-col>
 
     <ion-col>
       <ion-card>
-        <ion-icon class="ion-margin-start category-icons" name="eye"></ion-icon>
+       <p>Category</p>
       </ion-card>
     </ion-col>
 
@@ -30,13 +32,13 @@
   <ion-row class="ion-margin-top">
     <ion-col>
       <ion-card>
-        <ion-icon class="ion-margin-start category-icons" name="eye"></ion-icon>
+       <p>Category</p>
       </ion-card>
     </ion-col>
 
     <ion-col>
       <ion-card>
-        <ion-icon class="ion-margin-start category-icons" name="eye"></ion-icon>
+       <p>Category</p>
       </ion-card>
     </ion-col>
 
@@ -51,13 +53,13 @@
   <ion-row class="ion-margin-top">
     <ion-col>
       <ion-card>
-        <ion-icon class="ion-margin-start category-icons" name="eye"></ion-icon>
+       <p>Category</p>
       </ion-card>
     </ion-col>
 
     <ion-col>
       <ion-card>
-        <ion-icon class="ion-margin-start category-icons" name="eye"></ion-icon>
+       <p>Category</p>
       </ion-card>
     </ion-col>
 
@@ -70,7 +72,7 @@
 <ion-footer color="danger"  style="height: 4em;">
   <ion-grid no-padding>
     <ion-row no-padding >
-<ion-col>
+<ion-col routerLink="/dashboard">
   <div>
 
 

@@ -118,6 +118,7 @@ export class RegisterPage implements OnInit {
               this.formcontrol = this.fb.group({
                 fullname: ["", [Validators.required]],
                 number: ["", [Validators.required]],
+                photo: ["",Validators.required],
                  roles: this.fb.array(['USER']),
                      });
                      this.createpopover();
