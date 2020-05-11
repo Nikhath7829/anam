@@ -21,7 +21,7 @@ import { LangpagecomponentPage } from '../langpagecomponent/langpagecomponent.pa
 export class DashboardPage implements OnInit {
   map:any;
   marker:any;
-  
+  states:any;
   image:SafeResourceUrl;
   timestamp:any;
   latitude:any='';
@@ -33,6 +33,9 @@ export class DashboardPage implements OnInit {
   showFile = false;
   userid;
   photo;
+  isItemAvailable:boolean=false;
+  isItemAvailables:boolean=false;
+  items;
   public data: Register = new Register();
   arr;
   errmsg: boolean;
@@ -124,7 +127,7 @@ resultType : CameraResultType.DataUrl
         console.log(result);
 
     this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
-        // this.states = this.arr[0].value;
+    this.states = this.arr[0].value;
    
        // console.log(this.states)
       }
@@ -191,6 +194,26 @@ this.getuserprofile();
   
     });
   }
+
+  getItems(ev: any) {
+    this.items=this.states;
+ 
+  const val = ev.target.value.toLowerCase();
+  if (val && val.trim() != ''){
+    this.isItemAvailable=true;
+    this.isItemAvailables=false;
+  this.items= this.states.filter((item => {
+      return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      }
+      )
+    )
+
+  }
+  else{
+    this.isItemAvailables = true;
+    this.isItemAvailable = false;
+  }
+}
   
 //   async getLoc()
 //   {

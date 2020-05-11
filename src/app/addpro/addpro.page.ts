@@ -95,8 +95,7 @@ add(){
   this.formcontrol.get("productname").updateValueAndValidity();
   this.formcontrol.get("productdescription").setValidators(Validators.required);
   this.formcontrol.get("productdescription").updateValueAndValidity();
-  
-  this.formcontrol.get("productcategory").setValidators(Validators.required);
+ this.formcontrol.get("productcategory").setValidators(Validators.required);
   this.formcontrol.get("productcategory").updateValueAndValidity();
   this.formcontrol.get("productprice").setValidators(Validators.required);
   this.formcontrol.get("productprice").updateValueAndValidity();

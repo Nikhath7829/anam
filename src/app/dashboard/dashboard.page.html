@@ -2,7 +2,7 @@
   <ion-toolbar>
 
 
-    <ion-grid>
+    <ion-grid >
       <ion-row>
         <ion-col>
           <ion-input (click)="GetLocation()">
@@ -32,10 +32,10 @@
 
 
 
-    <ion-grid>
+    <ion-grid >
       <ion-row>
         <ion-col>
-          <ion-input class="search_box" clearInput placeholder="Search your needs">
+          <ion-input  (ionInput)="getItems($event)"  class="search_box" clearInput placeholder="Search your needs">
             <ion-icon name="search" class="ion-margin-start  location_icon"></ion-icon>
           </ion-input>
         </ion-col>
@@ -57,7 +57,7 @@
 
 
 
-  <ion-grid>
+  <ion-grid *ngIf="isItemAvailable">
     <ion-row class="ion-justify-content-evenly">
       <ion-col>
         <p class="ion-margin-start">Catergory</p>
@@ -92,7 +92,7 @@
 
   <ion-grid>
     <ion-row routerLink="/product-detail">
-      <ion-col *ngFor="let l of products" size="6">
+      <ion-col *ngFor="let l of products" size="6" [routerLink]="['/product-detail' ,l.id]">
         <ion-card >
 
           <ion-card-content>
