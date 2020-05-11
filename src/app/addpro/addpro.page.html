@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="ion-text-right">addpro</ion-title>
+    <!-- <ion-title class="ion-text-right">addpro</ion-title> -->
+    <ion-back-button defaultHref="/" slot="start"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
     pullingIcon="arrow-dropdown"
     pullingText="Pull to refresh"
@@ -13,68 +15,67 @@
     refreshingText="Refreshing...">
     </ion-refresher-content>
     </ion-refresher>
-
     <form  [formGroup]="formcontrol">
 
-  <ion-grid>
-    <ion-row>
-     <ion-col >
-    <ion-input formControlName="productname"  class="ion-margin-top" type="text" 
-    placeholder="Product Name"></ion-input>
-   </ion-col>
-    </ion-row>
-  </ion-grid>
+      <h4 class="ion-text-center" color="danger">Product Details</h4>
 
 
-
-  <ion-grid>
-    <ion-row>
-     <ion-col >
-   <ion-item>
-<ion-textarea formControlName="productdescription"   rows="6" cols="20" placeholder="Enter any Description here..."></ion-textarea>
-  </ion-item>
-  </ion-col>
+     <ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label color="dark" position="stacked">Product Name</ion-label>
+        <ion-input formControlName="productname"  ></ion-input>
+      </ion-item>
+    </ion-col>
   </ion-row>
-  </ion-grid>
-
-  <ion-grid>
-    <ion-row>
-     <ion-col >
-    <ion-input formControlName="productprice"  (keypress)="keyPress($event)" minlength=8 maxlength=8  class="ion-margin-top"
-     [value]= "Product" type="text" 
-    placeholder="Product Price"></ion-input>
-   
-     </ion-col>
-    </ion-row>
 
 
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label color="dark" position="stacked">Product Description</ion-label>
+        <ion-textarea formControlName="productdescription"   rows="6" cols="20"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label color="dark" position="stacked">Product Price</ion-label>
+        <ion-input formControlName="productprice"  (keypress)="keyPress($event)" minlength=8 maxlength=8  class="ion-margin-top"
+     [value]= "Product" type="text" ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label color="dark" position="stacked">Product Quantity</ion-label>
+        <ion-input formControlName="productquantity"  class="ion-margin-top" [value]="quantity" type="text" ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
 
-  </ion-grid>
 
-  <!-- <ion-grid>
-    <ion-row>
-     <ion-col>
-    <ion-input formControlName="productdiscount"  class="ion-margin-top" [value]="Discount" type="text" 
-    placeholder="Discount"></ion-input>
-   
-     </ion-col>
-    </ion-row>
-  </ion-grid>x`
-   -->
 
-  <ion-grid>
-    <ion-row>
-     <ion-col>
-      <ion-input  formControlName="image" type="file" (change)="selectFiles($event)" 
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label color="dark" position="stacked">Choose an image</ion-label>
+        <ion-input  formControlName="image" type="file" (change)="selectFiles($event)" 
       class="ion-margin-top "></ion-input>
-     </ion-col>
-    </ion-row>
-  </ion-grid>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
 
-  <ion-grid>
-    <ion-row>
+
+
+     <ion-row>
       <ion-col>
         <ion-item>
           <ion-label>Post In to </ion-label>
@@ -94,4 +95,5 @@
     <ion-button (click)="add()" class="ion-text-center">POST</ion-button>
   </p>
   </form>
+ 
 </ion-content>
