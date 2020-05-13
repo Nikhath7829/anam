@@ -17,7 +17,7 @@
 
   <div>
     <h3 style="text-align: center;"> Product List</h3>
-    <table id="table" mat-table [dataSource]="listData" class="table">
+    <table mat-table [dataSource]="listDatas" class="table">
 
 
 
@@ -41,7 +41,7 @@
       </ng-container>
 
       <ng-container matColumnDef="quant">
-        <th  style="font-size: 16px;"  mat-header-cell *matHeaderCellDef> Description </th>
+        <th  style="font-size: 16px;"  mat-header-cell *matHeaderCellDef> Quantity </th>
         <td mat-cell *matCellDef="let arr"> {{arr.quant}} </td>
       </ng-container>
 
@@ -52,7 +52,7 @@
       </ng-container>
 
       <ng-container matColumnDef="userId">
-        <th  style="color: white;background: #031646;" mat-header-cell *matHeaderCellDef> UserId </th>
+        <th  mat-header-cell *matHeaderCellDef> UserId </th>
         <td mat-cell *matCellDef="let arr"> {{arr.userId}} </td>
       </ng-container>
 

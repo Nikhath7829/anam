@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { MatTableDataSource } from '@angular/material';
+
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.page.html',
@@ -13,10 +15,12 @@ export class ProductListPage implements OnInit {
   userid;
   photo;
   listData;
+  istDatas;
+ // listDatas: MatTableDataSource<any>;
   //listData: MatTableDataSource<any>;
   isItemAvailables: boolean = false;
   isItemAvailable: boolean = false;
-  displayedColumns: string[] = ['name', 'price', 'quant', 'desc', 'category', 'userId', 'permission', 'edit','delete'];
+  displayedColumns: string[] = ['name', 'price', 'quant', 'desc', 'category', 'userId'];
   constructor(public rest: RestService) { }
 
   ngOnInit() {
