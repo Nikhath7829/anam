@@ -14,16 +14,16 @@ export class Login {
  }
  
 
-    export class Product {
-        productname: String;
-       
-        productprice: Number;
-        discount: String;
-        productdescription: String;
-        productcategory: String;
-        image: File[];
-        
-    }
+ export class Product {
+    name: String;
+    sub: String;
+    price: Number;
+    quant: String;
+    desc: String;
+    category: String;
+    image: File[];
+}
+
     export class AddtoCart {
         productname: String;
         productprice: Number;

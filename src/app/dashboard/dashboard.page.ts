@@ -135,6 +135,7 @@ resultType : CameraResultType.DataUrl
       console.log(err);
     });
   }
+  
 
   doRefresh(event) {
 this.getuserprofile();
@@ -144,7 +145,9 @@ this.getuserprofile();
       event.target.complete();
     }, 2000);
   }
-  
+
+
+ 
   retrieval() {
     this.rest.getproduct().subscribe((Product) => {
       if (Product === undefined) {
@@ -172,7 +175,7 @@ this.getuserprofile();
         this.userid = this.arr[1].value;
         this.photo= this.userid.photo;
         this.rest.sendId(this.userid.id);
-        console.log(this.userid.photo);
+      //  console.log(this.userid.photo);
         /* to get role of user */
         this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
         this.role = this.ar[0].value;

@@ -5,7 +5,9 @@
 .location_icon{
 font-size: 20px;
 }
-
+ion-footer{
+    background-color:royalblue;
+}
 #cat1{
     background: bisque;
     
@@ -24,7 +26,7 @@ font-size: 20px;
     padding: 5px 9px 5px 5px;
 }
 .search_box{
-    border:1px solid grey;
+    border:1px solid royalblue;
 }
 #profile_img{
     border-radius: 37px;
@@ -48,6 +50,8 @@ font-size: 20px;
 
 .footer_text{
     font-size: 10px;
+    color:white;
+    font-family: 'Lato', sans-serif!important;
 }
 ion-card{
   border-style: none!important;

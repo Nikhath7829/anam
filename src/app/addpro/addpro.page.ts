@@ -22,12 +22,12 @@ export class AddproPage implements OnInit {
   constructor(private fb: FormBuilder, private rest: RestService, 
     public navCtrl: NavController, public alertController: AlertController,) { 
       this.formcontrol= this.fb.group({
-        productname: ['', [Validators.required]],
-        productdescription: ['', Validators.required],
-        productprice: ['', Validators.required],
+        name: ['', [Validators.required]],
+        desc: ['', Validators.required],
+        price: ['', Validators.required],
        
-        productcategory: ['', Validators.required],
-        productquantity: ['', Validators.required],
+        category: ['', Validators.required],
+        quant: ['', Validators.required],
         image: ['', [Validators.required]],
         status: '0',
         userId: this.rest.getId()
@@ -91,16 +91,16 @@ uploadpro() {
 }
 
 add(){
-  this.formcontrol.get("productname").setValidators(Validators.required);
-  this.formcontrol.get("productname").updateValueAndValidity();
-  this.formcontrol.get("productdescription").setValidators(Validators.required);
-  this.formcontrol.get("productdescription").updateValueAndValidity();
- this.formcontrol.get("productcategory").setValidators(Validators.required);
-  this.formcontrol.get("productcategory").updateValueAndValidity();
-  this.formcontrol.get("productprice").setValidators(Validators.required);
-  this.formcontrol.get("productprice").updateValueAndValidity();
-  this.formcontrol.get("productquantity").setValidators(Validators.required);
-  this.formcontrol.get("productquantity").updateValueAndValidity();
+  this.formcontrol.get("name").setValidators(Validators.required);
+  this.formcontrol.get("name").updateValueAndValidity();
+  this.formcontrol.get("desc").setValidators(Validators.required);
+  this.formcontrol.get("desc").updateValueAndValidity();
+ this.formcontrol.get("category").setValidators(Validators.required);
+  this.formcontrol.get("category").updateValueAndValidity();
+  this.formcontrol.get("price").setValidators(Validators.required);
+  this.formcontrol.get("price").updateValueAndValidity();
+  this.formcontrol.get("quant").setValidators(Validators.required);
+  this.formcontrol.get("quant").updateValueAndValidity();
   if (this.formcontrol.valid) {
     console.log('no error');
   }
@@ -123,12 +123,12 @@ if (this.formcontrol.valid) {
       this.presentAlert();
       this.formcontrol.reset();
       this.formcontrol = this.fb.group({
-        productname: ['', [Validators.required]],
-        productdescription: ['', Validators.required],
-        productdiscount: ['', Validators.required],
-        productcategory: ['', Validators.required],
-        productprice: ['', Validators.required],
-        productquantity: ['', Validators.required],
+        name: ['', [Validators.required]],
+        desc: ['', Validators.required],
+      
+        category: ['', Validators.required],
+        price: ['', Validators.required],
+        quant: ['', Validators.required],
         image: ['', Validators.required],
        
         status: '0',

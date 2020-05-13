@@ -81,7 +81,7 @@ const routes: Routes = [
     loadChildren: () => import('./finaledit/finaledit.module').then( m => m.FinaleditPageModule)
   },
   {
-    path: 'product-detail',
+    path: 'product-detail/:id',
     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
   {
@@ -122,6 +122,10 @@ const routes: Routes = [
   {
     path: 'array',
     loadChildren: () => import('./array/array.module').then( m => m.ArrayPageModule)
+  },
+  {
+    path: 'product-list',
+    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
   },
   
 ];

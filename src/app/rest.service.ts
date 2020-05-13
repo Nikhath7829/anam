@@ -50,6 +50,10 @@ logout() {
   localStorage.removeItem("LoggedInUser");
   localStorage.removeItem("LoggedInUserId");
   localStorage.removeItem("LoggedInRole");
+  localStorage.removeItem("productId");
+  localStorage.removeItem("name");
+  localStorage.removeItem("price");
+  localStorage.removeItem("image");
   this.myRoute.navigate[('/userdashboard')];
 
 }   
@@ -169,6 +173,10 @@ productname(): Observable<any>{
     return this.http.get<any>(endpoint + 'api/productName', this.httpOptions);
  
  }
+
+
+ 
+
  getProduct(id){
   this.httpOptions = {
     headers: new HttpHeaders({
@@ -178,6 +186,9 @@ productname(): Observable<any>{
   };
   return this.http.get<any>(endpoint + 'api/productdetails/'+id, this.httpOptions);
 }
+
+
+
  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 
@@ -242,7 +253,19 @@ UpdateRegister(data: Register): Observable<any> {
     return this.http.get<any>(endpoint + 'api/getcart', this.httpOptions);
   }
   
-
+  getdashboardproduct(){
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'x-access-token': this.getToken()
+          })
+    };
+    //const myheader=new HttpHeaders().set('AUTH_TOKEN', auth);
+   // return this.http.get<any>(this.ADD_CART_API+product.productid,{headers:myheader});
+  
+    return this.http.get<any>(endpoint + 'api/productList', this.httpOptions);
+  
+  }
 
   
 }
