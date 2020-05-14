@@ -11,8 +11,9 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class RegisteruserPage implements OnInit {
   arr;
-  
+
   userid;
+  scrollTo
   public data: Login = new Login();
   displayedColumns: string[] = ['id','fullname','number','delete'];
   listData: MatTableDataSource<any>;
@@ -40,12 +41,10 @@ export class RegisteruserPage implements OnInit {
 //  }
 
   doRefresh(event) {
-
     this.getuserDetails();
    this.retrieval();
    setTimeout(() => {
-      
-     event.target.complete();
+  event.target.complete();
    }, 2000);
  }
   retrieval() { 

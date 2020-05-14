@@ -1,29 +1,27 @@
-// th{
-//     background:linear-gradient( #355c7d,#6c5b7b,#c06c84);
-//   }
-
-  
 #table td, #table th{
-    border:1px solid #ddd;
-    padding:8px;
-  }
-  #table  tr:nth-child(even) {background-color: #f2f2f2;}
+  border:1px solid #ddd;
+  padding:8px;
+}
+#table  tr:nth-child(even) {background-color: #f2f2f2;}
 
-  #table tr:hover {background-color: #ddd;}
+#table tr:hover {background-color: #ddd;}
 
-  #table th{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: dark;
-    color:red;
- 
-  }
-  ion-button{
-    text-transform: none;
- font-size:12px;
-    text-align: center;
-  }
+#table th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: dark;
+  color:red;
+
+}
+ion-button{
+  text-transform: none;
+font-size:12px;
+  text-align: center;
+}
   th,td{
     font-family: 'Lato', sans-serif!important;
+    font-size: 9px;
+    font-weight: bold;
   }
+ 
