@@ -31,7 +31,7 @@ export class RegisterPage implements OnInit {
   this.formcontrol = this.fb.group({
     fullname: ["", [Validators.required]],
   number: ["", [Validators.required]],
-  photo: ["", [Validators.required]],
+ 
   roles: this.fb.array(['USER']),
    });
            
@@ -98,8 +98,7 @@ export class RegisterPage implements OnInit {
     this.formcontrol.get("fullname").updateValueAndValidity();
      this.formcontrol.get("number").setValidators(Validators.required);
     this.formcontrol.get("number").updateValueAndValidity();
-    this.formcontrol.get("photo").setValidators(Validators.required);
-    this.formcontrol.get("photo").updateValueAndValidity();
+  
     Object.assign(this.data, this.formcontrol.value);
       console.log(this.data);
   
@@ -118,7 +117,7 @@ export class RegisterPage implements OnInit {
               this.formcontrol = this.fb.group({
                 fullname: ["", [Validators.required]],
                 number: ["", [Validators.required]],
-                photo: ["",Validators.required],
+            
                  roles: this.fb.array(['USER']),
                      });
                      this.createpopover();

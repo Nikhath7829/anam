@@ -22,15 +22,9 @@
       <label for="number">PhoneNumber</label>
       
     </div>
-    <div *ngIf="valid">
-      <p no-margin *ngIf="formcontrol.get('photo').hasError('required')">Profile Photo required
-      </p>
-    </div>
+    
 
-    <div class="field">
-      <ion-input formControlName="photo" type="file" class="ion-margin-top "  (change)="selectFile($event)"
-        placeholder="Pick a Photo"></ion-input>
-    </div>
+   
 
 
 
