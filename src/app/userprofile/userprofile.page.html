@@ -15,12 +15,15 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col size="4">
+    <!-- <ion-col size="4">
       <ion-avatar class="ion-margin-start ion-margin-top">
         <img  type="file"  (change)="selectFile($event)"/>
-        <!-- <ion-input  type="file" (change)="selectFile($event)"
-        name="camera"></ion-input> -->
+       <ion-input  type="file" (change)="selectFile($event)"
+        name="camera"></ion-input> 
       </ion-avatar>
+    </ion-col> -->
+    <ion-col size="4">
+      <img  style="margin-left:2em;" src="../../assets/icon/user.png" height="50" width="50">
     </ion-col>
     <ion-col>
       <p class="ion-margin-top" style="font-weight: bold;">{{name}}</p>
@@ -71,7 +74,7 @@
 
 
 <!------------------ Footer---------------------- -->
-<ion-footer style="height: 4em;">
+<ion-toolbar color="danger" style="height: 4em;">
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col>
@@ -103,4 +106,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-footer>
+</ion-toolbar>

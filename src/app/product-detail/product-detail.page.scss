@@ -11,17 +11,19 @@ ion-footer{
 
 .cross{
 
-    position: absolute;
+    position: fixed;
    margin: auto;
     left: 3%;
     top: 3%;
     top: 4%;
+    z-index: auto;
 }
 .sharecross{
 
- position: absolute;
+ position: fixed;
     margin: auto; 
     left: 92%;
     top: 3%;
     top: 4%;
+    z-index: auto;
 }
