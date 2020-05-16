@@ -2,12 +2,13 @@
     border:1px solid grey;
     width:306px;
 }
+ion-toolbar{
+    --background:#ff1477;
+}
 .location_icon{
 font-size: 20px;
 }
-ion-footer{
-    background-color:royalblue;
-}
+
 #cat1{
     background: bisque;
     
@@ -26,7 +27,7 @@ ion-footer{
     padding: 5px 9px 5px 5px;
 }
 .search_box{
-    border:1px solid royalblue;
+    border:1px solid white;
 }
 #profile_img{
     border-radius: 37px;
@@ -42,10 +43,6 @@ ion-footer{
     border-radius: 19px;
     /* padding: 1px 1px 1px 1px; */
     padding: 2px 2px 2px 2px;
-}
-.ghgh{
-    font-size:20px!important;
-    color: #262424;
 }
 
 .footer_text{
@@ -66,9 +63,9 @@ ion-card{
 .card-content-md{
     padding-bottom:0px!important;
 }
-#footer{
-    --background: blue!important;
-    
+ion-footer{
+  // --background: blue!important;
+    background-color: #ff1477;
 }
 .catergory_title{
     font-family: 'Lato', sans-serif!important;

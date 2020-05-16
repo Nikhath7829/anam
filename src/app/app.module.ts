@@ -19,9 +19,10 @@ import {TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage';
 
-export function HttpLoaderFactor(http: HttpClient){
-  return new TranslateHttpLoader (http,'assets/il8n/' , ' .json');
-}
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+// export function HttpLoaderFactor(http: HttpClient){
+//   return new TranslateHttpLoader (http,'assets/il8n/' , ' .json');
+// }
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -35,15 +36,16 @@ export function HttpLoaderFactor(http: HttpClient){
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-   
+    
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers: [
-    
+  
     StatusBar,
     SplashScreen,
+    SocialSharing,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeGeocoder,

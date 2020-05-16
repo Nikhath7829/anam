@@ -1,3 +1,7 @@
-ion-label,h4{
+ion-label,h4,ion-input,ion-textarea{
     font-family: 'Lato', sans-serif!important;
+}
+ion-input,ion-textarea{
+    font-size:12px;
+    font-weight:bold;
 }

@@ -6,94 +6,121 @@
 </ion-header>
 
 <ion-content>
-  
-      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-    pullingIcon="arrow-dropdown"
-    pullingText="Pull to refresh"
-    refreshingSpinner="circles"
-    refreshingText="Refreshing...">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
     </ion-refresher-content>
-    </ion-refresher>
-    <form  [formGroup]="formcontrol">
+  </ion-refresher>
+  <form [formGroup]="formcontrol">
 
-      <h4 class="ion-text-center" color="danger">Product Details</h4>
-
-
-     <ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label color="dark" position="stacked">Product Name</ion-label>
-        <ion-input formControlName="name"  ></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+    <h4 class="ion-text-center" color="danger">Product Details</h4>
 
 
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label color="dark" position="stacked">Product Description</ion-label>
-        <ion-textarea formControlName="desc"   rows="6" cols="20"></ion-textarea>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label color="dark" position="stacked">Product Price</ion-label>
-        <ion-input formControlName="price"  (keypress)="keyPress($event)" minlength=8 maxlength=8  class="ion-margin-top"
-     [value]= "Product" type="text" ></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label color="dark" position="stacked">Product Quantity</ion-label>
-        <ion-input formControlName="quant"  class="ion-margin-top" [value]="quantity" type="text" ></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Product Name</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
 
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Product Description</ion-label>
+            <ion-textarea formControlName="desc" rows="6" cols="20"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Product Price</ion-label>
+            <ion-input formControlName="price" (keypress)="keyPress($event)" minlength=8 maxlength=8
+              class="ion-margin-top" [value]="Product" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label color="dark" position="stacked">Choose an image</ion-label>
-        <ion-input  formControlName="image" type="file" (change)="selectFiles($event)" 
-      class="ion-margin-top "></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Product Quantity</ion-label>
+            <ion-input formControlName="quant" class="ion-margin-top" [value]="quantity" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
 
 
 
-     <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Post In to </ion-label>
-          <ion-select formControlName="category"  value="brown" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="Rentals">Category 1</ion-select-option>
-            <ion-select-option value="Buyings">Category 2</ion-select-option>
-            <ion-select-option value="Offer">Category 3</ion-select-option>
-            
-          </ion-select>
-        </ion-item>
-      
-      </ion-col>
-    </ion-row>
-  </ion-grid>
- 
-  <p class="ion-text-center ion-margin-start">
-    <ion-button (click)="add()" class="ion-text-center">POST</ion-button>
-  </p>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-input formControlName="image" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-input formControlName="image1" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-input formControlName="image2" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-input formControlName="image3" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Post In to </ion-label>
+            <ion-select formControlName="category" value="brown" okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="Rentals">Category 1</ion-select-option>
+              <ion-select-option value="Buyings">Category 2</ion-select-option>
+              <ion-select-option value="Offer">Category 3</ion-select-option>
+
+            </ion-select>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <p class="ion-text-center ion-margin-start">
+      <ion-button (click)="add()" class="ion-text-center">POST</ion-button>
+    </p>
   </form>
- 
+
 </ion-content>

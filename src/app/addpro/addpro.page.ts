@@ -25,10 +25,12 @@ export class AddproPage implements OnInit {
         name: ['', [Validators.required]],
         desc: ['', Validators.required],
         price: ['', Validators.required],
-       
         category: ['', Validators.required],
         quant: ['', Validators.required],
         image: ['', [Validators.required]],
+        image1: ['', [Validators.required]],
+        image2: ['', [Validators.required]],
+        image3: ['', [Validators.required]],
         status: '0',
         userId: this.rest.getId()
       })
@@ -101,6 +103,14 @@ add(){
   this.formcontrol.get("price").updateValueAndValidity();
   this.formcontrol.get("quant").setValidators(Validators.required);
   this.formcontrol.get("quant").updateValueAndValidity();
+  this.formcontrol.get("image").setValidators(Validators.required);
+  this.formcontrol.get("image").updateValueAndValidity();
+  this.formcontrol.get("image1").setValidators(Validators.required);
+  this.formcontrol.get("image1").updateValueAndValidity();
+  this.formcontrol.get("image2").setValidators(Validators.required);
+  this.formcontrol.get("image2").updateValueAndValidity();
+  this.formcontrol.get("image3").setValidators(Validators.required);
+  this.formcontrol.get("image3").updateValueAndValidity();
   if (this.formcontrol.valid) {
     console.log('no error');
   }
@@ -125,11 +135,13 @@ if (this.formcontrol.valid) {
       this.formcontrol = this.fb.group({
         name: ['', [Validators.required]],
         desc: ['', Validators.required],
-      
         category: ['', Validators.required],
         price: ['', Validators.required],
         quant: ['', Validators.required],
         image: ['', Validators.required],
+        image1: ['', Validators.required],
+        image2: ['', Validators.required],
+        image3: ['', Validators.required],
        
         status: '0',
         userId: this.rest.getId()

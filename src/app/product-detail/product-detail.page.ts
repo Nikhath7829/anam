@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestService } from '../rest.service';
-
-import { Register,Product } from '../Model/class';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Register, Product } from '../Model/class';
 import { AlertController, ModalController, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-product-detail',
@@ -11,11 +11,20 @@ import { AlertController, ModalController, ToastController } from '@ionic/angula
   styleUrls: ['./product-detail.page.scss'],
 })
 export class ProductDetailPage implements OnInit {
+  sliderOpts = {
+    zoom:{
+      maxRatio:5
+    }
+  };
   id: number;
   arr: any;
+  file:string = null;
   userid: any;
   errmsg: any;
   image;
+  image1;
+  image2;
+  image3;
   productid: any;
   name;
   price;
@@ -24,33 +33,40 @@ export class ProductDetailPage implements OnInit {
   desc;
   Quantity: any;
   total;
-  
-products: Product[] = [];
-  constructor(private rest: RestService,private fb: FormBuilder,private myRoute: Router,private route: ActivatedRoute) { 
+
+  products: Product[] = [];
+  constructor(private socialSharing: SocialSharing,private rest: RestService, private fb: FormBuilder, private myRoute: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.doSearch(params));
   }
 
   ngOnInit() {
     this.getProducts();
   }
+share(){
+  this.socialSharing.share(this.file)
+.then(() =>{
 
+}).catch(() =>{
+
+});
+}
   doSearch(param) {
     this.id = param.id;
   }
 
   doRefresh(event) {
-   
-   
-   this.getProducts();
 
-   setTimeout(() => {
+
+    this.getProducts();
+
+    setTimeout(() => {
       //console.log('Async operation has ended');
-     event.target.complete();
-   }, 2000);
- }
+      event.target.complete();
+    }, 2000);
+  }
 
 
-  
+
   getProducts() {
     this.rest.getProduct(this.id).subscribe((result) => {
       if (result === undefined) {
@@ -65,12 +81,15 @@ products: Product[] = [];
         this.quant = this.userid.quant;
         this.desc = this.userid.desc;
         this.image = this.userid.image;
+        this.image1= this,this.userid.image1;
+        this.image2= this,this.userid.image2;
+        this.image3= this,this.userid.image3;
         localStorage.setItem("productId", this.userid.id);
         localStorage.setItem("name", this.userid.name);
         localStorage.setItem("price", this.userid.price);
         localStorage.setItem("image", this.userid.image);
-       
-       
+
+
       }
     }, (err) => {
       console.log(err);
@@ -90,6 +109,6 @@ products: Product[] = [];
       userId: this.rest.getId(),
     });
   }
-  }
+}
 
 
