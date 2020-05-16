@@ -16,50 +16,64 @@
     <ion-segment-button value="FAVOURITES">
       <ion-label>FAVOURITES</ion-label>
     </ion-segment-button>
-    
   </ion-segment>
 
   <div *ngIf="selectTabs == 'ADS'">
-    <h3>nihath</h3>
+<ion-grid>
+  <ion-row>
+   <ion-col>
+     <p style="margin-top:11em;" class="ion-margin-top ion-text-center">You haven't listed anything yet</p>
+     <ion-button  color="danger" (click)="takephoto()" expand="block">Post</ion-button>
+   </ion-col>
+  </ion-row>
+</ion-grid>
+
+
   </div>
 
   <div *ngIf="selectTabs == 'FAVOURITES'">
-    <h3>jhjj</h3>
+    <ion-grid>
+      <ion-row>
+       <ion-col>
+         <p style="margin-top:11em;" class="ion-margin-top ion-text-center">No Favourites</p>
+         
+       </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
 
 </ion-content>
 
-
-
-<ion-footer color="danger" style="height: 4em;">
+<!------------------ Footer---------------------- -->
+<ion-footer  style="height: 4em;">
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col>
         <div>
-          <ion-icon color="danger" class="ion-margin-start" name="home-outline"></ion-icon>
-          <p class=" footer_text ion-margin-start ">Home</p>
+          <ion-icon color="light" class="ion-margin-start" name="home"></ion-icon>
+          <p color="light"  class=" footer_text ion-margin-start ">Home</p>
         </div>
       </ion-col>
       <ion-col routerLink="/adspage">
-        <ion-icon color="danger" class="ion-margin-start" name="bookmark-outline"></ion-icon>
-        <p class=" footer_text ion-margin-start">Ads</p>
+        <ion-icon color="light" class="ion-margin-start" name="bookmark"></ion-icon>
+        <p  color="light"  class=" footer_text ion-margin-start">Ads</p>
 
       </ion-col>
       <ion-col (click)="takephoto()">
-        <ion-icon color="primary" class="ion-margin-start" name="camera-outline"></ion-icon>
-        <p class=" footer_text ion-margin-start">Sell</p>
+        <ion-icon color="light" class="ion-margin-start" name="camera"></ion-icon>
+        <p color="light" class=" footer_text ion-margin-start">Sell</p>
 
 
       </ion-col>
       <ion-col routerLink="/chatspage">
-        <ion-icon color="danger" class="ion-margin-start" name="chatbox-outline"></ion-icon>
-        <p class=" footer_text ion-margin-start">Chat</p>
+        <ion-icon color="light" class="ion-margin-start" name="chatbox"></ion-icon>
+        <p  color="light" class=" footer_text ion-margin-start">Chat</p>
 
       </ion-col>
       <ion-col routerLink="/userprofile">
-        <ion-icon color="danger" class="ion-margin-start" name="person-outline"></ion-icon>
-        <p class=" footer_text ion-margin-start">Account</p>
+        <ion-icon color="light" class="ion-margin-start" name="person"></ion-icon>
+        <p  color="light" class=" footer_text ion-margin-start">Account</p>
 
       </ion-col>
     </ion-row>
