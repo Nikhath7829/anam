@@ -28,6 +28,7 @@ export class ProductDetailPage implements OnInit {
   productid: any;
   name;
   price;
+  city;
   quant;
   public formcontrol: FormGroup;
   desc;
@@ -80,6 +81,7 @@ share(){
         this.price = this.userid.price;
         this.quant = this.userid.quant;
         this.desc = this.userid.desc;
+        this.city = this.userid.city;
         this.image = this.userid.image;
         this.image1= this,this.userid.image1;
         this.image2= this,this.userid.image2;
@@ -88,6 +90,7 @@ share(){
         localStorage.setItem("name", this.userid.name);
         localStorage.setItem("price", this.userid.price);
         localStorage.setItem("image", this.userid.image);
+        localStorage.setItem("city", this.userid.city);
 
 
       }

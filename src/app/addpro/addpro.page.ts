@@ -27,6 +27,7 @@ export class AddproPage implements OnInit {
         price: ['', Validators.required],
         category: ['', Validators.required],
         quant: ['', Validators.required],
+        city: ['', Validators.required],
         image: ['', [Validators.required]],
         image1: ['', [Validators.required]],
         image2: ['', [Validators.required]],
@@ -111,6 +112,8 @@ add(){
   this.formcontrol.get("image2").updateValueAndValidity();
   this.formcontrol.get("image3").setValidators(Validators.required);
   this.formcontrol.get("image3").updateValueAndValidity();
+  this.formcontrol.get("city").setValidators(Validators.required);
+  this.formcontrol.get("city").updateValueAndValidity();
   if (this.formcontrol.valid) {
     console.log('no error');
   }
@@ -137,6 +140,7 @@ if (this.formcontrol.valid) {
         desc: ['', Validators.required],
         category: ['', Validators.required],
         price: ['', Validators.required],
+        city: ['', Validators.required],
         quant: ['', Validators.required],
         image: ['', Validators.required],
         image1: ['', Validators.required],
