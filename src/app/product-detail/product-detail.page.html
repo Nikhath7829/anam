@@ -1,7 +1,7 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
 
-    <ion-back-button slot="start" Defaulthref="/"></ion-back-button>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
@@ -9,33 +9,30 @@
 
 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
       refreshingText="Refreshing...">
-  </ion-refresher-content>
-</ion-refresher>
+    </ion-refresher-content>
+  </ion-refresher>
 
 
   <ion-grid>
     <ion-row>
-      <ion-col col-8 >
-        <ion-slides  [options]="sliderOpts" zoom>
+      <ion-col col-8>
+        <ion-slides [options]="sliderOpts" zoom>
           <ion-slide>
             <div class="ion-text-right swiper-zoom-container">
-              
+
               <img id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
               <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
               <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
-    </div>
+            </div>
           </ion-slide>
         </ion-slides>
 
-    
 
 
-     <!-- <ion-card-content>
+
+        <!-- <ion-card-content>
       <img src="http://localhost:8080/products/{{images1?.split('\\')[2]}}"  style="height:70px; width:80px;">
       
     </ion-card-content>
@@ -49,35 +46,34 @@
       <img src="http://localhost:8080/products/{{mage3?.split('\\')[2]}}" height="120" width="180">
       
     </ion-card-content> -->
-  </ion-col>
- 
+      </ion-col>
+
     </ion-row>
   </ion-grid>
-  
+
 
   <ion-grid>
     <ion-row>
       <ion-col>
-       
+
         <div class="ion-text-center">
-          <span>  {{name}}</span> <br>
+          <span> {{name}}</span> <br>
           <span>Rs.{{price}}</span>
-        </div >
-        </ion-col>
-  
-    </ion-row>  
+        </div>
+      </ion-col>
+
+    </ion-row>
   </ion-grid>
-  
+
 
   <ion-grid>
     <ion-row>
       <ion-col>
-      
-          <ion-label position="stacked">Product Description</ion-label>
-         
-          <ion-textarea disabled readonly maxLength="500"
-            value="{{desc}}">
-          </ion-textarea>
+
+        <ion-label position="stacked">Product Description</ion-label>
+
+        <ion-textarea disabled readonly maxLength="500" value="{{desc}}">
+        </ion-textarea>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -98,12 +94,12 @@
       <ion-col>
         <div routerLink="/dashboard">
           <ion-icon color="light" class="ion-margin-start" name="home"></ion-icon>
-          <p color="light"  class=" footer_text ion-margin-start ">Home</p>
+          <p color="light" class=" footer_text ion-margin-start ">Home</p>
         </div>
       </ion-col>
       <ion-col routerLink="/offerings">
         <ion-icon color="light" class="ion-margin-start" name="bookmark"></ion-icon>
-        <p  color="light"  class=" footer_text ion-margin-start">Ads</p>
+        <p color="light" class=" footer_text ion-margin-start">Ads</p>
 
       </ion-col>
       <ion-col (click)="takephoto()">
@@ -114,12 +110,12 @@
       </ion-col>
       <ion-col routerLink="/chatspage">
         <ion-icon color="light" class="ion-margin-start" name="chatbox"></ion-icon>
-        <p  color="light" class=" footer_text ion-margin-start">Chat</p>
+        <p color="light" class=" footer_text ion-margin-start">Chat</p>
 
       </ion-col>
       <ion-col routerLink="/userprofile">
         <ion-icon color="light" class="ion-margin-start" name="person"></ion-icon>
-        <p  color="light" class=" footer_text ion-margin-start">Account</p>
+        <p color="light" class=" footer_text ion-margin-start">Account</p>
 
       </ion-col>
     </ion-row>

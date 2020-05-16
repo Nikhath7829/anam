@@ -13,12 +13,17 @@ ion-card{
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
+ion-footer{
+    // --background: blue!important;
+      background-color: #ff1477;
+  }
 ion-icon{
     font-size:14px;
 }
-.ghgh{
-    font-size:20px!important;
-    color: #262424;
+.footer_text{
+    font-size: 10px;
+    color:white;
+    font-family: 'Lato', sans-serif!important;
 }
 
 .footer_text{

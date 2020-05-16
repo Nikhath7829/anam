@@ -5,10 +5,18 @@ ion-label,ion-title{
 ion-segment-button{
     font-size:10px;
 }
-ion-icon{
-    font-size:18px;
-}
 
+
+
+ion-footer{
+    // --background: blue!important;
+      background-color: #ff1477;
+  }
+ion-icon{
+    font-size:14px;
+}
 .footer_text{
     font-size: 10px;
+    color:white;
+    font-family: 'Lato', sans-serif!important;
 }

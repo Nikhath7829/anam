@@ -70,38 +70,37 @@
 
 
 
-<ion-footer color="danger"  style="height: 4em;">
+<!------------------ Footer---------------------- -->
+<ion-footer style="height: 4em;">
   <ion-grid no-padding>
-    <ion-row no-padding >
-<ion-col routerLink="/dashboard">
-  <div>
+    <ion-row no-padding>
+      <ion-col>
+        <div routerLink="/dashboard">
+          <ion-icon color="light" class="ion-margin-start" name="home"></ion-icon>
+          <p color="light" class=" footer_text ion-margin-start ">Home</p>
+        </div>
+      </ion-col>
+      <ion-col routerLink="/offerings">
+        <ion-icon color="light" class="ion-margin-start" name="bookmark"></ion-icon>
+        <p color="light" class=" footer_text ion-margin-start">Ads</p>
+
+      </ion-col>
+      <ion-col (click)="takephoto()">
+        <ion-icon color="light" class="ion-margin-start" name="camera"></ion-icon>
+        <p color="light" class=" footer_text ion-margin-start">Sell</p>
 
 
-  <ion-icon color="danger" class="ion-margin-start" name="home-outline"></ion-icon>
-   <p class=" footer_text ion-margin-start ">Home</p> 
-  </div>
-</ion-col>
-<ion-col>
-  <ion-icon color="danger"  class="ion-margin-start" name="bookmark-outline"></ion-icon>
-  <p class=" footer_text ion-margin-start">Ads</p> 
+      </ion-col>
+      <ion-col routerLink="/chatspage">
+        <ion-icon color="light" class="ion-margin-start" name="chatbox"></ion-icon>
+        <p color="light" class=" footer_text ion-margin-start">Chat</p>
 
-</ion-col>
-<ion-col>
-  <ion-icon  color="primary" class="ion-margin-start" name="camera-outline"></ion-icon>
- <p class=" footer_text ion-margin-start">Sell</p> 
+      </ion-col>
+      <ion-col routerLink="/userprofile">
+        <ion-icon color="light" class="ion-margin-start" name="person"></ion-icon>
+        <p color="light" class=" footer_text ion-margin-start">Account</p>
 
-
-</ion-col>
-<ion-col>
-  <ion-icon  color="danger" class="ion-margin-start" name="chatbox-outline"></ion-icon>
-  <p class=" footer_text ion-margin-start">Chat</p>
-
-</ion-col>
-<ion-col routerLink="/userprofile">
-  <ion-icon  color="danger" class="ion-margin-start" name="person-outline"></ion-icon>
-  <p class=" footer_text ion-margin-start">Account</p>
-
-</ion-col>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-footer>
