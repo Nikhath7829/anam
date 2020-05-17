@@ -1,4 +1,8 @@
-
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+<ion-back-button  slot="start" defaultHref="/"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
 
 
 
@@ -11,7 +15,7 @@
   
   
   <div *ngIf="valid">
-    <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone required * </p>
+    <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Must required * </p>
     </div>
   
   
