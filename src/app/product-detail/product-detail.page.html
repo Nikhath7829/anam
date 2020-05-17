@@ -52,34 +52,27 @@
   </ion-grid>
 
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
 
-        <div class="ion-text-center">
-          <span> {{name}}</span> <br>
-          <span>Rs.{{price}}</span>
-        </div>
-      </ion-col>
+ 
+    <p class="ion-margin-start pricetag"> &#8377; {{price}}</p>
+    <p  class="ion-margin-start pricetag"> {{name}}</p>
+ <h5 class="ion-text-center" style="
+ background: #a89a9a;">Details</h5>
+<ion-label>About Product: {{desc}}</ion-label><br>
+<ion-row>
+  <ion-col>
+    <ion-icon color="primary" class="ion-margin-top" name="location"></ion-icon>
+  </ion-col>
+  <ion-col size="10">
+    <p>{{city}}</p>
+  </ion-col>
+</ion-row>
 
-    </ion-row>
-  </ion-grid>
+ 
 
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
 
-        <ion-label position="stacked">Product Description</ion-label>
-
-        <ion-textarea disabled readonly maxLength="500" value="{{desc}}">
-        </ion-textarea>
-      </ion-col>
-
-      <ion-label>gghgh</ion-label>
-      <ion-col>{{city}}</ion-col>
-    </ion-row>
-  </ion-grid>
+ 
 
 
 
@@ -88,39 +81,18 @@
 
 </ion-content>
 
-
-
-<!------------------ Footer---------------------- -->
-<ion-toolbar  color="danger" style="height: 4em;">
-  <ion-grid no-padding>
-    <ion-row no-padding>
+<ion-toolbar>
+  <ion-grid>
+    <ion-row>
       <ion-col>
-        <div routerLink="/dashboard">
-          <ion-icon color="light" class="ion-margin-start" name="home"></ion-icon>
-          <p color="light" class=" footer_text ion-margin-start ">Home</p>
-        </div>
+        <ion-button color="danger" expand="full">CHAT</ion-button>
       </ion-col>
-      <ion-col routerLink="/offerings">
-        <ion-icon color="light" class="ion-margin-start" name="bookmark"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Ads</p>
 
+      <ion-col>
+        <ion-button color="danger" expand="full">CALL</ion-button>
       </ion-col>
-      <ion-col (click)="takephoto()">
-        <ion-icon color="light" class="ion-margin-start" name="camera"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Sell</p>
 
-
-      </ion-col>
-      <ion-col routerLink="/chatspage">
-        <ion-icon color="light" class="ion-margin-start" name="chatbox"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Chat</p>
-
-      </ion-col>
-      <ion-col routerLink="/userprofile">
-        <ion-icon color="light" class="ion-margin-start" name="person"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Account</p>
-
-      </ion-col>
     </ion-row>
   </ion-grid>
+
 </ion-toolbar>

@@ -8,6 +8,9 @@ ion-footer{
     color:white;
     font-family: 'Lato', sans-serif!important;
 }   
+p,h4{
+    font-family: 'Lato', sans-serif!important;
+}
 
 .cross{
 
@@ -26,4 +29,8 @@ ion-footer{
     top: 3%;
     top: 4%;
     z-index: auto;
+}
+.pricetag{
+    font-weight:bold;
+    font-size: 16px;;
 }

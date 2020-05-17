@@ -2,7 +2,7 @@
   <ion-toolbar color="danger">
 
 
-    <ion-grid >
+    <ion-grid>
       <ion-row>
         <ion-col>
           <ion-input (click)="GetLocation()">
@@ -14,11 +14,11 @@
 
         </ion-col>
         <ion-col size="2">
-        
+
           <!-- <img  src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
     slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;"> -->
 
-      
+
           <img src="../../assets/icon/user.png" height="50" width="50">
         </ion-col>
         <!-- <ion-col size="2">
@@ -32,10 +32,10 @@
 
 
 
-    <ion-grid >
+    <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-input  (ionInput)="getItems($event)"  class="search_box" clearInput placeholder="Search your needs">
+          <ion-input (ionInput)="getItems($event)" class="search_box" clearInput placeholder="Search your needs">
             <ion-icon name="search" class="ion-margin-start  location_icon"></ion-icon>
           </ion-input>
         </ion-col>
@@ -91,19 +91,28 @@
 
 
   <ion-grid>
-    <ion-row >
+    <ion-row>
       <ion-col *ngFor="let l of products" size="6" [routerLink]="['/product-detail',l.id]">
-        <ion-card >
+        <ion-card>
 
           <ion-card-content>
             <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">
-            
+
           </ion-card-content>
           <p class="ion-text-center product_text"> &#8377;{{l.price}}</p>
           <p class="ion-text-center product_text">Quantity {{l.quant}}</p>
           <p class="ion-text-center ion-no-margin product_text">{{l.name}}</p>
           <p class="ion-text-center product_text"> {{l.desc}}</p>
-          <p  style="border-top: 1px solid grey;" class="ion-text-center product_text"> {{l.city}}</p>
+          <div style="border-top: 1px solid #b4acac;">
+            <ion-row>
+              <ion-col col-12>
+                <ion-icon color="primary" class="ion-margin-start " style="font-size:13px;" name="location"></ion-icon>
+                <p style="margin-top: -1em;" class="ion-text-center product_text"> {{l.city}}</p>
+              </ion-col>
+            </ion-row>
+
+          </div>
+
 
 
 
@@ -132,12 +141,12 @@
       <ion-col>
         <div>
           <ion-icon color="light" class="ion-margin-start" name="home"></ion-icon>
-          <p color="light"  class=" footer_text ion-margin-start ">Home</p>
+          <p color="light" class=" footer_text ion-margin-start ">Home</p>
         </div>
       </ion-col>
       <ion-col routerLink="/adspage">
         <ion-icon color="light" class="ion-margin-start" name="bookmark"></ion-icon>
-        <p  color="light"  class=" footer_text ion-margin-start">Ads</p>
+        <p color="light" class=" footer_text ion-margin-start">Ads</p>
 
       </ion-col>
       <ion-col (click)="takephoto()">
@@ -148,12 +157,12 @@
       </ion-col>
       <ion-col routerLink="/chatspage">
         <ion-icon color="light" class="ion-margin-start" name="chatbox"></ion-icon>
-        <p  color="light" class=" footer_text ion-margin-start">Chat</p>
+        <p color="light" class=" footer_text ion-margin-start">Chat</p>
 
       </ion-col>
       <ion-col routerLink="/userprofile">
         <ion-icon color="light" class="ion-margin-start" name="person"></ion-icon>
-        <p  color="light" class=" footer_text ion-margin-start">Account</p>
+        <p color="light" class=" footer_text ion-margin-start">Account</p>
 
       </ion-col>
     </ion-row>
