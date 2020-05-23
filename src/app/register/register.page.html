@@ -1,5 +1,14 @@
 <ion-content fullscreen ion-padding>
-  <h3 class="ion-text-center ">Mobile Mandi</h3>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="3">
+    </ion-col>
+    <ion-col size="3">
+      <img class="ion-margin-top" id="logo" src="../../assets/icon/logo.png">
+    </ion-col>
+    <ion-col size="3">
+    </ion-col>
+  </ion-row>
+  
   <form [formGroup]="formcontrol">
     <div *ngIf="valid">
       <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
@@ -24,12 +33,7 @@
     </div>
     
 
-   
-
-
-
-
-    <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a>
+ <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a>
     </p>
     <ion-grid>
       <ion-row>

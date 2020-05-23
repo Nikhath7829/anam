@@ -92,6 +92,14 @@ export class DashboardPage implements OnInit {
      this.getProductName();
      
   }
+  loc(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+  }
 
   takephoto()
   {

@@ -62,7 +62,7 @@ export class RegisterPage implements OnInit {
    showBackdrop:false}).then((popoverElement)=>{
    popoverElement.present();
     
-   })
+   });
  
   }
  
