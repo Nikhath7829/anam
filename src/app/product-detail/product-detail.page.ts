@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestService } from '../rest.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Register, Product } from '../Model/class';
-import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController, IonSlides } from '@ionic/angular';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.page.html',
@@ -34,12 +34,26 @@ export class ProductDetailPage implements OnInit {
   desc;
   Quantity: any;
   total;
-
+  @ViewChild(IonSlides, { static: false }) slides: IonSlides
   products: Product[] = [];
   constructor(private socialSharing: SocialSharing,private rest: RestService, private fb: FormBuilder, private myRoute: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.doSearch(params));
   }
+  SlideChanged() {
+  }
+  ionViewDidLoad() {
+    setTimeout(() =>
+      this.slides.slideTo(5, 10000), 1000);
+  }
 
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+  }
+
+  slideOptions = {
+    initialSlide: 1,
+    speed: 400,
+  };
   ngOnInit() {
     this.getProducts();
   }

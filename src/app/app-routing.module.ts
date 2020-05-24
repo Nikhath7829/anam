@@ -128,9 +128,14 @@ const routes: Routes = [
     loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
   },
   {
-    path: 'edit-product',
+    path: 'edit-product/:id',
     loadChildren: () => import('./edit-product/edit-product.module').then( m => m.EditProductPageModule)
+  },
+  {
+    path: 'msg',
+    loadChildren: () => import('./msg/msg.module').then( m => m.MsgPageModule)
   }
+  
 
   
 ];

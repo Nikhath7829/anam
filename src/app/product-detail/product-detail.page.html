@@ -18,34 +18,61 @@
   <ion-grid>
     <ion-row>
       <ion-col col-8>
-        <ion-slides [options]="sliderOpts" zoom>
+        <!-- <ion-slides [options]="sliderOpts" zoom> -->
+          <ion-slides  [options]="slideOptions"  zoom  pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
           <ion-slide>
             <div class="ion-text-right swiper-zoom-container">
 
-              <img id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <img  style="height: 19em; width: auto;" id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
               <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
               <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
             </div>
           </ion-slide>
+
+          <ion-slide>
+            <div class="ion-text-right swiper-zoom-container">
+
+              <img  style="height: 19em; width: auto;" id="valued_image" src="http://localhost:8080/products/{{image1?.split('\\')[2]}}">
+              <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
+              <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="ion-text-right swiper-zoom-container">
+
+              <img  style="height: 19em; width: auto;" id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
+              <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            <div class="ion-text-right swiper-zoom-container">
+
+              <img  style="height: 19em; width: auto;" id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
+              <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="ion-text-right swiper-zoom-container">
+
+              <img  style="height: 19em; width: auto;" id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
+              <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
+            </div>
+          </ion-slide>
+
+
+
+
+
         </ion-slides>
 
 
 
 
-        <!-- <ion-card-content>
-      <img src="http://localhost:8080/products/{{images1?.split('\\')[2]}}"  style="height:70px; width:80px;">
-      
-    </ion-card-content>
-
-   <ion-card-content>
-      <img src="http://localhost:8080/products/{{image2?.split('\\')[2]}}" height="120" width="180">
-      
-    </ion-card-content>
-
-    <ion-card-content>
-      <img src="http://localhost:8080/products/{{mage3?.split('\\')[2]}}" height="120" width="180">
-      
-    </ion-card-content> -->
+        
       </ion-col>
 
     </ion-row>

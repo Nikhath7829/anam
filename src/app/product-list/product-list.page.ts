@@ -18,7 +18,7 @@ export class ProductListPage implements OnInit {
 
   listData;
  //listData: MatTableDataSource<any>;
-  displayedColumns: string[] = [  'userId' ,'category','name', 'price', 'quant', 'desc', 'image'];
+  displayedColumns: string[] = [  'userId' ,'category','name', 'price', 'quant', 'desc', 'image','edit'];
   content: any;
   constructor(public rest: RestService) { }
  

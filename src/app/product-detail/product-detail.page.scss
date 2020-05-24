@@ -28,8 +28,15 @@ p,h4{
     left: 92%;
     top: 3%;
     top: 4%;
-    z-index: auto;
+   /// z-index: auto;
 }
+
+div.swiper-pagination {
+    top:20px;
+    bottom:inherit;
+ }
+  
+  
 .pricetag{
     font-weight:bold;
     font-size: 16px;;

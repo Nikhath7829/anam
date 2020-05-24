@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-array',
@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./array.page.scss'],
 })
 export class ArrayPage implements OnInit {
-arr :any[]=[];
-item:any[]=[];
+
+
   constructor() {
     
    }
+   
 
   ngOnInit() {
   }

@@ -55,8 +55,6 @@
 
 <ion-content fullscreen>
 
-
-
   <ion-grid>
     <ion-row class="ion-justify-content-evenly">
       <ion-col>
@@ -68,9 +66,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-  <ion-grid class="catergory_title">
+ <!-- <ion-grid class="catergory_title">
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-margin-start" size="3">
         <img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
@@ -84,9 +80,8 @@
         <img id="cat3" src="../../assets/icon/food-and-restaurant.png" height="40px" width="40px">
         <p class="ion-no-margin">Fruits</p>
       </ion-col>
-
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
 
 
@@ -97,7 +92,7 @@
 
           <ion-card-content>
             <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">
-
+        
           </ion-card-content>
           <p class="ion-text-center product_text"> &#8377;{{l.price}}</p>
           <p class="ion-text-center product_text">Quantity {{l.quant}}</p>
@@ -105,20 +100,15 @@
           <p class="ion-text-center product_text"> {{l.desc}}</p>
           <div style="border-top: 1px solid #b4acac;">
             <ion-row>
-              <ion-col col-12>  
+              <ion-col col-12>
                 <ion-icon color="primary" class="ion-margin-start " style="font-size:13px;" name="location"></ion-icon>
                 <p style="margin-top: -1em;" class="ion-text-center product_text"> {{l.city}}</p>
               </ion-col>
             </ion-row>
-
-          </div>
-
-
-
-
-        </ion-card>
-
-      </ion-col>
+            </div>
+          </ion-card>
+          
+          </ion-col>
 
 
     </ion-row>

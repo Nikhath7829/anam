@@ -203,15 +203,12 @@ productname(): Observable<any>{
 }
  pushfileproducts(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
-
-  formdata.append('file', file);
-
-  const req = new HttpRequest('POST', 'http://localhost:8080/api/file/product', formdata, {
+formdata.append('file', file);
+const req = new HttpRequest('POST', 'http://localhost:8080/api/file/product', formdata, {
     reportProgress: true,
     responseType: 'text'
   });
-
-  return this.http.request(req);
+   return this.http.request(req);
 }
 
 //Edit Profile 
@@ -266,6 +263,25 @@ UpdateRegister(data: Register): Observable<any> {
     return this.http.get<any>(endpoint + 'api/productList', this.httpOptions);
   
   }
-
+//Edit Product
+  geteditprod(id){
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'x-access-token': this.getToken()
+          })
+    };
+    return this.http.get<any>(endpoint + 'api/editprod/'+id, this.httpOptions);
+  }
+  update(id,data:Product){
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'x-access-token': this.getToken()
+          })
+    };
+  
+    return this.http.put<any>(endpoint + 'api/updatesProduct/'+id,data, this.httpOptions);
+  }
   
 }

@@ -18,15 +18,14 @@ import {LoginpopoverPageModule} from './loginpopover/loginpopover.module';
 import {TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-// export function HttpLoaderFactor(http: HttpClient){
-//   return new TranslateHttpLoader (http,'assets/il8n/' , ' .json');
-// }
+//const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    SocketIoModule,
     BrowserModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot(),
@@ -36,7 +35,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    
+     
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule

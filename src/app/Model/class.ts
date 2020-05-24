@@ -22,6 +22,9 @@ export class Login {
     desc: String;
     category: String;
     image: File[];
+    image1: File[];
+    image2: File[];
+    image3: File[];
 }
 
     export class AddtoCart {

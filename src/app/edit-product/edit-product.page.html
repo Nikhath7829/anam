@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
@@ -12,26 +13,71 @@
       refreshingSpinner="circles"
       refreshingText="Refreshing...">
 </ion-refresher-content>
-   </ion-refresher>
+</ion-refresher>
 
-<h3 style="text-align: center;">Edit Prodcut</h3>
-
-
-
-
-
-
+<form [formGroup]="formcontrol">
+<!--   
+<div *ngIf="valid">
+  <p class="ion-no-margin" *ngIf="formcontrol.get('category').hasError('required')">Category is Required </p>
+</div> -->
 
 
 
 
 
+<ion-item>
+  <ion-label>Name of Product : </ion-label>&nbsp;
+  <ion-input [(ngModel)]="name" formControlName="name"></ion-input>
+  
+</ion-item>
+
+<div *ngIf="valid">
+  <p class="ion-no-margin" *ngIf="formcontrol.get('name').hasError('required')">Name is Required </p>
+</div>
 
 
 
+<ion-item>
+  <ion-label>Price of Product : </ion-label>&nbsp;
+  <ion-input  [(ngModel)]="price" formControlName="price"></ion-input>
+</ion-item>
+
+<div *ngIf="valid">
+  <p class="ion-no-margin" *ngIf="formcontrol.get('price').hasError('required')">Price is Required </p>
+</div>
+
+<ion-item>
+  <ion-label>Quant of Product : </ion-label>&nbsp;
+  <ion-input  [(ngModel)]="quant" formControlName="quant"></ion-input>
+</ion-item>
+
+<div *ngIf="valid">
+  <p class="ion-no-margin" *ngIf="formcontrol.get('quant').hasError('required')">Price is Required </p>
+</div>
 
 
+<ion-item>
+  <ion-label>Description : </ion-label>&nbsp;
+  <ion-textarea  [(ngModel)]="desc"  formControlName="desc" rows="3" cols="15" placeholder="Please Enter the Desription of the ...">
+  </ion-textarea>
+</ion-item>
+<div *ngIf="valid">
+  <p class="ion-no-margin" *ngIf="formcontrol.get('desc').hasError('required')">Description Required </p>
+</div>
 
+<ion-item>
+  <ion-label>UserId : </ion-label>&nbsp;
+  <ion-input  [(ngModel)]="userId"  formControlName="userId" readonly>
+  </ion-input>
+</ion-item>
 
-
+<!-- <ion-item>
+<img src="http://localhost:8080/products/{{image?.split('\\')[2]}}"  style="height:70px; width:80px;">
+  <ion-input type="file" id="file" (change)="selectFiles($event)" [(ngModel)]="images" formControlName="image"
+    class="ion-margin-top ion-margin-start ion-padding-end"></ion-input>
+</ion-item>
+<div *ngIf="valid">
+  <p class="ion-no-margin" *ngIf="formcontrol.get('image').hasError('required')">Image Required </p>
+</div> -->
+</form>
 </ion-content>
