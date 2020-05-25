@@ -58,15 +58,35 @@
   <ion-grid>
     <ion-row class="ion-justify-content-evenly">
       <ion-col>
-        <p class="ion-margin-start">Catergory</p>
-      </ion-col>
+     <p class="ion-margin-start">Catergory</p> </ion-col>
 
       <ion-col size="3">
-        <p routerLink="/surat">See All</p>
-      </ion-col>
+        <p (click)="show = !show"  color="danger">See All</p>
+       </ion-col>
     </ion-row>
   </ion-grid>
- <!-- <ion-grid class="catergory_title">
+ <ion-grid class="catergory_title">
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-margin-start" size="3">
+        <img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
+        <p class="ion-no-margin">Vegetables</p>
+      </ion-col>
+      <ion-col size="3">
+        <img id="cat2" src="../../assets/icon/vegetable.png" height="40px" width="40px">
+        <p class="ion-no-margin "> Dry Nuts</p>
+      </ion-col>
+      <ion-col size="2">
+        <img id="cat3" src="../../assets/icon/vegetable.png" height="40px" width="40px">
+        <p class="ion-no-margin">Fruits</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+        <div *ngIf="show" [@enterAnimation]>
+         <p>Nikhath</p>
+        </div>
+    
+  <!-- <ion-grid class="catergory_title">
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-margin-start" size="3">
         <img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
@@ -81,9 +101,9 @@
         <p class="ion-no-margin">Fruits</p>
       </ion-col>
     </ion-row>
-  </ion-grid> -->
+  </ion-grid>  -->
 
-
+ 
 
   <ion-grid>
     <ion-row>

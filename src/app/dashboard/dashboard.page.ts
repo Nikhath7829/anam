@@ -12,9 +12,23 @@ import {AppComponent} from '../app.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Plugins,CameraResultType,CameraSource } from '@capacitor/core';
 import { LangpagecomponentPage } from '../langpagecomponent/langpagecomponent.page';
-
+import {style, state, animate, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-dashboard',
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateX(100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateX(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateX(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateX(100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ],
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
@@ -42,7 +56,11 @@ export class DashboardPage implements OnInit {
   fileUploads: Observable<string[]>;
   @Input() fileUpload: string;
   products: Product[] = [];
-  
+  isDisplay = false;
+  show:boolean = false;
+  toggleDisplay(){
+    this.isDisplay = !this.isDisplay;
+  }
 
   constructor(private domsanitizer:DomSanitizer,public platform:Platform,public popoverController:PopoverController ,private fb: FormBuilder,
      public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
@@ -57,6 +75,7 @@ export class DashboardPage implements OnInit {
       // }
       // )
     }
+
 //       GetLocation()
 //       {
 //         var ref= this;
@@ -92,6 +111,8 @@ export class DashboardPage implements OnInit {
      this.getProductName();
      
   }
+
+ 
   loc(){
     this.geolocation.getCurrentPosition().then((resp) => {
       // resp.coords.latitude
