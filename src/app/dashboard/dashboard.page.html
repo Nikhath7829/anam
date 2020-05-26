@@ -54,17 +54,19 @@
 </ion-content> -->
 
 <ion-content fullscreen>
-
+ <!------------------Category heading------------------>
   <ion-grid class="Category-pop">
     <ion-row class="ion-justify-content-evenly">
       <ion-col>
      <p class="ion-margin-start">Catergory</p> </ion-col>
-
-      <ion-col size="3">
+       <ion-col size="3">
         <p (click)="show = !show"  color="danger">See All</p>
        </ion-col>
     </ion-row>
   </ion-grid>
+
+                <!-------View Categories---------------->
+
  <ion-grid class="catergory_title">
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-margin-start" size="3">
@@ -72,18 +74,56 @@
         <p class="ion-no-margin">Vegetables</p>
       </ion-col>
       <ion-col size="3">
-        <img id="cat2" src="../../assets/icon/vegetable.png" height="40px" width="40px">
+        <img id="cat2" src="../../assets/icon/almond.png" height="40px" width="40px">
         <p class="ion-no-margin "> Dry Nuts</p>
       </ion-col>
       <ion-col size="2">
-        <img id="cat3" src="../../assets/icon/vegetable.png" height="40px" width="40px">
+        <img id="cat3" src="../../assets/icon/fresh.png" height="40px" width="40px">
         <p class="ion-no-margin">Fruits</p>
       </ion-col>
     </ion-row>
   </ion-grid> 
 
+
+  <!----Animated Category-------------->
         <div *ngIf="show" [@enterAnimation]>
-         <p>Nikhath</p>
+
+          <ion-grid class="catergory_title">
+            <ion-row class="ion-justify-content-between">
+              <ion-col class="ion-margin-start" size="3">
+                <img id="cat4" src="../../assets/icon/seeds.png" height="40px" width="40px">
+                <p class="ion-no-margin">Seeds</p>
+              </ion-col>
+              <ion-col size="3">
+                <img id="cat5" src="../../assets/icon/flower.png" height="40px" width="40px">
+                <p class="ion-no-margin "> Flowers</p>
+              </ion-col>
+              <ion-col size="2">
+                <img id="cat6" src="../../assets/icon/oil.png" height="40px" width="40px">
+                <p class="ion-no-margin">Edible OIl</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid> 
+
+
+          <ion-grid class="catergory_title">
+            <ion-row class="ion-justify-content-between">
+              <ion-col class="ion-margin-start" size="3">
+                <img id="cat7" src="../../assets/icon/bag.png" height="40px" width="40px">
+                <p class="ion-no-margin">Bevarages</p>
+              </ion-col>
+              <ion-col size="3">
+                <img id="cat2" src="../../assets/icon/spice.png" height="40px" width="40px">
+                <p class="ion-no-margin ">Herbs & Spices</p>
+              </ion-col>
+              <ion-col size="2">
+                <img id="cat9" src="../../assets/icon/bag.png" height="40px" width="40px">
+                <p class="ion-no-margin">Fertilizers</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid> 
+
+          
         </div>
     
   <!-- <ion-grid class="catergory_title">
