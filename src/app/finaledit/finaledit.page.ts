@@ -13,7 +13,8 @@ import { UserprofilePage } from '../userprofile/userprofile.page';
 export class FinaleditPage implements OnInit {
   public formcontrol:FormGroup;
   valid: boolean = false;
-
+  selectedFiles: FileList;
+  currentFileUpload: File;
   public data:Register = new Register();
   userid;
   arr;
@@ -27,21 +28,40 @@ export class FinaleditPage implements OnInit {
   user: boolean = false;
   name;
   fullname;
- 
+  progress: { percentage: number } = { percentage: 0 };
+
   constructor(private fb:FormBuilder,private rest:RestService) { }
 
   ngOnInit() {
     this.vali();
     this.getuserprofiles()
   }
+  selectFiles(event) {
+    this.selectedFiles = event.target.files;
+    this.imageUrl=this.selectedFiles.item(0);
+  }
+
   vali(){
     this.formcontrol = this.fb.group({
-      fullname:  [''],
-      number: ['']
-      
-     
-       
+      fullname: ["", [Validators.required]],
+      number: ["", [Validators.required]],
+      photo: ["", [Validators.required]],
+       });
+  }
+
+  upload() {
+ 
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.image = this.currentFileUpload.name;
+    console.log(this.currentFileUpload.name);
+    this.rest.profile(this.currentFileUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+     this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is completely uploadedss!');
+      }
     });
+    this.selectedFiles = undefined;
   }
   getuserprofiles() {
     this.rest.userprofile().subscribe((result) => {

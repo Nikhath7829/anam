@@ -15,11 +15,11 @@
         </ion-col>
         <ion-col size="2">
 
-          <!-- <img  src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
-    slot="end" class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;"> -->
+          <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}"
+   class="ion-margin-end" style="height: 39px;border-radius: 25px;margin: 10px;">
 
 
-          <img src="../../assets/icon/user.png" height="50" width="50">
+       
         </ion-col>
         <!-- <ion-col size="2">
           <p (click)="presentPopover()" style="font-size:8px; color:darkblue;">Language<ion-icon
@@ -54,20 +54,21 @@
 </ion-content> -->
 
 <ion-content fullscreen>
- <!------------------Category heading------------------>
+  <!------------------Category heading------------------>
   <ion-grid class="Category-pop">
     <ion-row class="ion-justify-content-evenly">
       <ion-col>
-     <p class="ion-margin-start">Catergory</p> </ion-col>
-       <ion-col size="3">
-        <p (click)="show = !show"  color="danger">See All</p>
-       </ion-col>
+        <p class="ion-margin-start">Catergory</p>
+      </ion-col>
+      <ion-col size="3">
+        <p (click)="show = !show" color="danger">See All</p>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
-                <!-------View Categories---------------->
+  <!-------View Categories---------------->
 
- <ion-grid class="catergory_title">
+  <ion-grid class="catergory_title">
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-margin-start" size="3">
         <img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
@@ -82,68 +83,51 @@
         <p class="ion-no-margin">Fruits</p>
       </ion-col>
     </ion-row>
-  </ion-grid> 
+  </ion-grid>
 
 
   <!----Animated Category-------------->
-        <div *ngIf="show" [@enterAnimation]>
+  <div *ngIf="show" [@enterAnimation]>
 
-          <ion-grid class="catergory_title">
-            <ion-row class="ion-justify-content-between">
-              <ion-col class="ion-margin-start" size="3">
-                <img id="cat4" src="../../assets/icon/seeds.png" height="40px" width="40px">
-                <p class="ion-no-margin">Seeds</p>
-              </ion-col>
-              <ion-col size="3">
-                <img id="cat5" src="../../assets/icon/flower.png" height="40px" width="40px">
-                <p class="ion-no-margin "> Flowers</p>
-              </ion-col>
-              <ion-col size="2">
-                <img id="cat6" src="../../assets/icon/oil.png" height="40px" width="40px">
-                <p class="ion-no-margin">Edible OIl</p>
-              </ion-col>
-            </ion-row>
-          </ion-grid> 
+    <ion-grid class="catergory_title">
+      <ion-row class="ion-justify-content-between">
+        <ion-col class="ion-margin-start" size="3">
+          <img id="cat4" src="../../assets/icon/seeds.png" height="40px" width="40px">
+          <p class="ion-no-margin">Seeds</p>
+        </ion-col>
+        <ion-col size="3">
+          <img id="cat5" src="../../assets/icon/flower.png" height="40px" width="40px">
+          <p class="ion-no-margin "> Flowers</p>
+        </ion-col>
+        <ion-col size="2">
+          <img id="cat6" src="../../assets/icon/oil.png" height="40px" width="40px">
+          <p class="ion-no-margin">Edible OIl</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
 
-          <ion-grid class="catergory_title">
-            <ion-row class="ion-justify-content-between">
-              <ion-col class="ion-margin-start" size="3">
-                <img id="cat7" src="../../assets/icon/bag.png" height="40px" width="40px">
-                <p class="ion-no-margin">Bevarages</p>
-              </ion-col>
-              <ion-col size="3">
-                <img id="cat2" src="../../assets/icon/spice.png" height="40px" width="40px">
-                <p class="ion-no-margin ">Herbs & Spices</p>
-              </ion-col>
-              <ion-col size="2">
-                <img id="cat9" src="../../assets/icon/bag.png" height="40px" width="40px">
-                <p class="ion-no-margin">Fertilizers</p>
-              </ion-col>
-            </ion-row>
-          </ion-grid> 
+    <ion-grid class="catergory_title">
+      <ion-row class="ion-justify-content-between">
+        <ion-col class="ion-margin-start" size="3">
+          <img id="cat7" src="../../assets/icon/bag.png" height="40px" width="40px">
+          <p class="ion-no-margin">Bevarages</p>
+        </ion-col>
+        <ion-col size="3">
+          <img id="cat2" src="../../assets/icon/spice.png" height="40px" width="40px">
+          <p class="ion-no-margin ">Herbs & Spices</p>
+        </ion-col>
+        <ion-col size="2">
+          <img id="cat9" src="../../assets/icon/bag.png" height="40px" width="40px">
+          <p class="ion-no-margin">Fertilizers</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
-          
-        </div>
-    
-  <!-- <ion-grid class="catergory_title">
-    <ion-row class="ion-justify-content-between">
-      <ion-col class="ion-margin-start" size="3">
-        <img id="cat1" src="../../assets/icon/vegetable.png" height="40px" width="40px">
-        <p class="ion-no-margin">Vegetables</p>
-      </ion-col>
-      <ion-col size="3">
-        <img id="cat2" src="../../assets/icon/nut.png" height="40px" width="40px">
-        <p class="ion-no-margin "> Dry Nuts</p>
-      </ion-col>
-      <ion-col size="2">
-        <img id="cat3" src="../../assets/icon/food-and-restaurant.png" height="40px" width="40px">
-        <p class="ion-no-margin">Fruits</p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>  -->
 
- 
+
+
 
   <ion-grid>
     <ion-row>
@@ -152,7 +136,7 @@
 
           <ion-card-content>
             <img src="http://localhost:8080/products/{{l.image?.split('\\')[2]}}" height="120" width="180">
-        
+
           </ion-card-content>
           <p class="ion-text-center product_text"> &#8377;{{l.price}}</p>
           <p class="ion-text-center product_text">Quantity {{l.quant}}</p>
@@ -165,10 +149,10 @@
                 <p style="margin-top: -1em;" class="ion-text-center product_text"> {{l.city}}</p>
               </ion-col>
             </ion-row>
-            </div>
-          </ion-card>
-          
-          </ion-col>
+          </div>
+        </ion-card>
+
+      </ion-col>
 
 
     </ion-row>

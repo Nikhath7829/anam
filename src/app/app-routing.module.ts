@@ -134,6 +134,18 @@ const routes: Routes = [
   {
     path: 'msg',
     loadChildren: () => import('./msg/msg.module').then( m => m.MsgPageModule)
+  },
+  {
+    path: 'buy-package',
+    loadChildren: () => import('./buy-package/buy-package.module').then( m => m.BuyPackagePageModule)
+  },
+  {
+    path: 'categorylist',
+    loadChildren: () => import('./categorylist/categorylist.module').then( m => m.CategorylistPageModule)
+  },
+  {
+    path: 'selcat',
+    loadChildren: () => import('./selcat/selcat.module').then( m => m.SelcatPageModule)
   }
   
 

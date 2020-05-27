@@ -2,63 +2,93 @@
   <ion-toolbar>
     <ion-icon routerLink="/userprofile" class="ion-margin-start" name="arrow-back-outline" slot="start"></ion-icon>
 
-    
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form [formGroup]="formcontrol">
-  <!-- <h5 class="ion-margin-start">Basic Information</h5> -->
-
-    
+    <!-- <h5 class="ion-margin-start">Basic Information</h5> -->
 
 
- 
-<ion-grid>
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="3">
-      <div>
-        <img  src="../../assets/icon/user.png" height="50" width="50">
-        <ion-icon  class="camera" name="camera"></ion-icon>
-      </div>
-    </ion-col>
-  </ion-row>
 
 
-  <!-- Fullname -->
-  <ion-row>
-    <ion-col >
-    <ion-item>
-        <ion-label position="floating">Enter your Name</ion-label>
-        <ion-input [(ngModel)]="name"  formControlName="fullname" ></ion-input>
-        <div *ngIf="valid">
-          <p no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
+
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="3">
+          <div>
+            <!-- <img  src="../../assets/icon/user.png" height="50" width="50"> -->
+            <!-- <ion-icon  type="file"   (change)="selectFiles($event)"   class="camera" name="camera"></ion-icon> -->
+            <!-- <ion-input (change)="selectFiles($event)" type="file" ></ion-input> -->
+       
+              <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}" style="height:70px; width:80px;">
+           
+
           </div>
-      </ion-item>
-</ion-col>
-</ion-row>
-<!-- Phonenumber -->
-
-<ion-row>
-  <ion-col >
-  <ion-item>
-      <ion-label position="floating">Enter your phone</ion-label>
-      <ion-input [(ngModel)]="number"  formControlName="number" ></ion-input>
-      <div *ngIf="valid">
-        <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
-        </div>
-    </ion-item>
-</ion-col>
-</ion-row>
+        </ion-col>
+      </ion-row>
 
 
-<ion-row class="ion-justify-content-center">
-  <ion-col class="ion-margin-top">
-    <ion-button color="danger" expand="full" (click)="update()"  >Save</ion-button>
-  </ion-col>
-</ion-row>
+      <!-- Fullname -->
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Enter your Name</ion-label>
+            <ion-input [(ngModel)]="name" formControlName="fullname"></ion-input>
+            <div *ngIf="valid">
+              <p no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-</ion-grid>
+
+      <!-- Phonenumber -->
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Enter your phone</ion-label>
+            <ion-input [(ngModel)]="number" formControlName="number"></ion-input>
+            <div *ngIf="valid">
+              <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+
+      <!-------Profile Photo -->
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input formControlName="photo" placeholder="photo" (change)="selectFiles($event)" id="photo" type="file"
+              class="ion-margin-top ion-margin-start"></ion-input>
+            <div *ngIf="valid">
+              <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+
+
+
+
+
+
+
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-margin-top">
+          <ion-button color="danger" expand="full" (click)="update()">Save</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
   </form>
 </ion-content>
 
