@@ -20,12 +20,12 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-//const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-  //  SocketIoModule.forRoot(config),
+  SocketIoModule.forRoot(config),
     BrowserModule,
     IonicStorageModule.forRoot(),
 
