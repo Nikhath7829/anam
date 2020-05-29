@@ -45,7 +45,7 @@ export class FinaleditPage implements OnInit {
     this.formcontrol = this.fb.group({
       fullname: ["", [Validators.required]],
       number: ["", [Validators.required]],
-      photo: ["", [Validators.required]],
+      //photo: ["", [Validators.required]],
        });
   }
 

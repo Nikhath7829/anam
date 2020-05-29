@@ -4,7 +4,7 @@ import {Product} from '../Model/class';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { RestService } from '../rest.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Params } from '@angular/router';
 import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import { ProductListPage } from '../product-list/product-list.page';
 @Component({
@@ -13,7 +13,7 @@ import { ProductListPage } from '../product-list/product-list.page';
   styleUrls: ['./edit-product.page.scss'],
 })
 export class EditProductPage implements OnInit {
-  public formcontrol: FormGroup;
+ // public formcontrol: FormGroup;
   public data: Product = new Product();
   progress: { percentage: number } = { percentage: 0 };
   arr;
@@ -29,28 +29,23 @@ export class EditProductPage implements OnInit {
   discount;
   desc;
   userId;
-  images;
+
   image;
   quant;
   
   constructor(public loadingCtrl: LoadingController,private fb: FormBuilder, private rest: RestService, private route: ActivatedRoute) { 
-    this.formcontrol = this.fb.group({
-      name: ['', [Validators.required]],
-     // category: ['', Validators.required],
-     desc: ['', Validators.required],
-      price: ['', Validators.required],
-      quant: ['', Validators.required],
-   image: ['', [Validators.required]],
-   userId: ['', [Validators.required]],
+    
      
-    });
-    this.route.params.subscribe(params => this.doSearch(params));
+    
+   
 }
-  doSearch(param) {
-    this.id = param.id;
-  }
+ 
+  // doSearch(param) {
+  //   this.id = param.id;
+  // }
 
   ngOnInit() {
+    this.id = this.route.params['id'];
   }
   upload() {
     this.progress.percentage = 0;
@@ -75,6 +70,24 @@ export class EditProductPage implements OnInit {
     }, 500);
   }
 
+  getuserDetails() {
+    this.rest.userprofile().subscribe((result) => {
+      if (result === undefined) {
+        console.log(result);
+}
+      else {
+        this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
+        this.userid = this.arr[0].value;
+      //  console.log(this.userid);
+      
+        //this.photo = this.userid.photo;
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+
   retrieval() {
     this.rest.geteditprod(this.id).subscribe((result) => {
       if (result === undefined) {
@@ -85,11 +98,11 @@ export class EditProductPage implements OnInit {
         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
         this.userid = this.arr[0].value;
         //Assigning//
-        this.name = this.userid.name,
-       this.price = this.userid.price;
-         this.desc = this.userid.desc;
+        this.name = this.userid.name;
+      // this.price = this.userid.price;
+        // this.desc = this.userid.desc;
   
-     this.quant= this.userid.quant;
+    // this.quant= this.userid.quant;
   // this.images = this.userid.image;
          }
     }, (err) => {
@@ -108,8 +121,7 @@ export class EditProductPage implements OnInit {
  selectFiles(event) {
    this.selectedFiles = event.target.files;
  }
-
-  alerts(signup) {
+ alerts(signup) {
     //console.log('success');
   }
   
@@ -117,38 +129,38 @@ export class EditProductPage implements OnInit {
 
 add() {
 
-  this.formcontrol.get("name").setValidators(Validators.required);
-  this.formcontrol.get("name").updateValueAndValidity();
-  this.formcontrol.get("price").setValidators(Validators.required);
-  this.formcontrol.get("price").updateValueAndValidity();
-  this.formcontrol.get("image").setValidators(Validators.required);
-  this.formcontrol.get("image").updateValueAndValidity();
-  this.formcontrol.get("image").setValidators(Validators.required);
-  this.formcontrol.get("image").updateValueAndValidity();
-   this.formcontrol.get("desc").setValidators(Validators.required);
-  this.formcontrol.get("desc").updateValueAndValidity();
-  if (this.formcontrol.valid) {
-    console.log('no error');
-    Object.assign(this.data, this.formcontrol.value);
-    console.log(this.data);
+  //this.formcontrol.get("name").setValidators(Validators.required);
+ // this.formcontrol.get("name").updateValueAndValidity();
+  // this.formcontrol.get("price").setValidators(Validators.required);
+  // this.formcontrol.get("price").updateValueAndValidity();
+  // this.formcontrol.get("image").setValidators(Validators.required);
+  // this.formcontrol.get("image").updateValueAndValidity();
+  
+  //  this.formcontrol.get("desc").setValidators(Validators.required);
+  // this.formcontrol.get("desc").updateValueAndValidity();
+//   if (this.formcontrol.valid) {
+//     console.log('no error');
+//     Object.assign(this.data, this.formcontrol.value);
+//     console.log(this.data);
 
-    this.rest.update(this.id, this.data).subscribe((result) => {
-      if (result == undefined) {
-        console.log(result);
-      }
-      else {
-        this.formcontrol.reset();
-        this.presentLoadingDefault();
-        this.retrieval();
-       // this.test.load();
-        //console.log(result);
-      }
-    });
-  }
-  else {
-    console.log('error');
-    this.valid = true;
-  }
+//     this.rest.update(this.id, this.data).subscribe((result) => {
+//       if (result == undefined) {
+//         console.log(result);
+//       }
+//       else {
+//        // this.formcontrol.reset();
+//         this.presentLoadingDefault();
+//         this.retrieval();
+//        // this.test.load();
+//         //console.log(result);
+//       }
+//     });
+//   }
+//   else {
+//     console.log('error');
+//     this.valid = true;
+//   }
+// }
 }
 }
 

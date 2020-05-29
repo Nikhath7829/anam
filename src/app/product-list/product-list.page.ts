@@ -1,9 +1,22 @@
 import { Component, OnInit ,ViewChild,} from '@angular/core';
 import { RestService } from '../rest.service';
 import { MatTableDataSource } from '@angular/material';
-
+import {style, state, animate, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-product-list',
+  animations: [
+    trigger('popOverState', [
+      state('show', style({
+        opacity: 1
+      })),
+      state('hide',   style({
+        opacity: 0
+      })),
+      transition('show => hide', animate('600ms ease-out')),
+      transition('hide => show', animate('1000ms ease-in'))
+    ])
+  ],
+
   templateUrl: './product-list.page.html',
   styleUrls: ['./product-list.page.scss'],
 })
@@ -15,7 +28,7 @@ export class ProductListPage implements OnInit {
   tableStyle = 'bootstrap';
   isItemAvailables:boolean=true;
   isItemAvailable:boolean=true;
-
+  show = false;
   listData;
  //listData: MatTableDataSource<any>;
   displayedColumns: string[] = [  'userId' ,'category','name', 'price', 'quant', 'desc', 'image','edit'];
@@ -28,7 +41,16 @@ export class ProductListPage implements OnInit {
 
     this.getuserDetails();
   }
-  
+  toggle() {
+    this.show = !this.show;
+  }
+
+  get stateName() {
+    return this.show ? 'show' : 'hide'
+  }
+
+
+
  switchStyle(){
   if(this.tableStyle=='dark'){
     this.tableStyle='bootstrap';

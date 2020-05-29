@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
     <ion-title>edit-product</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,8 +16,8 @@
 </ion-refresher-content>
 </ion-refresher>
 
-<form [formGroup]="formcontrol">
-<!--   
+<!--  <form >
+ 
 <div *ngIf="valid">
   <p class="ion-no-margin" *ngIf="formcontrol.get('category').hasError('required')">Category is Required </p>
 </div> -->
@@ -27,11 +28,11 @@
 
 <ion-item>
   <ion-label>Name of Product : </ion-label>&nbsp;
-  <ion-input [(ngModel)]="name" formControlName="name"></ion-input>
+  <ion-input [(ngModel)]="name" ></ion-input>
   
 </ion-item>
 
-<div *ngIf="valid">
+<!-- <div *ngIf="valid">
   <p class="ion-no-margin" *ngIf="formcontrol.get('name').hasError('required')">Name is Required </p>
 </div>
 
@@ -69,7 +70,8 @@
   <ion-label>UserId : </ion-label>&nbsp;
   <ion-input  [(ngModel)]="userId"  formControlName="userId" readonly>
   </ion-input>
-</ion-item>
+</ion-item> -->
+<ion-button color="danger" click="add()">Save</ion-button>
 
 <!-- <ion-item>
 <img src="http://localhost:8080/products/{{image?.split('\\')[2]}}"  style="height:70px; width:80px;">
@@ -78,6 +80,6 @@
 </ion-item>
 <div *ngIf="valid">
   <p class="ion-no-margin" *ngIf="formcontrol.get('image').hasError('required')">Image Required </p>
-</div> -->
-</form>
+</div> 
+</form>-->
 </ion-content>

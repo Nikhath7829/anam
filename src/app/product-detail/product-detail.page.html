@@ -18,33 +18,36 @@
   <ion-grid>
     <ion-row>
       <ion-col col-8>
-        <!-- <ion-slides [options]="sliderOpts" zoom> -->
-          <ion-slides  [options]="slideOptions"  zoom >
-         
+        <ion-slides [options]="sliderOpts" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)" zoom>
+
+          <ion-slide>
             <div class="ion-text-right swiper-zoom-container">
 
-              <img  style="height: 19em; width: auto;" id="valued_image" src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <img style="height: 14em; width: auto;" id="valued_image"
+                src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
               <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
               <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
             </div>
-            </ion-slides>
-      
-       
-            
+          </ion-slide>
+          <ion-slide>
+            <div class="ion-text-right swiper-zoom-container">
 
-       
-      
+              <img style="height: 14em; width: auto;" id="valued_image"
+                src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
+              <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
+            </div>
+          </ion-slide>
+          <ion-slide> 
+            <div class="ion-text-right swiper-zoom-container">
 
-
-
-
-
-     
-
-
-
-
-        
+              <img style="height: 14em; width: auto;" id="valued_image"
+                src="http://localhost:8080/products/{{image?.split('\\')[2]}}">
+              <ion-icon class="cross" name="close" routerLink="/dashboard" color="light"></ion-icon>
+              <ion-icon (click)="share()" class="sharecross" color="light" name="share-social"></ion-icon>
+            </div>
+          </ion-slide>
+        </ion-slides>
       </ion-col>
 
     </ion-row>

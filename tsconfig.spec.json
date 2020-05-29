@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+   
     "outDir": "./out-tsc/spec",
     "types": [
       "jasmine",
@@ -16,4 +17,5 @@
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
   ]
+ 
 }

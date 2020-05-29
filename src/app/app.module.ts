@@ -15,20 +15,20 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import {LangpagecomponentPageModule } from './langpagecomponent/langpagecomponent.module';
 import {RegisterpopoverPageModule} from './registerpopover/registerpopover.module';
 import {LoginpopoverPageModule} from './loginpopover/loginpopover.module';
-import {TranslateModule,TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 import { IonicStorageModule } from '@ionic/storage';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+//const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    SocketIoModule.forRoot(config),
+  //  SocketIoModule.forRoot(config),
     BrowserModule,
     IonicStorageModule.forRoot(),
-    TranslateModule.forRoot(),
+
     LoginpopoverPageModule,
     RegisterpopoverPageModule,
     LangpagecomponentPageModule,
@@ -48,7 +48,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeGeocoder,
-    Geolocation
+   // Geolocation,
+    
   ],
   bootstrap: [AppComponent]
 })

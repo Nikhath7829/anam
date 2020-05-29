@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+//import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AlertController ,PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -13,6 +14,10 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Plugins,CameraResultType,CameraSource } from '@capacitor/core';
 import { LangpagecomponentPage } from '../langpagecomponent/langpagecomponent.page';
 import {style, state, animate, transition, trigger} from '@angular/animations';
+
+
+
+
 @Component({
   selector: 'app-dashboard',
   animations: [
@@ -34,10 +39,11 @@ import {style, state, animate, transition, trigger} from '@angular/animations';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-  map:any;
-  marker:any;
+  //map:any;
+  //marker:any;
   states:any;
   image:SafeResourceUrl;
+ 
   timestamp:any;
   latitude:any='';
   longitude:any='';
@@ -64,14 +70,14 @@ export class DashboardPage implements OnInit {
   }
 
   constructor(private domsanitizer:DomSanitizer,public platform:Platform,public popoverController:PopoverController ,private fb: FormBuilder,
-     public rest: RestService,private geolocation: Geolocation,public loadingController: LoadingController,
+     public rest: RestService,public loadingController: LoadingController,
     public alertController: AlertController,  private route: Router,private test: AppComponent) { 
       // this.platform.ready().then(()=>{
       //   var mapOptions = {
       //     center:{lat:23.2366,lng:79.3822},
       //   zoom:7
       //   }
-      //   this.map = new goggle.maps.Map(document.getElementById("map"),mapOptions);
+      //   this.map = new google.maps.Map(document.getElementById("map"),mapOptions);
       //   this.GetLocation();
       // }
       // )
@@ -82,21 +88,20 @@ export class DashboardPage implements OnInit {
 //         var ref= this;
 //         let watch= this.geolocation.watchPosition();
 //         watch.subscribe((position)=>{
-// var gps=new goggle .maps.LatLng
+// var gps=new google .maps.LatLng
 // (position.coords.latitude,position.coords.longitude);
 // if(ref.marker=null){
 
 // }
 //  else{
-//   ref.marker = new goggle.maps.Marker({
+//   ref.marker = new google.maps.Marker({
 //     position:gps,
 //     map:ref.map,
 //     title:'jhjhj jhjhj'
 //   })
-// }
-// // else{
-// //   ref.marker.setPosition(gps);
-// // }
+//         }
+        
+
 
 // ref.map.panTo(gps);
 // ref.latitude = position.coords.latitude.toString();
@@ -114,14 +119,14 @@ export class DashboardPage implements OnInit {
   }
 
  
-  loc(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
-  }
+  // loc(){
+  //   this.geolocation.getCurrentPosition().then((resp) => {
+  //     // resp.coords.latitude
+  //     // resp.coords.longitude
+  //    }).catch((error) => {
+  //      console.log('Error getting location', error);
+  //    });
+  // }
 
   takephoto()
   {

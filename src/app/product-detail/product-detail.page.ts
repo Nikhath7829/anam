@@ -13,9 +13,9 @@ import { AlertController, ModalController, ToastController, IonSlides } from '@i
 export class ProductDetailPage implements OnInit {
   sliderOpts = {
     zoom:{
-      maxRatio:5
+      maxRatio:2
     }
-  };
+  }
   id: number;
   arr: any;
   file:string = null;
@@ -47,13 +47,17 @@ export class ProductDetailPage implements OnInit {
   }
 
   slidesDidLoad(slides: IonSlides) {
-    slides.startAutoplay();
+   // slides.startAutoplay();
   }
 
   slideOptions = {
     initialSlide: 1,
     speed: 400,
   };
+
+  
+
+
   ngOnInit() {
     this.getProducts();
   }
@@ -97,9 +101,9 @@ share(){
         this.desc = this.userid.desc;
         this.city = this.userid.city;
         this.image = this.userid.image;
-        this.image1= this,this.userid.image1;
-        this.image2= this,this.userid.image2;
-        this.image3= this,this.userid.image3;
+        this.image1= this.userid.image1;
+        this.image2= this.userid.image2;
+        this.image3= this.userid.image3;
         localStorage.setItem("productId", this.userid.id);
         localStorage.setItem("name", this.userid.name);
         localStorage.setItem("price", this.userid.price);
