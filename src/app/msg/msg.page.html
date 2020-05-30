@@ -1,13 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>msg</ion-title>
+    <ion-back-button defaultHref="/" slot="start"></ion-back-button>
+    <ion-title slot="start">CHAT</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
  
   <ion-grid>
-    <ion-text color="danger" text-center>
+    <ion-text color="medium " text-center>
       <p>You joined the chat as {{ currentUser }}</p>
     </ion-text>
     <ion-row *ngFor="let message of messages">

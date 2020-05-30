@@ -35,6 +35,9 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      if (window.location.pathname === "/"){
+        this.route.navigateByUrl('/login');
+      }
       this.statusBar.styleDefault();
       this.splashScreen.hide();
      // this.lngService.setInitialLanguage();

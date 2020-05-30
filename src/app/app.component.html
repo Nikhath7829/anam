@@ -76,8 +76,8 @@
           <hr>
           <ion-list lines="none">
             <ion-menu-toggle auto-hide="true">
-              <ion-item class="ion-margin-start">
-                <ion-icon (click)="logout()" name="power" slot="start"></ion-icon>
+              <ion-item (click)="logout()"  class="ion-margin-start">
+                <ion-icon name="power" slot="start"></ion-icon>
                 <ion-label (click)="logout()" class="ion-margin-center" routerLink="/login">Log out</ion-label>
               </ion-item>
             </ion-menu-toggle>
