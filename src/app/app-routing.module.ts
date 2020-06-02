@@ -153,6 +153,14 @@ const routes: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+  },
+  {
+    path: 'veglist',
+    loadChildren: () => import('./veglist/veglist.module').then( m => m.VeglistPageModule)
+  },
+  {
+    path: 'frulist',
+    loadChildren: () => import('./frulist/frulist.module').then( m => m.FrulistPageModule)
   }
   
 

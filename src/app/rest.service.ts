@@ -170,7 +170,7 @@ productname(): Observable<any>{
       'x-access-token': this.getToken() 
         })          
   };
-    return this.http.get<any>(endpoint + 'api/productName', this.httpOptions);
+ return this.http.get<any>(endpoint + 'api/getAllProducts', this.httpOptions);
  
  }
 

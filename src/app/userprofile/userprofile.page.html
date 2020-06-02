@@ -39,33 +39,52 @@
 
         <ion-item-group>
 
-
+          <!-- Packages -->
           <ion-item routerLink="/package">
             <ion-row>
-              <ion-col>
-                <ion-label>Buy Packages & My Orders</ion-label>
-              </ion-col>
-              <ion-col>
-                <!-- <p class="package no-margin">Packages,orders,billings and invoices</p> -->
+              <ion-col col-12>
+              
+                <ion-label class="ion-margin-start">Buy Packages & My Orders</ion-label>
+                <p id="tagline" class="ion-no-margin">Packages,orders,billing and invoices</p>
               </ion-col>
             </ion-row>
-        
-          
             <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
           </ion-item>
 
-          <ion-item routerLink="/settings">
-            <ion-label>Settings</ion-label>
+              <!-- Settings -->
+
+          <ion-item  routerLink="/settings">
+            <ion-row>
+              <ion-col  col-12>
+                <ion-icon  style="position: absolute;left:8%;" name="settings"></ion-icon> 
+                <ion-label>Settings</ion-label>
+                <p id="tagline" class="ion-margin-start ion-no-margin">Privacy and logout</p>
+              </ion-col>
+            </ion-row>
             <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
           </ion-item>
 
+          <!-- Help Support -->
           <ion-item routerLink="/support">
-            <ion-label>Help & Support</ion-label>
+            <ion-row>
+              <ion-col col-12>
+         
+                <ion-label >Help & Support</ion-label>
+                <p id="tagline" class="ion-no-margin">Help center and legal terms</p>
+              </ion-col>
+            </ion-row>
             <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
           </ion-item>
 
+          <!-- Languages -->
           <ion-item routerLink="/language">
-            <ion-label>Select Language</ion-label>
+            <ion-row>
+              <ion-col col-12>
+             
+                <ion-label>Select Language</ion-label>
+                <p id="tagline" class="ion-no-margin">English</p>
+              </ion-col>
+            </ion-row>
             <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
           </ion-item>
 

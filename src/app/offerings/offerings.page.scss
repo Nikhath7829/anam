@@ -1,6 +1,19 @@
 ion-title{
     text-transform: uppercase;
 }
+.tagline{
+    font-size: 13px;
+    font-weight: 500;
+    padding: 43px;
+    font-family: 'Lato', sans-serif!important;
+}
+img{
+    height: 2em;
+    width: auto;
+    position: absolute;
+    left: 41%;
+    top: 25%;
+}
 .category-icons{
     font-size: 22px;
     padding: 13px;
@@ -9,9 +22,10 @@ ion-title{
 ion-card{
     border-style: none;
     box-shadow: initial;
-    
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid #bebebe;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+    height:6em;
 }
 ion-footer{
     // --background: blue!important;
