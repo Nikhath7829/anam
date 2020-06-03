@@ -6,7 +6,7 @@ import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 import { Camera } from '@ionic-native/camera/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,8 +15,8 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import {LangpagecomponentPageModule } from './langpagecomponent/langpagecomponent.module';
 import {RegisterpopoverPageModule} from './registerpopover/registerpopover.module';
 import {LoginpopoverPageModule} from './loginpopover/loginpopover.module';
-
 import { IonicStorageModule } from '@ionic/storage';
+
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
@@ -28,7 +28,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
   SocketIoModule.forRoot(config),
     BrowserModule,
     IonicStorageModule.forRoot(),
-
+    
     LoginpopoverPageModule,
     RegisterpopoverPageModule,
     LangpagecomponentPageModule,
