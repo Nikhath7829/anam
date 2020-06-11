@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { AlertController, ModalController,PopoverController } from '@ionic/angular';
 import { RestService } from '../rest.service';
 import {Login} from '../Model/class';
-import { LoginpopoverPage } from '../loginpopover/loginpopover.page';
+import { LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,41 +14,38 @@ import { LoginpopoverPage } from '../loginpopover/loginpopover.page';
 export class LoginPage implements OnInit {
   public formcontrol : FormGroup;
   public data: Login = new Login();
-
   valid: boolean = false;
   errmsg: any;
   showMsg: any;
   formValid: any;
- 
-  server: any;
-  constructor(private popover:PopoverController, private fb: FormBuilder,private alertCtrl: AlertController,
+   server: any;
+  constructor(private popover:PopoverController, private loadingCtrl  : LoadingController,private fb: FormBuilder,private alertCtrl: AlertController,
     public rest: RestService, private myRoute: Router,) {
     this.formcontrol = this.fb.group({
       fullname: ["",],
       number: ["", []],
-      
     });
    }
 
   ngOnInit() {
   }
-  createpopover()
-  {
-    this.popover.create({component:LoginpopoverPage,
-   showBackdrop:false}).then((popoverElement)=>{
-   popoverElement.present();
-   
-   })
- 
-  }
-  async confirm() {
-    let alert = await this.alertCtrl.create({
-      message: 'Successfully Logged In',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
+  async createLoader(){
+    let loading = await this.loadingCtrl.create({
+      message:"Logging In",
+      duration:2000,
+      showBackdrop:false,
+      spinner:"lines-small"
+      });
+      loading.present();
+      setTimeout(()=>{
+        loading.dismiss();
+      },2000)
+      //this.myRoute.navigate(["/login"]);
+    
+    
+     }
 
+  
   login(){
     
   this.formcontrol.get("number").setValidators(Validators.required);
@@ -57,7 +55,7 @@ export class LoginPage implements OnInit {
   }
   else {
     this.valid=true;
-    alert('Please enter the fields');
+    alert('We found with empty records');
   }
  
   Object.assign(this.data, this.formcontrol.value);
@@ -73,7 +71,7 @@ export class LoginPage implements OnInit {
         this.errmsg = true;
       }
       else {
-       //this.createpopover();
+    this.createLoader();
         this.rest.sendToken(result.accessToken);
         this.myRoute.navigate(['/dashboard']);
         this.formcontrol.reset();

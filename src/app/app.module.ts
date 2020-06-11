@@ -13,8 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import {LangpagecomponentPageModule } from './langpagecomponent/langpagecomponent.module';
-import {RegisterpopoverPageModule} from './registerpopover/registerpopover.module';
-import {LoginpopoverPageModule} from './loginpopover/loginpopover.module';
+
 import { IonicStorageModule } from '@ionic/storage';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -29,8 +28,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     BrowserModule,
     IonicStorageModule.forRoot(),
     
-    LoginpopoverPageModule,
-    RegisterpopoverPageModule,
+    
     LangpagecomponentPageModule,
     ReactiveFormsModule,
     FormsModule,

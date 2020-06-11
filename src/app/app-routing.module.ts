@@ -102,14 +102,7 @@ const routes: Routes = [
   
   
 
-  {
-    path: 'registerpopover',
-    loadChildren: () => import('./registerpopover/registerpopover.module').then( m => m.RegisterpopoverPageModule)
-  },
-  {
-    path: 'loginpopover',
-    loadChildren: () => import('./loginpopover/loginpopover.module').then( m => m.LoginpopoverPageModule)
-  },
+    
   {
     path: 'langpagecomponent',
     loadChildren: () => import('./langpagecomponent/langpagecomponent.module').then( m => m.LangpagecomponentPageModule)
@@ -161,6 +154,14 @@ const routes: Routes = [
   {
     path: 'frulist',
     loadChildren: () => import('./frulist/frulist.module').then( m => m.FrulistPageModule)
+  },
+  {
+    path: 'slide',
+    loadChildren: () => import('./slide/slide.module').then( m => m.SlidePageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   }
   
 

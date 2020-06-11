@@ -8,7 +8,8 @@ import {Register} from '../Model/class';
 import { LoadingController } from '@ionic/angular';
 import {NavController } from '@ionic/angular'
 
-import { RegisterpopoverPage } from '../registerpopover/registerpopover.page';
+
+import { load } from 'google-maps';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +27,7 @@ export class RegisterPage implements OnInit {
   errmsg: any;
   public data: Register = new Register();
  // loadingCtrl: any;
-  constructor(private popover:PopoverController, private navCtrl:NavController,public fb: FormBuilder,loadingCtrl  : LoadingController,
+  constructor(private popover:PopoverController, private navCtrl:NavController,public fb: FormBuilder,private loadingCtrl  : LoadingController,
   private alertCtrl: AlertController,public rest: RestService, private myRoute: Router,private modalCtrl:ModalController) { 
   this.formcontrol = this.fb.group({
     fullname: ["", [Validators.required]],
@@ -55,16 +56,22 @@ export class RegisterPage implements OnInit {
     });
     this.selectedFile = undefined;
   }
+ async createLoader(){
+let loading = await this.loadingCtrl.create({
+  message:"Registering",
+  duration:2000,
+  showBackdrop:false,
+  spinner:"lines-small"
+  });
+  loading.present();
+  setTimeout(()=>{
+    loading.dismiss();
+  },2000)
+  //this.myRoute.navigate(["/login"]);
 
-  createpopover()
-  {
-    this.popover.create({component:RegisterpopoverPage,
-   showBackdrop:false}).then((popoverElement)=>{
-   popoverElement.present();
-    
-   });
- 
-  }
+
+ }
+
  
   
   async confirm() {
@@ -122,7 +129,8 @@ export class RegisterPage implements OnInit {
             
                  roles: this.fb.array(['USER']),
                      });
-                     this.createpopover();
+                    // this.createpopover();
+                    this.createLoader();
                }
            },(err) => {
            // err.status(200).send("Error -> " + err);

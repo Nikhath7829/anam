@@ -1,13 +1,16 @@
 form {
     margin: 11em 0;
   }
+  *{
+    font-family: 'Lato', sans-serif!important;
+  }
   ion-button{
      --background: red;
   }
   
    h3{
 margin-top:3em;
-font-family: 'Lato', sans-serif!important;
+
    }
    p{
     color:red;
@@ -34,6 +37,9 @@ font-family: 'Lato', sans-serif!important;
     padding: 0;
     cursor: text;
     margin: 2px 18px 2px 18px;
+    font-weight: 500;
+    font-size: initial;
+color:black;
 
   }
   
@@ -80,6 +86,6 @@ font-family: 'Lato', sans-serif!important;
   
 
   ion-button{
-    --background: #ff1744;
+    --background: linear-gradient(90deg, #e54768 0%, #ff0033b0 100%);
     text-transform: capitalize;
   }

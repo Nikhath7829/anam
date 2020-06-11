@@ -17,7 +17,7 @@
     <div class="field">
       <input type="text" formControlName="fullname" name="fullname" id="fullname" placeholder="">
       <label for="fullname">FullName</label>
-     </div>
+    </div>
 
 
     <div *ngIf="valid">
@@ -28,33 +28,23 @@
       <input type="number" [value]="number" (keypress)="keyPress($event)" name="number" formControlName="number"
         id="number" placeholder="">
       <label for="number">PhoneNumber</label>
-     </div>
-
-
-
-     <!-------Photo Required------->
-
-     <!-- <div *ngIf="valid">
-      <p class="ion-margin-start" *ngIf="formcontrol.get('photo').hasError('required')">Photo required * </p>
     </div>
 
-    <div class="field">
-      <ion-input  formControlName="photo" type="file"   
-      class="ion-margin-top " (change)="selectFile($event)" placeholder="Pick a Photo"></ion-input>
-    
-     </div> -->
+
+
+
 
 
     <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a>
     </p>
     <ion-grid>
       <ion-row>
-        <ion-col></ion-col>
+
         <ion-col>
-          <ion-button expand="full"  (click)="register()">Register</ion-button>
+          <ion-button expand="block" (click)="register()">Register</ion-button>
 
         </ion-col>
-        <ion-col></ion-col>
+
       </ion-row>
     </ion-grid>
   </form>

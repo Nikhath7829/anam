@@ -1,15 +1,13 @@
 
-
+*{
+  font-family: 'Lato', sans-serif!important;
+}
 form {
     margin: 11em 0;
   }
-  // ion-button{
-  //    --background: red;
-  // }
-  
-   h3{
+  h3{
 margin-top:3em;
-font-family: 'Lato', sans-serif!important;
+
    }
   .field {
     display: flex;
@@ -33,10 +31,13 @@ font-family: 'Lato', sans-serif!important;
     margin: 2px 18px 2px 18px;
 
   }
+  *{
+    font-family: 'Lato', sans-serif!important;
+  }
   
   input:focus {
     outline: 0;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #644bdc;
   }
   
   label {
@@ -81,7 +82,7 @@ font-family: 'Lato', sans-serif!important;
 }
 
   ion-button{
-    --background: #ff1744;
+    --background: linear-gradient(90deg, #e54768 0%, #ff0033b0 100%);
     text-transform: capitalize;
   }
  

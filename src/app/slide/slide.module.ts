@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterpopoverPageRoutingModule } from './registerpopover-routing.module';
+import { SlidePageRoutingModule } from './slide-routing.module';
 
-import { RegisterpopoverPage } from './registerpopover.page';
+import { SlidePage } from './slide.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterpopoverPageRoutingModule
+    SlidePageRoutingModule
   ],
-  declarations: [RegisterpopoverPage]
+  declarations: [SlidePage]
 })
-export class RegisterpopoverPageModule {}
+export class SlidePageModule {}
