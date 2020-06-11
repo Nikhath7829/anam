@@ -162,6 +162,10 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'upp',
+    loadChildren: () => import('./upp/upp.module').then( m => m.UppPageModule)
   }
   
 
