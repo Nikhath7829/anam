@@ -2,14 +2,22 @@ ion-icon {
     font-size: 3em;
     color:whitesmoke;
 }
-p,h4{
+*{ 
     font-family: 'Lato', sans-serif!important;
+    font-style: normal;
+}
+p,h4{
+   
     font-weight:bold;
 }
-
+ion-item{
+font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+}
 ion-title{
-    font-family: 'Lato', sans-serif!important;
-    color:deeppink;
+ 
+    color:darkblue;
 }
 ion-menu-button{
     color:darkblue;

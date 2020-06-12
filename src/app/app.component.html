@@ -5,7 +5,7 @@
       
           <!------ Refresher ------->
           <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="lines-small"
               refreshingText="Refreshing...">
             </ion-refresher-content>
           </ion-refresher>
@@ -24,25 +24,25 @@
 
 
       <ion-menu-toggle auto-hide="true">
-      <ion-item class="active">
+      <ion-item class="active" routerLink="/admindashboard">
         <ion-icon name="home" slot="start"></ion-icon>Dashboard
       </ion-item>
       </ion-menu-toggle>
 
       <ion-menu-toggle auto-hide="true">
-<ion-item class="item">
+<ion-item  class="active" routerLink="/registeruser" class="item">
   <ion-icon name="people" slot="start"></ion-icon>View Users
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
-<ion-item>
+<ion-item routerLink="/addpro">
   <ion-icon name="basket" slot="start"></ion-icon>Add Product
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
-<ion-item>
+<ion-item routerLink="/product-list">
   <ion-icon name="eye" slot="start"></ion-icon>All Products
 </ion-item>
 </ion-menu-toggle>

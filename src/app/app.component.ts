@@ -47,15 +47,12 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    
+  this.getuserprofiles();
   }
   doRefresh(event) {
-
-    this.getuserprofiles();
-  
-   setTimeout(() => {
-      
-     event.target.complete();
+this.getuserprofiles();
+ setTimeout(() => {
+event.target.complete();
    }, 2000);
  }
 
