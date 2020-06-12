@@ -122,7 +122,7 @@ startUpload(imgEntry, position) {
 }
 
 updateStoredImages(name) {
-  this.storage.get(STORAGE_KEY).then(images => {
+  this.storage.get().then(images => {
     let arr = [];
     if (images && images !== '' && images.length > 0) {
       arr = JSON.parse(images);

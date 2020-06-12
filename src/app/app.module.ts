@@ -42,7 +42,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
   ],
   providers: [
     File,
-   FilePath, 
+ FilePath, 
     StatusBar,
     SplashScreen,
     SocialSharing,

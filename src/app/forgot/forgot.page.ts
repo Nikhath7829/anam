@@ -4,7 +4,9 @@ import { HttpResponse, HttpEventType } from '@angular/common/http';
 import  {RestService } from '../rest.service';
 import { Router } from '@angular/router';
 import {  AlertController,ModalController } from '@ionic/angular';
-import {ForgotPassword} from '../Model/class';
+import {Forgot} from '../Model/class';
+import { LoadingController, Platform } from '@ionic/angular';
+
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.page.html',
@@ -14,79 +16,105 @@ export class ForgotPage implements OnInit {
   public formcontrol : FormGroup;
   public formValid = true;
   showMsg: boolean = false;
-  valid: boolean;
   flag: any;
   errmsg: any;
-  public data: ForgotPassword = new ForgotPassword();
-
-  constructor(public fb: FormBuilder,
+  public data: Forgot = new Forgot();
+   valid: boolean = false;
+  user: boolean = false;
+  constructor(public fb: FormBuilder,public loadingController: LoadingController,
     private alertCtrl: AlertController,public rest: RestService, private myRoute: Router,private modalCtrl:ModalController) { 
       this.formcontrol = this.fb.group({
-        
-      number: ["", [Validators.required]]
-     
+        fullname: ["", [Validators.required]]
        });
-               
-        
-    }
+  }
 
   ngOnInit() {
     this.valid=false;
     this.errmsg=false;
   }
 
-  async confirm() {
-    let alert = await this.alertCtrl.create({
-   
-      message: ' Register Successfully',
-      
-      buttons: ['OK']
-    });
-    alert.present().then(() => {
-      this.modalCtrl.dismiss();
-
-      
-    });
+  async createLoader(){
+    let loading = await this.loadingController.create({
+      message:"Updating New Password",
+      duration:2000,
+      showBackdrop:false,
+      spinner:"lines-small"
+      });
+      loading.present();
+      setTimeout(()=>{
+        loading.dismiss();
+      },2000)
+      //this.myRoute.navigate(["/login"]);
   }
-  updatepass(){
- 
-     this.formcontrol.get("number").setValidators(Validators.required);
-    this.formcontrol.get("number").updateValueAndValidity();
-    Object.assign(this.data, this.formcontrol.value);
-      console.log(this.data);
-  
-     if (this.formcontrol.valid) {
-        this.rest.forgot(this.data).subscribe((result) => {   
-         if(result === undefined)
-            {
-              console.log(result);
-              this.errmsg=true;
-            
-            }
-            
-           else
-            {
-              this.formcontrol.reset();
-              this.formcontrol = this.fb.group({
-                fullname: ["", [Validators.required]],
-                number: ["", [Validators.required]],
-                 roles: this.fb.array(['USER']),
-                     });
-              this.confirm();
-              this.myRoute.navigate(['/login']);
-            }
-            
-          }, (err) => {
-           // err.status(200).send("Error -> " + err);
-          // this.server=true;
-            
-            console.log(err);
-          
-          });
-        }
-        else{
-          this.valid=true;
-        }
 
-}
+  reset() {
+    Object.assign(this.data, this.formcontrol.value);
+    console.log(this.data);
+    this.formcontrol.get("fullname").setValidators(Validators.required);
+    this.formcontrol.get("fullname").updateValueAndValidity();
+    // this.formcontrol.get("number").setValidators(Validators.required);
+    // this.formcontrol.get("number").updateValueAndValidity();
+ 
+ 
+    if (this.formcontrol.valid) {
+      this.rest.forgot(this.data).subscribe((result) => {
+        if (result == undefined) {
+          console.log(result)
+          this.user = true;
+        }
+        else {
+          this.createLoader();
+          this.formcontrol.reset();
+        }
+      }, (err) => {
+        this.user = true;
+        console.log(err);
+      });
+    }
+    else {
+      this.valid = true;
+    }
+  }
+
+//   updatepass(){
+ 
+//      this.formcontrol.get("fullname").setValidators(Validators.required);
+//     this.formcontrol.get("fullname").updateValueAndValidity();
+//     Object.assign(this.data, this.formcontrol.value);
+//       console.log(this.data);
+  
+//      if (this.formcontrol.valid) {
+//         this.rest.forgot(this.data).subscribe((result) => {   
+//          if(result === undefined)
+//             {
+//               console.log(result);
+//               this.errmsg=true;
+            
+//             }
+            
+//            else
+//             {
+//               this.formcontrol.reset();
+//               this.formcontrol = this.fb.group({
+//                 fullname: ["", [Validators.required]],
+//                // number: ["", [Validators.required]],
+//                  roles: this.fb.array(['USER']),
+//                      });
+//               this.createLoader();
+//               this.myRoute.navigate(['/login']);
+//             }
+            
+//           }, (err) => {
+//            // err.status(200).send("Error -> " + err);
+//           // this.server=true;
+            
+//             console.log(err);
+          
+//           });
+//         }
+//         else{
+//           this.valid=true;
+//         }
+
+// }
 }

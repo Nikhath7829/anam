@@ -1,14 +1,26 @@
 <ion-app>
   <ion-menu menuId="main-menu" contentId="main">
     <ion-content>
+
+      
+          <!------ Refresher ------->
+          <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+              refreshingText="Refreshing...">
+            </ion-refresher-content>
+          </ion-refresher>
+
+
     <div class="menu-header-bg">  </div>
     <div class="header-content">
       <img src="../assets/icon/final-logo.png">
    
     </div>
   
-
-    <ion-list class="menu-items" lines="none">
+    <!-- Admin Name -->
+<div *ngIf="admin">
+<h5 class="ion-text-center">Hello &nbsp;&nbsp;&nbsp;<ion-label>{{name}}</ion-label></h5>
+ <ion-list class="menu-items" lines="none">
 
 
       <ion-menu-toggle auto-hide="true">
@@ -41,6 +53,7 @@
 </ion-item>
 </ion-menu-toggle>
     </ion-list>
+    </div>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

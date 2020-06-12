@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login,ForgotPassword ,Product,AddtoCart} from '../app/Model/class';
+import { Register, Login,Forgot ,Product,AddtoCart} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
 const endpoint = 'http://localhost:8080/';
@@ -80,15 +80,15 @@ logout() {
   };
     return this.http.post<Login>(endpoint + 'api/auth/signin' , data,this.httpOptions); 
  }
+ //Upadate New password
 
- forgot(data:ForgotPassword): Observable<any>{
+ forgot(data:Forgot): Observable<any>{
   this.httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
-     
-        })
+ })
   };
-  return this.http.put<any>(endpoint + 'api/updatepass',data, this.httpOptions);
+  return this.http.put<any>(endpoint + 'api/UpdateNewPassword' ,data, this.httpOptions);
 }
 
 userprofile(): Observable<any> {
@@ -174,7 +174,7 @@ productname(): Observable<any>{
  
  }
 
-
+ 
  
 
  getProduct(id){

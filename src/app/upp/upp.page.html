@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content ion-padding>
-<h3 *ngIf="images.length == 0" text-center>Please Select Image</h3>
+<h3 text-center>Please Select Image</h3>
 <ion-list>
-  <ion-item *ngFor="let img of images; index as pos" text-wrap>
+  <ion-item  text-wrap>
     <ion-thumbnail slot="start">
       <ion-img [src]="img.path"></ion-img>
     </ion-thumbnail>

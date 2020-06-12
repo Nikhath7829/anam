@@ -9,10 +9,12 @@ export class Login {
     fullname: string;
     number: string;
 }
- export class ForgotPassword{
-     number:string;
- }
- 
+
+ export class Forgot {
+    fullname: String;
+    number: String;
+   
+}
 
  export class Product {
     name: String;

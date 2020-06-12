@@ -1,46 +1,53 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-<ion-back-button  slot="start" defaultHref="/"></ion-back-button>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 
 
-  
 
-  <ion-content fullscreen ion-padding>
-    <h3 class="ion-text-center ">Mobile Mandi</h3>
-    <form [formGroup]="formcontrol"> 
-    
-  
-  
-  <div *ngIf="valid">
-    <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Must required * </p>
+
+<ion-content fullscreen ion-padding>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="3">
+    </ion-col>
+    <ion-col size="3">
+      <img class="ion-margin-top" id="logo" src="../../assets/icon/final-logo.png">
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+  <form [formGroup]="formcontrol">
+
+    <div *ngIf="valid">
+      <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Must required * </p>
     </div>
-  
-  
-  
-  <div class="field">
-    <input type="email" name="email" formControlName="number" id="email" placeholder="">
-   
-  
-    <label for="email">PhoneNumber</label>
-  </div>
-  
-  
-  <ion-grid>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-button (click)="updatepass()">GET OTP</ion-button>
-  
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
+
+
+
+    <div class="field">
+      <input type="fullname" formControlName="fullname" id="fullname" placeholder="">
+      <label for="fullname">Enter Your Registered Mobile Number</label>
+    </div>
+
+    <!-- <div *ngIf="valid">
+      <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Must required * </p>
+    </div> -->
+    
+    <!-- <div class="field">
+      <input type="number" formControlName="number" id="number" placeholder="">
+      <label for="Enter your Number">Number</label>
+    </div> -->
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="reset()">GET OTP</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
-  
-  
-  </ion-content>
-  
-  
+
+
+</ion-content>
