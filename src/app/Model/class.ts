@@ -9,6 +9,7 @@ export class PackageType{
     packageprice:Number;
     packagetotal:Number;
     packagetype:Number;
+    packageId:Number;
 }
 
 export class Login {
