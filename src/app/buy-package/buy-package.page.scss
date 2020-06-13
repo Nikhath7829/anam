@@ -1,8 +1,26 @@
 ion-icon{
     font-size:14px;
   }
-  ion-label{
+  *{
     font-family: 'Lato', sans-serif!important;
+  }
+  ion-label{
+  
     font-size:13px!important;
     font-weight: bold;
 }
+.separator{
+  display: flex;
+  justify-content: center;
+  margin: 8px auto 10px;
+
+}
+ion-select::part(icon) {
+  color: blue;
+  opacity: 1;
+}
+.packages-btn{
+  --background: linear-gradient(90deg, #e54768 0%, #ff0033b0 100%);
+}
+
+

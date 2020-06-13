@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-package',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buy-package.page.scss'],
 })
 export class BuyPackagePage implements OnInit {
-
-  constructor() { }
+  CatValue = '';
+  constructor(private myRoute: Router) { }
 
   ngOnInit() {
   }
-
+  catclicked(){
+    console.log('Clicked');
+    this.myRoute.navigateByUrl('categorylist/ironman')
+  }
 }

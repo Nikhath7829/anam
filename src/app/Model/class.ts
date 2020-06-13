@@ -5,6 +5,12 @@ export class Register {
     roles: String[];
 }
 
+export class PackageType{
+    packageprice:Number;
+    packagetotal:Number;
+    packagetype:Number;
+}
+
 export class Login {
     fullname: string;
     number: string;
@@ -28,6 +34,8 @@ export class Login {
     image2: File[];
     image3: File[];
 }
+
+
 
     export class AddtoCart {
         productname: String;

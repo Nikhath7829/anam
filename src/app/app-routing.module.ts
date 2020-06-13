@@ -136,7 +136,7 @@ const routes: Routes = [
     loadChildren: () => import('./buy-package/buy-package.module').then( m => m.BuyPackagePageModule)
   },
   {
-    path: 'categorylist',
+    path: 'categorylist/:name',
     loadChildren: () => import('./categorylist/categorylist.module').then( m => m.CategorylistPageModule)
   },
   {
@@ -166,6 +166,14 @@ const routes: Routes = [
   {
     path: 'upp',
     loadChildren: () => import('./upp/upp.module').then( m => m.UppPageModule)
+  },
+  {
+    path: 'buy',
+    loadChildren: () => import('./buy/buy.module').then( m => m.BuyPageModule)
+  },
+  {
+    path: 'showpackage',
+    loadChildren: () => import('./showpackage/showpackage.module').then( m => m.ShowpackagePageModule)
   }
   
 

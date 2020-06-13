@@ -4,7 +4,7 @@ import {  Router } from '@angular/router';
 import { Register, Login,Forgot ,Product,AddtoCart} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
-const endpoint = 'http://localhost:8080/';
+const endpoint = 'http://ec2-54-255-222-62.ap-southeast-1.compute.amazonaws.com:8080/';
 const agentid=1;
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-categorylist',
   templateUrl: './categorylist.page.html',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorylistPage implements OnInit {
 
-  constructor() { }
+  constructor(public activateRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    let dataRec = this.activateRoute.snapshot.paramMap.get('name')
+    console.log(dataRec);
   }
 
 }
