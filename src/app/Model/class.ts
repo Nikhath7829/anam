@@ -5,10 +5,10 @@ export class Register {
     roles: String[];
 }
 
-export class PackageType{
+export class Packages{
     packageprice:Number;
     packagetotal:Number;
-    packagetype:Number;
+    //packagetype:Number;
     packageId:Number;
 }
 
