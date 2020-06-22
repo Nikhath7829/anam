@@ -1,4 +1,4 @@
-<ion-content fullscreen ion-padding>
+<!-- <ion-content fullscreen ion-padding>
 
     <ion-row class="ion-justify-content-center">
       <ion-col size="3">
@@ -9,7 +9,7 @@
       <ion-col size="3"></ion-col>
     </ion-row>
 
-    <!-- <h3 class="ion-text-center ">Mobile Mandi</h3> -->
+    
     <form [formGroup]="formcontrol">
       <div *ngIf="valid">
         <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
@@ -53,4 +53,52 @@
 
 
   </ion-content>
+ -->
 
+
+ <ion-header class="ion-no-border">
+   <div class="login-header">
+     <img class="logo-img" src="../../assets/icon/final-logo.png">
+   </div>
+  </ion-header>
+
+ <ion-content>
+   <form [formGroup]="formcontrol">
+   <div class="top">
+     <div class="center">
+
+  <div heading-column-lr>
+    <h1 big-heading>Login</h1>
+<!-- <h2 small-heading routerLink="/register">SIgn Up</h2> -->
+  </div>
+
+  <ion-item transparent>
+    <img icon-small src="../../assets/icon/name.png">
+ <ion-input  formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
+ </ion-item>
+
+ <!-- <div *ngIf="valid">
+  <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
+</div> -->
+
+  <ion-item transparent>
+    <img icon-small src="../../assets/icon/phone.png"> 
+  <ion-input formControlName="number"  placeholder="Phone Number" type="text"></ion-input>
+ </ion-item>
+
+ <div *ngIf="valid">
+  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone must required * </p>
+</div>
+
+<ion-label class="forgot-password" routerLink="/forgot">Forgot Password?</ion-label>
+<div linespace></div>
+
+<ion-button color="danger"  expand="block" fill="solid" (click)="login()">Login</ion-button>
+<ion-label class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a routerLink="/register">Sign up</a>
+</ion-label>
+
+</div>
+</div>
+</form>
+
+ </ion-content>

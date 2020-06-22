@@ -1,4 +1,4 @@
-<ion-content fullscreen ion-padding>
+<!-- <ion-content fullscreen ion-padding>
   <ion-row class="ion-justify-content-center">
     <ion-col size="3">
     </ion-col>
@@ -29,25 +29,67 @@
         id="number" placeholder="">
       <label for="number">PhoneNumber</label>
     </div>
-
-
-
-
-
-
-    <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a>
+ <p class="ion-text-center" style="font-size:12px;">Already have an account? &nbsp;<a routerLink="/login">Login</a>
     </p>
     <ion-grid>
       <ion-row>
 
         <ion-col>
           <ion-button expand="block" (click)="register()">Register</ion-button>
-
-        </ion-col>
+         </ion-col>
 
       </ion-row>
     </ion-grid>
   </form>
 
+
+</ion-content> -->
+
+
+<ion-header class="ion-no-border">
+  <div class="login-header">
+    <img class="logo-img" src="../../assets/icon/final-logo.png">
+  </div>
+ </ion-header>
+
+<ion-content>
+  <form [formGroup]="formcontrol">
+  <div class="top">
+    <div class="center">
+
+ <div heading-column-lr>
+   <h1 big-heading>Sign Up</h1>
+<!-- <h2 small-heading routerLink="/register">SIgn Up</h2> -->
+ </div>
+
+ <ion-item transparent>
+   <img icon-small src="../../assets/icon/name.png">
+<ion-input  formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
+</ion-item>
+
+<div *ngIf="valid">
+  <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
+ </div>
+
+ <ion-item transparent>
+   <img icon-small src="../../assets/icon/phone.png"> 
+ <ion-input formControlName="number"[value]="number" (keypress)="keyPress($event)" name="number" 
+   placeholder="Phone Number" type="text"></ion-input>
+</ion-item>
+
+<div *ngIf="valid">
+  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Number required * </p>
+</div>
+
+
+<div linespace></div>
+
+<ion-button color="danger"  expand="block" fill="solid" (click)="register()">Sign Up</ion-button>
+<ion-label class="ion-text-center ion-margin-top">Already have an account? &nbsp;<a routerLink="/login">Login</a>
+</ion-label>
+
+</div>
+</div>
+</form>
 
 </ion-content>

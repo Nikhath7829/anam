@@ -74,7 +74,12 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+  --theme-color: #ff1744;
+  --theme-black:#000000;
+   --ion-color-gray:#d7d8da;
+   --ion-color-white: #FFFFFF;
 }
+
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -231,6 +236,12 @@
 :focus {
   outline: none;
   }
+
+
+
+
+
+
 
   $colors: (
   primary:    #a7bada,

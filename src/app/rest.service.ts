@@ -4,8 +4,9 @@ import {  Router } from '@angular/router';
 import { Register, Login,Forgot ,Product,AddtoCart} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
-const endpoint = 'http://ec2-54-255-222-62.ap-southeast-1.compute.amazonaws.com:8080/';
+const endpoint = 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/';
 const agentid=1;
+
 
 @Injectable({
   providedIn: 'root'
@@ -194,7 +195,7 @@ productname(): Observable<any>{
 
   formdata.append('file', file);
 
-  const req = new HttpRequest('POST', 'http://localhost:8080/api/file/profile', formdata, {
+  const req = new HttpRequest('POST', 'http://http://ec2-18-188-252-77.us-east-2.compute.amazonaws.com:8080/api/file/product:3000/api/file/profile', formdata, {
     reportProgress: true,
     responseType: 'text'
   });
@@ -204,7 +205,7 @@ productname(): Observable<any>{
  pushfileproducts(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 formdata.append('file', file);
-const req = new HttpRequest('POST', 'http://localhost:8080/api/file/product', formdata, {
+const req = new HttpRequest('POST', 'http://http://ec2-18-188-252-77.us-east-2.compute.amazonaws.com:8080/api/file/product:3000/api/file/product', formdata, {
     reportProgress: true,
     responseType: 'text'
   });

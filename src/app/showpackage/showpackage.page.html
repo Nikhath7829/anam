@@ -22,7 +22,7 @@
             <ion-row>
               <ion-col>
                 <div>
-                  <ion-checkbox color="primary"></ion-checkbox>
+                  <ion-checkbox (ionChange)="addValue($event)"  color="primary"></ion-checkbox>
                 </div>
               </ion-col>
               <ion-col>
@@ -58,7 +58,7 @@
             </ion-row>
           </ion-card-header>
           <ion-card-content>
-            <p>&#8377;Amt</p>
+            <p>&#8377;Amt 100</p>
           </ion-card-content>
         </ion-card>
 
@@ -93,7 +93,7 @@
             </ion-row>
           </ion-card-header>
           <ion-card-content>
-            <p>&#8377;Amt</p>
+            <p>&#8377;Amt 100</p>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -117,7 +117,7 @@
             </ion-row>
           </ion-card-header>
           <ion-card-content>
-            <p>&#8377;Amt</p>
+            <p>&#8377;Amt 100</p>
           </ion-card-content>
         </ion-card>
 

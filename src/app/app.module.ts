@@ -18,9 +18,9 @@ import { File, FileEntry } from '@ionic-native/File/ngx';
 import { Camera,CameraOptions,PictureSourceType } from '@ionic-native/camera/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-
+import {NavParams} from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000', options: {} };
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -43,6 +43,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
   providers: [
     File,
  FilePath, 
+ NavParams,
     StatusBar,
     SplashScreen,
     SocialSharing,

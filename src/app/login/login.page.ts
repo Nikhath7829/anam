@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
   async createLoader(){
     let loading = await this.loadingCtrl.create({
       message:"Logging In",
-      duration:2000,
+      duration:1000,
       showBackdrop:false,
       spinner:"lines-small"
       });
@@ -40,14 +40,15 @@ export class LoginPage implements OnInit {
       setTimeout(()=>{
         loading.dismiss();
       },2000)
-      //this.myRoute.navigate(["/login"]);
+     // this.myRoute.navigate(["/dashboard"]);
     
     
      }
 
   
   login(){
-    
+    // this.formcontrol.get("fullname").setValidators(Validators.required);
+    // this.formcontrol.get("fullname").updateValueAndValidity();
   this.formcontrol.get("number").setValidators(Validators.required);
   this.formcontrol.get("number").updateValueAndValidity();
   if (this.formcontrol.valid) {

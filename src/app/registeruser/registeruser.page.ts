@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {RestService } from '../rest.service';
 import { Login } from '../Model/class';
 import { MatTableDataSource } from '@angular/material';
-// import {Platform} from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-registeruser',
@@ -11,36 +12,59 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class RegisteruserPage implements OnInit {
   arr;
-
+  value: any[];
   userid;
+  listDatas;
+  listData;
+  isItemAvailable:boolean=false;
+  isItemAvailables:boolean=false;
   scrollTo
   public data: Login = new Login();
   displayedColumns: string[] = ['id','fullname','number','delete'];
-  listData: MatTableDataSource<any>;
-  constructor(public rest: RestService) { 
+  //listData: MatTableDataSource<any>;
+  constructor(public rest: RestService,public toastController: ToastController) { 
    
   }
 
   ngOnInit() {
    this.retrieval();
+
+    // this.isItemAvailable=true;
+   this.isItemAvailables=true;
   }
 
+  getItems(ev: any) {
+    this.listDatas=this.listData;
+ console.log(this.listData);
+  const val = ev.target.value.toLowerCase();
+  if (val && val.trim() != ''){
+    this.isItemAvailables = true;
+    this.isItemAvailable = false;
+  this.listDatas= this.listData.filter((item => {
+      return (item.fullname.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      }
+      )
+    )
 
-//  filterArray(ev:any){
-// this.arr=this.arr1;
-// const val = ev.target.value;
-// if(val && val.trim()!= "")
-// {
-//   this.arr = this.arr1.filter((item)=>{
-//     return(item.id.toLowerCase().indexOf(val.toLowerCase())
-//     >-1 || item.fullname.toLowerCase().indexOf(val.toLowerCase())>-1  || 
-//     item.address.toLowerCase().indexOf(val.toLowerCase())>-1
+  }
+  else{
+    this.isItemAvailable=true;
+    this.isItemAvailables=false;
+  }
+}
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: "User  removed Successfully",
+      cssClass: "toast-scheme ",
     
-//   )})
-// }
-//  }
+     
+      position: 'top',
+      duration: 3000
+    });
+    toast.present();
+  }
 
-  doRefresh(event) {
+ doRefresh(event) {
     this.getuserDetails();
    this.retrieval();
    setTimeout(() => {
@@ -80,9 +104,6 @@ export class RegisteruserPage implements OnInit {
     });
   }
 
-  filterArray(ev){
-    console.log(event);
-  }
   delete(id) {
     this.rest.removefromlist(id).subscribe((result) => {
       if (result == undefined) {
@@ -92,10 +113,13 @@ export class RegisteruserPage implements OnInit {
       this.getuserDetails();
       this.retrieval();
         //console.log(result);
+        this.presentToast();
       }
     }, (err) => {
       console.log(err);
     });
   }
+
+
 
 }

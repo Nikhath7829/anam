@@ -59,7 +59,7 @@ export class RegisterPage implements OnInit {
  async createLoader(){
 let loading = await this.loadingCtrl.create({
   message:"Registering",
-  duration:2000,
+  duration:1000,
   showBackdrop:false,
   spinner:"lines-small"
   });
@@ -67,7 +67,7 @@ let loading = await this.loadingCtrl.create({
   setTimeout(()=>{
     loading.dismiss();
   },2000)
-  //this.myRoute.navigate(["/login"]);
+  this.myRoute.navigate(["/login"]);
 
 
  }
@@ -129,8 +129,9 @@ let loading = await this.loadingCtrl.create({
             
                  roles: this.fb.array(['USER']),
                      });
-                    // this.createpopover();
+               
                     this.createLoader();
+                    this.myRoute.navigate[('/login')]
                }
            },(err) => {
            // err.status(200).send("Error -> " + err);
