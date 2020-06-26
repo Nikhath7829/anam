@@ -31,10 +31,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
-  {
-    path: 'location',
-    loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
-  },
+
   
   {
     path: 'forgot',
@@ -155,10 +152,7 @@ const routes: Routes = [
     path: 'frulist',
     loadChildren: () => import('./frulist/frulist.module').then( m => m.FrulistPageModule)
   },
-  {
-    path: 'slide',
-    loadChildren: () => import('./slide/slide.module').then( m => m.SlidePageModule)
-  },
+ 
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
