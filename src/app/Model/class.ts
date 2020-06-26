@@ -3,6 +3,7 @@ export class Register {
     number:string;
     phone:string;
     roles: String[];
+  length: number;
 }
 
 export class Packages{
@@ -36,6 +37,14 @@ export class Login {
     image3: File[];
 }
 
+export class AdsInfo{
+    proname:String;
+    protitle:String;
+    proprice:Number;
+    prokgs:Number;
+    proimage:File[];
+  static ads: AdsInfo[];
+}
 
 
     export class AddtoCart {

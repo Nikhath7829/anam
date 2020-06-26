@@ -1,25 +1,103 @@
-ion-label{
-    font-size: 10px;
+*{
+    font-family: 'Lato', sans-serif!important;
+  }
+[icon-small]{
+    width:12px;
+    margin: 0 0 0 18px;
+  }
+  ion-label{
+    color:#000;
+    opacity: .8;
+    font-size:10px;
+    font-weight:bold;
+    display: block;
+  }
+  ion-input{
+    font-weight: 700;
+    font-size: 12px;
+    --padding-start:29px;
+  }
+.top-head{
+    position: absolute;
+    top: 10%;
+    left: 36%;
 }
 
-
+ion-item{
+    --highlight-color-focused:transparent;
+    --highlight-height:0;
+    --highlight-color-invalid:#000;
+    --highlight-color-valid:#ddd;
+    --min-height:65px;
+   // --padding-start:0;
+    --padding-start: 3%;
+  }
+  .error_msg{
+    font-size: 10px;
+    color: red;
+  }
+  ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-md-h {
+    
+    --padding-start: 3em!important;
+}
+  .camera-icon{
+  position: absolute;
+  display: block;
+  top: 67%;
+  left: 71%;
+  font-size: 22px;
+  color: #685c5c;
+  }
+@media(min-height:320px){
+    .center{
+      position: absolute;
+     left:50%;
+      top:50%;
+      -webkit-transform: translate(-49%, -49%);
+      transform:  translate(-49%, -49%);
+      width:90%;
+    
+    }
+     
+  }
+  @media(min-height:735px){
+    .center{
+      position: absolute;
+     left:50%;
+      top:40%;
+      -webkit-transform: translate(-49%, -49%);
+      transform:  translate(-49%, -49%);
+      width:90%;
+    
+    }
+     
+  }
+  
+  @media(min-height:812px){
+    .center{
+      position: absolute;
+     left:50%;
+      top:20%;
+      -webkit-transform: translate(-49%, -49%);
+      transform:  translate(-49%, -49%);
+      width:90%;
+    
+    }
+     
+  }
+  ion-avatar,
+  ion-avatar > img{
+      border-radius:50%;
+      height:6rem;
+      width:6rem;
+   //   background: #648eda;
+   background: #79aaff;
+  }
 .footer_text{
     font-size: 10px;
 }
 ion-header::after {
     background-image: none;
     }
-    .camera{
-        position: absolute;
-    left: 46%;
-    top: 57%;
-    /* background: aliceblue; */
-    padding: 2px 2px 2px 2px;
-    border-radius: 15px;
-    background: cornflowerblue;
-    /* background: cornflowerblue; */
-    /* color: white; */
-    /* color: cornflowerblue; */
-    /* background: white; */
-}
+  
     

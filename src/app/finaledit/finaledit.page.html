@@ -1,98 +1,55 @@
 <ion-header translucent no-border>
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-back-button defaultHref="/" slot="start"></ion-back-button>
-    <!-- <ion-icon routerLink="/userprofile" class="ion-margin-start" name="arrow-back-outline" slot="start"></ion-icon> -->
-
-
-  </ion-toolbar>
+   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formcontrol">
-    <!-- <h5 class="ion-margin-start">Basic Information</h5> -->
+
+  <div class="top-head">
+ <!-- <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}" style="height:70px; width:80px;"> -->
+ <ion-avatar >
+   <img src="{{myphoto}}" ><ion-icon   (click)="getimage()" class="camera-icon" name="camera"></ion-icon>
+ </ion-avatar>
+     </div>
+   
+     <div class="top">
+      <div class="center">
+        <form [formGroup]="formcontrol">
+     <ion-item transparent>
+      <img icon-small src="../../assets/icon/name.png">
+   <ion-input    formControlName="fullname"  [(ngModel)]="name"  placeholder="Fullname" type="text"></ion-input>
+    </ion-item>
+    <div *ngIf="valid">
+      <p  class="error_msg" no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
+    </div>
 
 
-
-
-
-    <ion-grid>
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="3">
-          <div>
-            <!-- <img  src="../../assets/icon/user.png" height="50" width="50"> -->
-            <!-- <ion-icon  type="file"   (change)="selectFiles($event)"   class="camera" name="camera"></ion-icon> -->
-            <!-- <ion-input (change)="selectFiles($event)" type="file" ></ion-input> -->
-       
-              <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}" style="height:70px; width:80px;">
-           
-
-          </div>
-        </ion-col>
-      </ion-row>
-
-
-      <!-- Fullname -->
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Enter your Name</ion-label>
-            <ion-input [(ngModel)]="name"
-             formControlName="fullname"></ion-input>
-            <div *ngIf="valid">
-              <p no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
-            </div>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-
-      <!-- Phonenumber -->
-
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Enter your phone</ion-label>
-            <ion-input [(ngModel)]="number" formControlName="number"></ion-input>
-            <div *ngIf="valid">
-              <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
-            </div>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-
-
-      <!-------Profile Photo -->
-      <!-- <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-input formControlName="photo" placeholder="photo" (change)="selectFiles($event)" id="photo" type="file"
-              class="ion-margin-top ion-margin-start"></ion-input>
-            <div *ngIf="valid">
-              <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
-            </div>
-          </ion-item>
-        </ion-col>
-      </ion-row> -->
-
-
-
-
-
-
-
-
-
-
-      <ion-row class="ion-justify-content-center">
-        <ion-col class="ion-margin-top">
-          <ion-button color="danger" expand="full" (click)="update()">Save</ion-button>
-        </ion-col>
-      </ion-row>
-
-    </ion-grid>
-  </form>
+   <ion-item transparent>
+  <img icon-small src="../../assets/icon/phone.png">
+ <ion-input  formControlName="number"  [(ngModel)]="number"  placeholder="Fullname" type="text"></ion-input>
+</ion-item>
+<div *ngIf="valid">
+  <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
+</div>
+ <ion-button class="ion-margin-top"color="danger" expand="block" (click)="update()">Save</ion-button>
+</form>
+</div>
+</div>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!------------------ Footer---------------------- -->
 <ion-toolbar color="danger" style="height: 4em;">

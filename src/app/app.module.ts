@@ -11,12 +11,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-import {LangpagecomponentPageModule } from './langpagecomponent/langpagecomponent.module';
 import { IonicStorageModule } from '@ionic/storage';
-//import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { File, FileEntry } from '@ionic-native/File/ngx';
-import { Camera,CameraOptions,PictureSourceType } from '@ionic-native/camera/ngx';
-import { FilePath } from '@ionic-native/file-path/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import {File} from '@ionic-native/file/ngx';
+
+
+
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import {NavParams} from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
@@ -28,31 +29,29 @@ const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.
   SocketIoModule.forRoot(config),
     BrowserModule,
     IonicStorageModule.forRoot(),
-    
-    //WebView,
-   
-    LangpagecomponentPageModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-     
-    IonicModule.forRoot(),
+     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers: [
-    File,
- FilePath, 
- NavParams,
+  NavParams,
     StatusBar,
     SplashScreen,
     SocialSharing,
+    ImagePicker,
     Camera,
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeGeocoder,
-   // Geolocation,
+   
+    File,
+
     
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule {}

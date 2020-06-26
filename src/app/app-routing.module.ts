@@ -174,6 +174,14 @@ const routes: Routes = [
   {
     path: 'showpackage',
     loadChildren: () => import('./showpackage/showpackage.module').then( m => m.ShowpackagePageModule)
+  },
+  {
+    path: 'demo',
+    loadChildren: () => import('./demo/demo.module').then( m => m.DemoPageModule)
+  },
+  {
+    path: 'adsinfo',
+    loadChildren: () => import('./adsinfo/adsinfo.module').then( m => m.AdsinfoPageModule)
   }
   
 

@@ -28,8 +28,8 @@ export class RegisteruserPage implements OnInit {
 
   ngOnInit() {
    this.retrieval();
-
-    // this.isItemAvailable=true;
+   
+  // this.isItemAvailable=true;
    this.isItemAvailables=true;
   }
 

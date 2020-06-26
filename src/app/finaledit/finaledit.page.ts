@@ -3,14 +3,18 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RestService } from '../rest.service';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
 import { Register } from '../Model/class';
-
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import {File} from '@ionic-native/file/ngx';
 import { UserprofilePage } from '../userprofile/userprofile.page';
+
 @Component({
   selector: 'app-finaledit',
   templateUrl: './finaledit.page.html',
   styleUrls: ['./finaledit.page.scss'],
 })
 export class FinaleditPage implements OnInit {
+  images:any=[];
+  myphoto:any;
   public formcontrol:FormGroup;
   valid: boolean = false;
   selectedFiles: FileList;
@@ -30,39 +34,52 @@ export class FinaleditPage implements OnInit {
   fullname;
   progress: { percentage: number } = { percentage: 0 };
 
-  constructor(private fb:FormBuilder,private rest:RestService) { }
+  constructor(private fb:FormBuilder
+    ,private rest:RestService,
+    private camera: Camera
+   
+    ) { }
 
   ngOnInit() {
     this.vali();
     this.getuserprofiles()
   }
-  selectFiles(event) {
-    this.selectedFiles = event.target.files;
-    this.imageUrl=this.selectedFiles.item(0);
+
+
+  getimage(){
+    
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+   sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum:false,
+      allowEdit:true,
+      targetWidth:300,
+targetHeight:300
+    }
+    this.camera.getPicture(options).then((ImageData)=>{
+    
+      this.myphoto= 'data:image/jpeg;base64,' + ImageData;
+  }, (err) => {
+    //Handle error
+  });
   }
+
+
+  
+
+
+
 
   vali(){
     this.formcontrol = this.fb.group({
       fullname: ["", [Validators.required]],
       number: ["", [Validators.required]],
-      //photo: ["", [Validators.required]],
+    
        });
   }
 
-  upload() {
  
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.image = this.currentFileUpload.name;
-    console.log(this.currentFileUpload.name);
-    this.rest.profile(this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-     this.progress.percentage = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        console.log('File is completely uploadedss!');
-      }
-    });
-    this.selectedFiles = undefined;
-  }
   getuserprofiles() {
     this.rest.userprofile().subscribe((result) => {
       if (result === undefined) {

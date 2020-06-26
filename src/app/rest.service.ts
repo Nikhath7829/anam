@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login,Forgot ,Product,AddtoCart} from '../app/Model/class';
+import { Register, Login,Forgot ,Product,AddtoCart, AdsInfo} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
-const endpoint = 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/';
-const agentid=1;
-
+// const endpoint = 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/';
+ const endpoint = 'http://localhost:8080/'
+ const agentid=1;
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class RestService {
   private extractData(res: Response) {
     let body = res;
     return body || { };
- }
+ }  
  sendToken(token: string) {
   //alert(token);
   localStorage.setItem("LoggedInUser", token)
@@ -126,7 +126,16 @@ removefromlist(id){
   return this.http.delete<Register>(endpoint + 'api/destroyUser/'+id, this.httpOptions);
 }
 
-
+//AdsInfo
+AdsInfo(data:AdsInfo ): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+     'x-access-token': this.getToken()
+        })          
+  };
+    return this.http.post<Product>(endpoint + 'api/auth/adsinfo' , data,this.httpOptions); 
+ }
 //Admin Upload Product to UserDashboard
 
 addProduct(data: Product): Observable<any> {
@@ -151,6 +160,7 @@ addProduct(data: Product): Observable<any> {
   return this.http.get<any>(endpoint + 'api/productid', this.httpOptions);
 }
 
+
  getproduct(): Observable<any> {
   this.httpOptions = {
     headers: new HttpHeaders({
@@ -163,6 +173,18 @@ addProduct(data: Product): Observable<any> {
 
   return this.http.get<any>(endpoint + 'api/dashproductList', this.httpOptions);
 }
+
+getAds(): Observable<any> {
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  return this.http.get<any>(endpoint + 'api/adslist', this.httpOptions);
+}
+
+
 
 productname(): Observable<any>{
   this.httpOptions = {
@@ -195,7 +217,7 @@ productname(): Observable<any>{
 
   formdata.append('file', file);
 
-  const req = new HttpRequest('POST', 'http://http://ec2-18-188-252-77.us-east-2.compute.amazonaws.com:8080/api/file/product:3000/api/file/profile', formdata, {
+  const req = new HttpRequest('POST', 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/api/file/profile', formdata, {
     reportProgress: true,
     responseType: 'text'
   });
@@ -205,7 +227,7 @@ productname(): Observable<any>{
  pushfileproducts(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 formdata.append('file', file);
-const req = new HttpRequest('POST', 'http://http://ec2-18-188-252-77.us-east-2.compute.amazonaws.com:8080/api/file/product:3000/api/file/product', formdata, {
+const req = new HttpRequest('POST', 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/api/file/product', formdata, {
     reportProgress: true,
     responseType: 'text'
   });

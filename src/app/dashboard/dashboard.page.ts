@@ -1,20 +1,20 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 //import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
-import { LoadingController, Platform } from '@ionic/angular';
-import { AlertController ,PopoverController } from '@ionic/angular';
+import { LoadingController, Platform, IonSlides } from '@ionic/angular';
+import { AlertController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Observable, Subject, merge} from 'rxjs'
+import { Observable, Subject, merge } from 'rxjs'
 import { RestService } from '../rest.service';
-import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
-import { Register,Product } from '../Model/class';
-import {AppComponent} from '../app.component';
+import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
+import { Register, Product, AdsInfo } from '../Model/class';
+import { AppComponent } from '../app.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { Plugins,CameraResultType,CameraSource } from '@capacitor/core';
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 import { LangpagecomponentPage } from '../langpagecomponent/langpagecomponent.page';
-import {style, state, animate, transition, trigger} from '@angular/animations';
-
+import { style, state, animate, transition, trigger } from '@angular/animations';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 
@@ -23,30 +23,29 @@ import {style, state, animate, transition, trigger} from '@angular/animations';
   animations: [
     trigger(
       'enterAnimation', [
-        
-        transition(':enter', [
-          style({transform: 'translateX(0)', opacity: 0}),
-          animate('300ms ease-out', style({ opacity: 1 })),
-        ]),
-        transition(':leave', [
-          style({transform: 'translateX(0)', opacity: 1}),
-          animate('300ms ease-out', style({ opacity: 0 })),
-        ])
-      ]
+
+      transition(':enter', [
+        style({ transform: 'translateX(0)', opacity: 0 }),
+        animate('300ms ease-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ transform: 'translateX(0)', opacity: 1 }),
+        animate('300ms ease-out', style({ opacity: 0 })),
+      ])
+    ]
     )
   ],
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-  //map:any;
-  //marker:any;
-  states:any;
-  image:SafeResourceUrl;
- 
-  timestamp:any;
-  latitude:any='';
-  longitude:any='';
+
+  myphoto: any;
+  states: any;
+  image: SafeResourceUrl;
+  timestamp: any;
+  latitude: any = '';
+  longitude: any = '';
   role;
   ar;
   cart;
@@ -54,8 +53,8 @@ export class DashboardPage implements OnInit {
   showFile = false;
   userid;
   photo;
-  isItemAvailable:boolean=false;
-  isItemAvailables:boolean=false;
+  isItemAvailable: boolean = false;
+  isItemAvailables: boolean = false;
   items;
   public data: Register = new Register();
   arr;
@@ -63,87 +62,64 @@ export class DashboardPage implements OnInit {
   fileUploads: Observable<string[]>;
   @Input() fileUpload: string;
   products: Product[] = [];
+  ads: AdsInfo[] = [];
   isDisplay = false;
-  show:boolean = false;
-  toggleDisplay(){
+  show: boolean = false;
+  toggleDisplay() {
     this.isDisplay = !this.isDisplay;
   }
+  @ViewChild(IonSlides, { static: false }) slides: IonSlides
+  constructor(private domsanitizer: DomSanitizer, public platform: Platform, public popoverController: PopoverController, private fb: FormBuilder,
+    public rest: RestService, public loadingController: LoadingController,
+    public alertController: AlertController, private route: Router, private camera: Camera, private test: AppComponent) {
+    // this.platform.ready().then(()=>{
+    //   var mapOptions = {
+    //     center:{lat:23.2366,lng:79.3822},
+    //   zoom:7
+    //   }
+    //   this.map = new google.maps.Map(document.getElementById("map"),mapOptions);
+    //   this.GetLocation();
+    // }
+    // )
+  }
+  SlideChanged() {
+  }
+  ionViewDidLoad() {
+    setTimeout(() =>
+      this.slides.slideTo(5, 10000), 1000);
+  }
+slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+  }
+slideOptions = {
+    initialSlide: 1,
+    speed: 400,
+  };
 
-  constructor(private domsanitizer:DomSanitizer,public platform:Platform,public popoverController:PopoverController ,private fb: FormBuilder,
-     public rest: RestService,public loadingController: LoadingController,
-    public alertController: AlertController,  private route: Router,private test: AppComponent) { 
-      // this.platform.ready().then(()=>{
-      //   var mapOptions = {
-      //     center:{lat:23.2366,lng:79.3822},
-      //   zoom:7
-      //   }
-      //   this.map = new google.maps.Map(document.getElementById("map"),mapOptions);
-      //   this.GetLocation();
-      // }
-      // )
+ ngOnInit() {
+    this.retrieval();
+    this.retrievals();
+    this.getuserprofile();
+    this.getProductName();
+ }
+
+ getcamera() {
+const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
     }
+    this.camera.getPicture(options).then((ImageData) => {
 
-//       GetLocation()
-//       {
-//         var ref= this;
-//         let watch= this.geolocation.watchPosition();
-//         watch.subscribe((position)=>{
-// var gps=new google .maps.LatLng
-// (position.coords.latitude,position.coords.longitude);
-// if(ref.marker=null){
-
-// }
-//  else{
-//   ref.marker = new google.maps.Marker({
-//     position:gps,
-//     map:ref.map,
-//     title:'jhjhj jhjhj'
-//   })
-//         }
-        
-
-
-// ref.map.panTo(gps);
-// ref.latitude = position.coords.latitude.toString();
-// ref.longitude = position.coords.longitude.toString();
-// ref.timestamp =( new Date(position.timestamp)).toString();
-//         })
-//       }
-    
-
-  ngOnInit() {
-      this.retrieval();
-     this.getuserprofile();
-     this.getProductName();
-     
+      this.myphoto = 'data:image/jpeg;base64,' + ImageData;
+    }, (err) => {
+      //Handle error
+    });
   }
 
- 
-  // loc(){
-  //   this.geolocation.getCurrentPosition().then((resp) => {
-  //     // resp.coords.latitude
-  //     // resp.coords.longitude
-  //    }).catch((error) => {
-  //      console.log('Error getting location', error);
-  //    });
-  // }
 
-  takephoto()
-  {
-const  {Camera}  = Plugins;
-const result =   Camera.getPhoto({
-quality:50, 
-allowEditing:true,
-source :CameraSource.Camera,
-resultType : CameraResultType.DataUrl
-});
-//this.image = this.domsanitizer.bypassSecurityTrustResourceUrl( result && result.base64Data,)
-
-
-
-  }
-
-  async presentPopover(ev: any) {
+async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: LangpagecomponentPage,
       event: ev,
@@ -153,7 +129,7 @@ resultType : CameraResultType.DataUrl
   }
 
 
-  getProductName(){
+  getProductName() {
     this.rest.productname().subscribe((result) => {
       if (result == undefined) {
         console.log(result);
@@ -161,28 +137,26 @@ resultType : CameraResultType.DataUrl
       else {
         console.log(result);
 
-    this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
-    this.states = this.arr[0].value;
-   
-       // console.log(this.states)
+        this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
+        this.states = this.arr[0].value;
+
+        // console.log(this.states)
       }
     }, (err) => {
       console.log(err);
     });
   }
-  
-
   doRefresh(event) {
-this.getuserprofile();
- this.retrieval();
-   setTimeout(() => {
-       //console.log('Async operation has ended');
+    this.getuserprofile();
+    this.retrieval();
+    this.retrievals();
+    setTimeout(() => {
+      //console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
   }
 
 
- 
   retrieval() {
     this.rest.getproduct().subscribe((Product) => {
       if (Product === undefined) {
@@ -196,8 +170,22 @@ this.getuserprofile();
       console.log(err);
     });
   }
-  
-  
+
+  retrievals() {
+    this.rest.getAds().subscribe((AdsInfo) => {
+      if (AdsInfo === undefined) {
+        console.log(AdsInfo);
+      }
+      else {
+        this.ads = AdsInfo.adsinfo;
+        console.log(this.ads);
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+
   getuserprofile() {
     this.rest.userprofile().subscribe((result) => {
       if (result === undefined) {
@@ -208,90 +196,52 @@ this.getuserprofile();
         /* to get userdetails */
         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
         this.userid = this.arr[1].value;
-        this.photo= this.userid.photo;
+        this.photo = this.userid.photo;
         this.rest.sendId(this.userid.id);
-      //  console.log(this.userid.photo);
+        //  console.log(this.userid.photo);
         /* to get role of user */
         this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
         this.role = this.ar[0].value;
         this.rest.sendRole(this.role.name);
         /* Role Differntiation */
         if (this.rest.getRole() == "ADMIN") {
-           this.test.getuserprofiles();
+          this.test.getuserprofiles();
           // this.test.getuserDetails();
           this.route.navigate(['/admindashboard']);
         }
         else {
-           this.test.getuserprofiles();
+          this.test.getuserprofiles();
           // this.test.getuserDetails();
           this.route.navigate(['/dashboard']);
         }
       }
     }, (err) => {
       console.log(err);
-  
+
     });
   }
 
   getItems(ev: any) {
-    this.items=this.states;
- 
-  const val = ev.target.value.toLowerCase();
-  if (val && val.trim() != ''){
-    this.isItemAvailable=true;
-    this.isItemAvailables=false;
-  this.items= this.states.filter((item => {
-      return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    this.items = this.states;
+
+    const val = ev.target.value.toLowerCase();
+    if (val && val.trim() != '') {
+      this.isItemAvailable = true;
+      this.isItemAvailables = false;
+      this.items = this.states.filter((item => {
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       }
       )
-    )
+      )
 
+    }
+    else {
+      this.isItemAvailables = true;
+      this.isItemAvailable = false;
+    }
   }
-  else{
-    this.isItemAvailables = true;
-    this.isItemAvailable = false;
-  }
-}
-  
-//   async getLoc()
-//   {
-//     const loading = await this.loadingController.create({
-//       message: 'Please wait...',
-//       });
-//     await loading.present();
-
-//     this.geolocation.getCurrentPosition({maximumAge: 1000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
-//       // resp.coords.latitude
-//       // resp.coords.longitude
-//       //alert("r succ"+resp.coords.latitude)
-//       //alert(JSON.stringify( resp.coords));
-//       loading.dismiss()
-//       this.lat=resp.coords.latitude
-//       this.lng=resp.coords.longitude
-//       console.log(this.lat);
-//       console.log(this.lng);
-//       },er=>{
-//         //alert("error getting location")
-//         loading.dismiss()
-//         this.showLoader('Can not retrieve Location')
-//       }).catch((error) => {
-//       //alert('Error getting location'+JSON.stringify(error));
-//       loading.dismiss()
-//       this.showLoader('Error getting location - '+JSON.stringify(error))
-//       });
-//   }
 
 
-//  async showLoader(msg)
-//   {
-//     const alert = await this.alertController.create({
-//       message: msg,
-//       buttons: ['OK']
-//     });
-
-//     await alert.present();
-    
-//   }
 
 
 }

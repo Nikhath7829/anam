@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="danger">
+   <ion-back-button slot="start" defaultHref="/"></ion-back-button> 
+   <ion-title>fdfnh</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formcontrol">
+<div class="center">
+
+  <ion-item transparent>
+    <ion-label position="floating">Name of the product</ion-label>
+    <ion-input  formControlName="proname">
+     </ion-input>
+  </ion-item>
+  <div *ngIf="valid">
+    <p  *ngIf="formcontrol.get('proname').hasError('required')">name required * </p>
+  </div>
+
+
+
+  <ion-item transparent>
+    <ion-label position="floating">Titile of product</ion-label>
+    <ion-input  formControlName="protitle">
+      </ion-input>
+  </ion-item>
+  <div *ngIf="valid">
+    <p  *ngIf="formcontrol.get('protitle').hasError('required')">title required * </p>
+  </div>
+
+
+
+  <ion-item transparent>
+    <ion-label position="floating">Price of the product</ion-label>
+    <ion-input [value]="number" (keypress)="keyPress($event)"   formControlName="proprice">
+   </ion-input >
+   </ion-item>
+   <div *ngIf="valid">
+    <p *ngIf="formcontrol.get('proprice').hasError('required')">price required * </p>
+  </div>
+  
+  <ion-item transparent>
+    <ion-label position="floating">Product in kgs</ion-label>
+    <ion-input  [value]="number" (keypress)="keyPress($event)" formControlName="prokgs">
+   </ion-input>
+  </ion-item>
+  <div *ngIf="valid"> 
+    <p  *ngIf="formcontrol.get('prokgs').hasError('required')">title must required * </p>
+  </div>
+  
+
+  
+<p class="ion-text-center">
+  <img src="{{myphoto}}">
+</p>
+<!-- <div *ngIf="valid">
+  <p  *ngIf="formcontrol.get('proimage').hasError('required')">title must required * </p>
+</div> -->
+ 
+<ion-button (click)="ff()">jhh</ion-button>
+    
+
+</div>
+</form>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="danger">
+    <div  (click)="getimage()"  class="ion-text-center">
+      Choose from gallery
+    </div>
+  
+    </ion-toolbar>
+</ion-footer>

@@ -20,7 +20,7 @@ export class AddproPage implements OnInit {
   currentFileUpload: File;
   image: any;
   constructor(private fb: FormBuilder, private rest: RestService, 
-    public navCtrl: NavController, public alertController: AlertController,) { 
+    public navCtrl: NavController, public alertController: AlertController) { 
       this.formcontrol= this.fb.group({
         name: ['', [Validators.required]],
         desc: ['', Validators.required],
@@ -29,9 +29,7 @@ export class AddproPage implements OnInit {
         quant: ['', Validators.required],
         city: ['', Validators.required],
         image: ['', [Validators.required]],
-        image1: ['', [Validators.required]],
-        image2: ['', [Validators.required]],
-        image3: ['', [Validators.required]],
+      
         status: '0',
         userId: this.rest.getId()
       })
@@ -98,7 +96,7 @@ add(){
   this.formcontrol.get("name").updateValueAndValidity();
   this.formcontrol.get("desc").setValidators(Validators.required);
   this.formcontrol.get("desc").updateValueAndValidity();
- this.formcontrol.get("category").setValidators(Validators.required);
+  this.formcontrol.get("category").setValidators(Validators.required);
   this.formcontrol.get("category").updateValueAndValidity();
   this.formcontrol.get("price").setValidators(Validators.required);
   this.formcontrol.get("price").updateValueAndValidity();
@@ -106,12 +104,13 @@ add(){
   this.formcontrol.get("quant").updateValueAndValidity();
   this.formcontrol.get("image").setValidators(Validators.required);
   this.formcontrol.get("image").updateValueAndValidity();
-  this.formcontrol.get("image1").setValidators(Validators.required);
-  this.formcontrol.get("image1").updateValueAndValidity();
-  this.formcontrol.get("image2").setValidators(Validators.required);
-  this.formcontrol.get("image2").updateValueAndValidity();
-  this.formcontrol.get("image3").setValidators(Validators.required);
-  this.formcontrol.get("image3").updateValueAndValidity();
+  // this.formcontrol.get("image1").setValidators(Validators.required);
+  // this.formcontrol.get("image1").updateValueAndValidity();
+  // this.formcontrol.get("image2").setValidators(Validators.required);
+  // this.formcontrol.get("image2").updateValueAndValidity();
+  
+  // this.formcontrol.get("image3").setValidators(Validators.required);
+  // this.formcontrol.get("image3").updateValueAndValidity();
   this.formcontrol.get("city").setValidators(Validators.required);
   this.formcontrol.get("city").updateValueAndValidity();
   if (this.formcontrol.valid) {
@@ -143,9 +142,7 @@ if (this.formcontrol.valid) {
         city: ['', Validators.required],
         quant: ['', Validators.required],
         image: ['', Validators.required],
-        image1: ['', Validators.required],
-        image2: ['', Validators.required],
-        image3: ['', Validators.required],
+     
        
         status: '0',
         userId: this.rest.getId()

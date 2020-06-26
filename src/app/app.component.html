@@ -24,34 +24,65 @@
 
 
       <ion-menu-toggle auto-hide="true">
-      <ion-item class="active" routerLink="/admindashboard">
-        <ion-icon name="home" slot="start"></ion-icon>Dashboard
+      <ion-item  routerLink="/admindashboard">
+        <ion-icon style="font-size:18px;color:black;" name="home" slot="start"></ion-icon>
+        <ion-label style="
+          font-size: 12px;
+          font-weight: 700;
+          color: dodgerblue;">Dashboard</ion-label>
       </ion-item>
       </ion-menu-toggle>
 
       <ion-menu-toggle auto-hide="true">
 <ion-item  class="active" routerLink="/registeruser" class="item">
-  <ion-icon name="people" slot="start"></ion-icon>View Users
+  <ion-icon style="font-size:18px;color:black;" name="people" slot="start"></ion-icon>
+  <ion-label style="
+  font-size: 12px;
+  font-weight: 700;
+  color: dodgerblue;">View Users</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
 <ion-item routerLink="/addpro">
-  <ion-icon name="basket" slot="start"></ion-icon>Add Product
+  <ion-icon style="font-size:18px;color:black;" name="basket" slot="start"></ion-icon>
+  <ion-label style="
+  font-size: 12px;
+  font-weight: 700;
+  color: dodgerblue;">Add Product</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
 <ion-item routerLink="/product-list">
-  <ion-icon name="eye" slot="start"></ion-icon>All Products
+  <ion-icon style="font-size:18px;color:black;"  name="eye" slot="start"></ion-icon>
+  <ion-label style="
+  font-size: 12px;
+  font-weight: 700;
+  color: dodgerblue;">All Products</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
 <ion-item>
-  <ion-icon name="pricetags" slot="start"></ion-icon>All orders
+  <ion-icon style="font-size:18px; color:black;"  name="pricetags" slot="start"></ion-icon>
+  <ion-label style="
+  font-size: 12px;
+  font-weight: 700;
+  color: dodgerblue;">All orders</ion-label>
 </ion-item>
 </ion-menu-toggle>
+
+<ion-menu-toggle auto-hide="true">
+  <ion-item (click)="logout()" >
+    <ion-icon style="font-size:18px; color:black;"  name="power" slot="start"></ion-icon>
+    <ion-label style="
+    font-size: 12px;
+    font-weight: 700;
+    color: dodgerblue;">Logout</ion-label>
+  </ion-item>
+  </ion-menu-toggle>
+
     </ion-list>
     </div>
     </ion-content>

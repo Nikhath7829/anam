@@ -2,52 +2,69 @@
     border:1px solid grey;
     width:306px;
 }
-
+*{
+    font-family: 'Lato', sans-serif!important;
+}
 .location_icon{
 font-size: 20px;
 }
 
 #cat1{
-    background: bisque;
+    // background: bisque;
+    background: #FFFFFF;
      border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat2{
-    background: #9dee9d;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat3{
-    background: coral;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat4{
-    background: #cec4cd;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat5{
-    background: #f3a84e;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat6{
-    background: #f8f355;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat7{
-    background: #ff9e2b;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
 #cat9{
-     background: #fac5b2;
+    background: #FFFFFF;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
-
+.myoverlay{
+    position: relative;
+    width: 100%;
+    height: 15%;
+    padding-top: 4%;
+    text-align: center;
+    position: absolute;
+    z-index: 99;
+    bottom: 6%;
+    opacity: 0.5;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    font-size:10px;
+}
 .search_box{
     border:1px solid white;
 }
@@ -70,9 +87,7 @@ font-size: 20px;
     /* padding: 1px 1px 1px 1px; */
     padding: 2px 2px 2px 2px;
 }
-p{
-    font-family: 'Lato', sans-serif!important;
-}
+
 .footer_text{
     font-size: 10px;
     color:white;
