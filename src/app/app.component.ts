@@ -1,5 +1,5 @@
 import { Component, OnInit, } from '@angular/core';
-import {LanguageservicesService} from './languageservices.service';
+
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -36,12 +36,12 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       if (window.location.pathname === "/"){
-        this.route.navigateByUrl('/adsinfo');
+        this.route.navigateByUrl('/start');
       }
 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-     // this.lngService.setInitialLanguage();
+     
     });
   }
 

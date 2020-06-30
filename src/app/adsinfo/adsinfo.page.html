@@ -33,7 +33,7 @@
 
   <ion-item transparent>
     <ion-label position="floating">Price of the product</ion-label>
-    <ion-input [value]="number" (keypress)="keyPress($event)"   formControlName="proprice">
+    <ion-input  (keypress)="keyPress($event)"   formControlName="proprice">
    </ion-input >
    </ion-item>
    <div *ngIf="valid">
@@ -42,7 +42,7 @@
   
   <ion-item transparent>
     <ion-label position="floating">Product in kgs</ion-label>
-    <ion-input  [value]="number" (keypress)="keyPress($event)" formControlName="prokgs">
+    <ion-input  (keypress)="keyPress($event)" formControlName="prokgs">
    </ion-input>
   </ion-item>
   <div *ngIf="valid"> 

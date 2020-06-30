@@ -42,7 +42,7 @@
           <ion-item>
             <ion-label color="dark" position="stacked">Product Price</ion-label>
             <ion-input formControlName="price" (keypress)="keyPress($event)" minlength=8 maxlength=8
-              class="ion-margin-top" [value]="Product" type="text"></ion-input>
+              class="ion-margin-top" type="text"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -51,7 +51,7 @@
         <ion-col>
           <ion-item>
             <ion-label color="dark" position="stacked">Product Quantity</ion-label>
-            <ion-input formControlName="quant" class="ion-margin-top" [value]="quantity" type="text"></ion-input>
+            <ion-input formControlName="quant" class="ion-margin-top"  type="text"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -126,8 +126,8 @@
       </ion-row>
     </ion-grid>
 
-    <p class="ion-text-center ion-margin-start">
-      <ion-button (click)="add()" class="ion-text-center">POST</ion-button>
+    <p class="ion-text-center">
+      <ion-button  color="danger" expand="block" (click)="add()" class="ion-text-center">POST</ion-button>
     </p>
   </form>
 

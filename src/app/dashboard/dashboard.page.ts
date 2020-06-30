@@ -12,7 +12,7 @@ import { Register, Product, AdsInfo } from '../Model/class';
 import { AppComponent } from '../app.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
-import { LangpagecomponentPage } from '../langpagecomponent/langpagecomponent.page';
+
 import { style, state, animate, transition, trigger } from '@angular/animations';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
@@ -119,14 +119,6 @@ const options: CameraOptions = {
   }
 
 
-async presentPopover(ev: any) {
-    const popover = await this.popoverController.create({
-      component: LangpagecomponentPage,
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
-  }
 
 
   getProductName() {
@@ -146,15 +138,15 @@ async presentPopover(ev: any) {
       console.log(err);
     });
   }
-  doRefresh(event) {
-    this.getuserprofile();
-    this.retrieval();
-    this.retrievals();
-    setTimeout(() => {
-      //console.log('Async operation has ended');
-      event.target.complete();
-    }, 2000);
-  }
+  // doRefresh(event) {
+  //   this.getuserprofile();
+  //   this.retrieval();
+  //   this.retrievals();
+  //   setTimeout(() => {
+  //     //console.log('Async operation has ended');
+  //     event.target.complete();
+  //   }, 2000);
+  // }
 
 
   retrieval() {
@@ -196,7 +188,7 @@ async presentPopover(ev: any) {
         /* to get userdetails */
         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
         this.userid = this.arr[1].value;
-        this.photo = this.userid.photo;
+     //   this.photo = this.userid.photo;
         this.rest.sendId(this.userid.id);
         //  console.log(this.userid.photo);
         /* to get role of user */

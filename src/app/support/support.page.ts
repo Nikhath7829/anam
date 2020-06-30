@@ -1,15 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 @Component({
   selector: 'app-support',
   templateUrl: './support.page.html',
   styleUrls: ['./support.page.scss'],
 })
 export class SupportPage implements OnInit {
-
-  constructor() { }
+  myphoto: any;
+  constructor(private camera: Camera,) { }
 
   ngOnInit() {
   }
-
+  getcamera() {
+    const options: CameraOptions = {
+          quality: 70,
+          destinationType: this.camera.DestinationType.DATA_URL,
+          encodingType: this.camera.EncodingType.JPEG,
+          mediaType: this.camera.MediaType.PICTURE
+        }
+        this.camera.getPicture(options).then((ImageData) => {
+    
+          this.myphoto = 'data:image/jpeg;base64,' + ImageData;
+        }, (err) => {
+          //Handle error
+        });
+      }
 }

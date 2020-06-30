@@ -67,7 +67,7 @@ ion-input{
   --padding-start:5px;
 
   font-weight: bold;
-    font-size: 11px;
+    font-size: 14px;
   text-indent: 1px;
   padding-left: 10px!important;
 }
@@ -104,7 +104,18 @@ ion-label{
   padding:10px;
 }
 
+ion-content
+  {
+    
+    --background: linear-gradient(to right, #9dff7d, white 98%);
+  }
+  .login-header{
+    background: linear-gradient(to right, #9dff7d, white 98%);
+  }
+  ion-button{
+   --background: #27ae60;
 
+  }
 
 
 
@@ -112,7 +123,7 @@ ion-label{
   .center{
     position: absolute;
    left:50%;
-    top:40%;
+    top:55%;
     -webkit-transform: translate(-49%, -49%);
     transform:  translate(-49%, -49%);
     width:90%;

@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: ' ' ,
-    redirectTo: '/login',
+    redirectTo: 'start',
     pathMatch: 'full'
   },
 
@@ -63,10 +63,7 @@ const routes: Routes = [
     path: 'support',
     loadChildren: () => import('./support/support.module').then( m => m.SupportPageModule)
   },
-  {
-    path: 'language',
-    loadChildren: () => import('./language/language.module').then( m => m.LanguagePageModule)
-  },
+ 
   {
     path: 'package',
     loadChildren: () => import('./package/package.module').then( m => m.PackagePageModule)
@@ -84,26 +81,15 @@ const routes: Routes = [
     path: 'product-detail/:id',
     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
-  {
-    path: 'surat',
-    loadChildren: () => import('./surat/surat.module').then( m => m.SuratPageModule)
-  },
+ 
   {
     path: 'ads',
     loadChildren: () => import('./ads/ads.module').then( m => m.AdsPageModule)
   },
-  {
-    path: 'adss',
-    loadChildren: () => import('./adss/adss.module').then( m => m.AdssPageModule)
-  },
-  
   
 
     
-  {
-    path: 'langpagecomponent',
-    loadChildren: () => import('./langpagecomponent/langpagecomponent.module').then( m => m.LangpagecomponentPageModule)
-  },
+ 
   {
     path: 'chatspage',
     loadChildren: () => import('./chatspage/chatspage.module').then( m => m.ChatspagePageModule)
@@ -112,10 +98,7 @@ const routes: Routes = [
     path: 'adspage',
     loadChildren: () => import('./adspage/adspage.module').then( m => m.AdspagePageModule)
   },
-  {
-    path: 'array',
-    loadChildren: () => import('./array/array.module').then( m => m.ArrayPageModule)
-  },
+ 
   {
     path: 'product-list',
     loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
@@ -157,10 +140,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'upp',
-    loadChildren: () => import('./upp/upp.module').then( m => m.UppPageModule)
-  },
+ 
   {
     path: 'buy',
     loadChildren: () => import('./buy/buy.module').then( m => m.BuyPageModule)
@@ -169,15 +149,16 @@ const routes: Routes = [
     path: 'showpackage',
     loadChildren: () => import('./showpackage/showpackage.module').then( m => m.ShowpackagePageModule)
   },
-  {
-    path: 'demo',
-    loadChildren: () => import('./demo/demo.module').then( m => m.DemoPageModule)
-  },
+ 
   {
     path: 'adsinfo',
     loadChildren: () => import('./adsinfo/adsinfo.module').then( m => m.AdsinfoPageModule)
-  }
-  
+  },
+  {
+    path: 'start',
+    loadChildren: () => import('./start/start.module').then( m => m.StartPageModule)
+  },
+ 
 
   
 ];

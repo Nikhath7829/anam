@@ -1,11 +1,12 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="danger">
+  <ion-toolbar>
 
 
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-input (click)="getLoc()">
+          <ion-input 
+          >
             <ion-icon color="primary" name="location" class="ion-margin-start  
             location_icon"></ion-icon>
            
@@ -43,42 +44,42 @@
   <ion-slides [options]="slideOptions" autoplay="2000" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
     <ion-slide>
       <img src="../../assets/mic/slide4.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">We have solutions for agri need</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide00.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">Heart of Perfect Farming</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide2.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">Adding green to the Customers</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide0.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">Field is Futures.</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide13.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">Shaping your Need</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide8.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">The agricultural commodity experts</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide5.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">We farm, You eat.</p>
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide11.jpg">
-      <p class="myoverlay">jhjhjhj</p>
+      <p class="myoverlay">Grow naturally, Live natural</p>
     </ion-slide>
 
   </ion-slides>
@@ -95,11 +96,11 @@
   </ion-grid>
 
   <!------ Refresher ------->
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
       refreshingText="Refreshing...">
     </ion-refresher-content>
-  </ion-refresher>
+  </ion-refresher> -->
 
   <!-------View Categories---------------->
 
@@ -163,15 +164,12 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let l of products" size="6" [routerLink]="['/product-detail',l.id]">
-        <ion-card>
+      <ion-col *ngFor="let l of products" size="6">
+       
+            <img class="pro-image"
+       src="http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/products/{{l.image?.split('\\')[2]}}" >
 
-          <ion-card-content>
-            <img
-              src="http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/products/{{l.image?.split('\\')[2]}}"
-              height="120" width="180">
-
-          </ion-card-content>
+         
           <p class="ion-text-center product_text"> &#8377;{{l.price}}</p>
           <p class="ion-text-center product_text">Quantity {{l.quant}}</p>
           <p class="ion-text-center ion-no-margin product_text">{{l.name}}</p>
@@ -182,25 +180,25 @@
                 <ion-icon color="primary" class="ion-margin-start " style="font-size:13px;" name="location"></ion-icon>
                 <p style="margin-top: -1em;" class="ion-text-center product_text"> {{l.city}}</p>
               </ion-col>
+             
             </ion-row>
+            <ion-button  [routerLink]="['/product-detail',l.id]" expand="block" >View </ion-button>
           </div>
-        </ion-card>
+     
       </ion-col>
     </ion-row>
   </ion-grid>
 
-
+<!----------------Camera Images-------------->
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let a of ads" size="6">
-        <ion-card>
-          <ion-card-content>
-            <p>{{a.proname}}</p>
-            <p>{{a.protitle}}</p>
-            <p>{{a.proprice}}</p>
-            <p>{{a.prokgs}}</p>
-          </ion-card-content>
-        </ion-card>
+       
+            <p class="product_text ion-text-center ">{{a.proname}}</p>
+            <p  class="product_text ion-text-center ">{{a.protitle}}</p>
+            <p  class="product_text ion-text-center ">  &#8377;{{a.proprice}}</p>
+            <p  class="product_text  ion-text-center ">{{a.prokgs}}</p>
+          
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -210,7 +208,7 @@
 
 <!------------------ Footer---------------------- -->
 
-<ion-toolbar color="danger" style="height: 4em;">
+<ion-toolbar  style="height: 4em;">
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col>

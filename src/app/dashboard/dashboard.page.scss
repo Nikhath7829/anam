@@ -2,12 +2,29 @@
     border:1px solid grey;
     width:306px;
 }
+ion-button{
+    --background: #27ae60;
+}
 *{
     font-family: 'Lato', sans-serif!important;
 }
 .location_icon{
 font-size: 20px;
 }
+ion-button{
+    height: 2em;
+    text-transform: capitalize;
+}
+
+ion-toolbar
+  {
+    
+    --background: #27ae60;
+  }
+// ion-content{
+
+//  --background: linear-gradient(to right, #9dff7d, white 98%);
+// }
 
 #cat1{
     // background: bisque;
@@ -50,6 +67,11 @@ font-size: 20px;
     border-radius: 56px;
     padding: 5px 9px 5px 5px;
 }
+.pro-image{
+    height: 126px;
+    width: 150px;
+    display: block;
+}
 .myoverlay{
     position: relative;
     width: 100%;
@@ -63,7 +85,9 @@ font-size: 20px;
     color: white;
     font-weight: bold;
     background-color: black;
-    font-size:10px;
+    font-size:12px;
+    display:block;
+    font-style: normal;
 }
 .top-user{
 position: absolute;
@@ -98,24 +122,25 @@ position: absolute;
 .footer_text{
     font-size: 10px;
     color:white;
-    font-family: 'Lato', sans-serif!important;
+ 
 }
 ion-card{
   border-style: none!important;
     width:11em;
 }
 .product_text{
-    font-family: 'Lato', sans-serif!important;
-   font-weight: 600;
-   color:black;
-   margin:4px;
+    
+    font-weight: 600;
+    color: black;
+    margin: 4px;
+    font-size: 11px;
 }
 .card-content-md{
     padding-bottom:0px!important;
 }
 
 .catergory_title{
-    font-family: 'Lato', sans-serif!important;
+  
     font-weight: bold;
     font-size:9px;
 }

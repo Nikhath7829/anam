@@ -94,12 +94,10 @@
   font-family: 'Lato', sans-serif!important;
 }
  
-.login-header{
- --background:#FFFFFF;
-}
+
 .login-header{
   position: relative;
-  --background:#FFFFFF;
+ 
 border-radius: 0em;
   }
 .login-header:after{
@@ -110,7 +108,7 @@ left:15%;
 width:0;
 height:0;
 border:20px solid transparent;
---ion-color-white: #FFFFFF;
+
 //border-top-color: var(--theme-color);
 border-bottom: 0;
 margin-left: -15px;
@@ -126,9 +124,20 @@ font-family:'Lato', sans-serif !important;
 font-size:30px;
 color:var(--theme-black);
 }
-ion-content{
-  --background:#FFFFFF;
-}
+
+ion-content
+  {
+    
+    --background: linear-gradient(to right, #9dff7d, white 98%);
+  }
+  .login-header{
+    background: linear-gradient(to right, #9dff7d, white 98%);
+  }
+  ion-button{
+   --background: #27ae60;
+
+  }
+
 [small-heading]{
   font-family:'Lato', sans-serif !important; 
   margin-left:auto;padding-right:40px;font-size: 15px;
@@ -152,7 +161,7 @@ ion-input{
   --padding-start:5px;
 
   font-weight: bold;
-    font-size: 11px;
+    font-size: 14px;
   text-indent: 1px;
   padding-left: 10px!important;
 }
