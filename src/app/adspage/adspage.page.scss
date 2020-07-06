@@ -8,9 +8,13 @@ ion-segment-button{
   font-size: initial;
 
 }
-ion-footer{
-    // --background: blue!important;
-      background-color: #ff1477;
+ion-button{
+  --background: #27ae60;
+}
+ion-toolbar
+  {
+    
+    --background: #27ae60;
   }
   p,ion-label{
     font-family: 'Lato', sans-serif!important;

@@ -3,6 +3,9 @@ ion-label{
     font-size:13px!important;
     font-weight: bold;
 }
+ion-toolbar{
+    --background:#27ae60;
+  }
 ion-icon{
     font-size:14px;
 }
@@ -13,4 +16,5 @@ ion-icon{
 
 .footer_text{
     font-size: 10px;
+    color:white;
 }

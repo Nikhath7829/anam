@@ -4,7 +4,9 @@
     margin-bottom: 4px;
     white-space: pre-wrap;
   }
-   
+  ion-toolbar{
+    --background:#27ae60;
+  }
   .my-message {
     background: var(--ion-color-tertiary);
     color: #fff;

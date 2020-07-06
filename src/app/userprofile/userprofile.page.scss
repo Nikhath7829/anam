@@ -5,8 +5,14 @@ p,a{
 .package{
   color: blue;
 }
+ion-toolbar{
+  --background:#27ae60;
+}
+*{
+  font-family: 'Lato', sans-serif!important;
+}
 ion-label{
-    font-family: 'Lato', sans-serif!important;
+   
     font-size:13px!important;
     font-weight: bold;
     // text-align: right;
