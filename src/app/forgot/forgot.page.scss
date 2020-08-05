@@ -28,7 +28,13 @@ ion-content
   padding-left: 10px!important;
 }
 ion-button{
-  --background:#42d77d;
+  --background: #42d77d;
+  width: 50%;
+  /* position: absolute; */
+  left: 24%;
+  top: 81%;
+  position: relative;
+  
 
  }
 
@@ -62,13 +68,14 @@ ion-button{
  }
 
 
-.logo-img{
-  width: 9em;
-  height: 8em;
+ .logo-img{
+  
+  width: 11em;
+  height: 6em;
   align-items: center;
   position: absolute;
   left: 26%;
-  margin: 1px 0px 0px auto;
+  margin: 17px 0px 0px auto;
   }
 
 [icon-small]{

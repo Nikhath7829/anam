@@ -37,9 +37,9 @@ display: flex;
 align-items: center;
 }
 [big-heading] {
-font-family:'Lato', sans-serif !important; 
+
 font-size:30px;
-color:var(--theme-black);
+color: #006f00;
 }
 
 [small-heading]{
@@ -83,9 +83,7 @@ ion-item{
  // --padding-start:0;
   --padding-start: 3%;
 }
-[linespace]{
-height:30px;
-}
+
 ion-label{
   color:green;
   opacity: .8;
@@ -112,22 +110,34 @@ ion-content
     background: linear-gradient(to right, #9dff7d, white 98%);
   }
   ion-button{
-    --background:#42d77d;
+    --background: #42d77d;
+    width: 50%;
+    /* position: absolute; */
+    left: 24%;
+    top: 81%;
+    position: relative;
+    
  
    }
 
   //  ion-content {
   //   --background: url(../../assets/icon/start.jpg) no-repeat center/cover fixed;
   // }
+.me{
+  position: relative;
+    margin-top: 210px;
+    left: 4%;
+    width: 90%;
 
+}
    @media(min-height:320px){
 
     .center{
-      position: absolute;
+      position: fixed;
      left:50%;
-      top:53%;
+      top:61%;
       -webkit-transform: translate(-49%, -49%);
-      transform:  translate(-49%, -49%);
+       transform:  translate(-49%, -49%);
       width:90%;
     
     }

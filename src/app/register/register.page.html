@@ -6,8 +6,7 @@
 
 <ion-content class="background">
   <form [formGroup]="formcontrol">
-  <div class="top">
-    <div class="center">
+    <div class="me">
 
  <div heading-column-lr>
    <h1 big-heading>Sign Up</h1>
@@ -36,11 +35,10 @@
 
 <div linespace></div>
 
-<ion-button  expand="block" fill="solid" (click)="register()">Sign Up</ion-button>
+<ion-button size="small" slot="fixed" expand="block" fill="solid" (click)="register()">Sign Up</ion-button>
 <ion-label class="ion-text-center ion-margin-top">Already have an account? &nbsp;<a routerLink="/login">Login</a>
 </ion-label>
 
-</div>
 </div>
 </form>
 

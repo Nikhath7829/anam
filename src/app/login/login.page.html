@@ -5,44 +5,45 @@
   </div>
 </ion-header>
 
-<ion-content padding >
-
+<ion-content slot="fixed" padding >
+ 
   <form [formGroup]="formcontrol">
-    <div class="top">
-      <div class="center">
+    
 
-        <div heading-column-lr>
-          <h1 big-heading>Login</h1>
-
-        </div>
-
-        <ion-item transparent>
+       
+       
+          <div class="me">
+            <div heading-column-lr>
+              <h3 big-heading>Login</h3>
+            
+            </div>
+        <ion-item slot="fixed" transparent>
           <img icon-small src="../../assets/icon/fullname.png">
-          <ion-input formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
+          <ion-input  formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
         </ion-item>
 
         <!-- <div *ngIf="valid">
   <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
 </div> -->
 
-        <ion-item transparent>
+        <ion-item slot="fixed" transparent>
           <img icon-small src="../../assets/icon/phone.png">
-          <ion-input formControlName="number" placeholder="Mobile Number" type="text"></ion-input>
+          <ion-input  formControlName="number" placeholder="Mobile Number" type="text"></ion-input>
         </ion-item>
 
         <div *ngIf="valid">
           <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Please enter register mobile number </p>
         </div>
 
-        <ion-label class="forgot-password" routerLink="/forgot">Forgot Password?</ion-label>
+        <ion-label  slot="fixed" class="forgot-password" routerLink="/forgot">Forgot Password?</ion-label>
    
-        <ion-button expand="block" fill="solid" (click)="login()">Login</ion-button>
-        <ion-label class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a routerLink="/register">Sign
+        <ion-button size="small" slot="fixed" expand="block" fill="solid" (click)="login()">Login</ion-button>
+        <ion-label slot="fixed" class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a routerLink="/register">Sign
             up</a>
         </ion-label>
 
       </div>
-    </div>
+    
 
 
   </form>
