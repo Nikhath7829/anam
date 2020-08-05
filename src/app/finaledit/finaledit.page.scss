@@ -32,6 +32,20 @@ ion-item{
    // --padding-start:0;
     --padding-start: 3%;
   }
+  ion-toolbar{
+    --background:#42d77d;
+ 
+   }
+   ion-button{
+    --background:#42d77d;
+ 
+   }
+   .footer_text{
+    font-size: 10px;
+    color:white;
+    font-family: 'Lato', sans-serif!important;
+  }
+  
   .error_msg{
     font-size: 10px;
     color: red;
@@ -41,14 +55,19 @@ ion-item{
     --padding-start: 3em!important;
 }
   .camera-icon{
-  position: absolute;
-  display: block;
-  top: 67%;
-  left: 71%;
-  font-size: 22px;
-  color: #685c5c;
+    padding: 3px 3px 3px 3px;
+    position: absolute;
+    display: block;
+    top: 67%;
+    left: 70%;
+    font-size: 22px;
+    /* color: #685c5c; */
+    /* background: green; */
+    color: white;
+    background: darkcyan;
+    border-radius: 64%;
   }
-@media(min-height:320px){
+@media(min-height:320px){ 
     .center{
       position: absolute;
      left:50%;
@@ -91,7 +110,7 @@ ion-item{
       height:6rem;
       width:6rem;
    //   background: #648eda;
-   background: #79aaff;
+   background: #efeeee;
   }
 .footer_text{
     font-size: 10px;

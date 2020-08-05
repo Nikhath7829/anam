@@ -47,7 +47,10 @@ ion-input{
   padding-left: 10px!important;
 }
 
+ion-toolbar{
+  --background:#42d77d;
 
+ }
 @media(min-height:320px){
   .center{
     position: absolute;

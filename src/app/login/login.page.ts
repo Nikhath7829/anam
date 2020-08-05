@@ -56,7 +56,8 @@ export class LoginPage implements OnInit {
   }
   else {
     this.valid=true;
-    alert('We found with empty records');
+    //alert('We found with empty records');
+    console.log("hghgh");
   }
  
   Object.assign(this.data, this.formcontrol.value);

@@ -1,5 +1,5 @@
 <ion-header translucent no-border>
-  <ion-toolbar color="danger">
+  <ion-toolbar >
     <ion-back-button defaultHref="/" slot="start"></ion-back-button>
    </ion-toolbar>
 </ion-header>
@@ -32,7 +32,7 @@
 <div *ngIf="valid">
   <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
 </div>
- <ion-button class="ion-margin-top"color="danger" expand="block" (click)="update()">Save</ion-button>
+ <ion-button class="ion-margin-top"  expand="block" (click)="update()">Save</ion-button>
 </form>
 </div>
 </div>
@@ -52,7 +52,7 @@
 
 
 <!------------------ Footer---------------------- -->
-<ion-toolbar color="danger" style="height: 4em;">
+<ion-toolbar style="height: 4em;">
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col>
@@ -66,7 +66,7 @@
         <p color="light" class=" footer_text ion-margin-start">Ads</p>
 
       </ion-col>
-      <ion-col (click)="getcamera()">
+      <ion-col >
         <ion-icon color="light" class="ion-margin-start" name="camera"></ion-icon>
         <p color="light" class=" footer_text ion-margin-start">Sell</p>
 

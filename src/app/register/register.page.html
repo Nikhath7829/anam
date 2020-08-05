@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <div class="login-header">
-    <img class="logo-img" src="../../assets/icon/final-logo.png">
+    <img class="logo-img extra " src="../../assets/icon/Artboard 2.png"> 
   </div>
  </ion-header>
 
@@ -15,7 +15,7 @@
  </div>
 
  <ion-item transparent>
-   <img icon-small src="../../assets/icon/name.png">
+<img icon-small src="../../assets/icon/fullname.png">
 <ion-input  formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
 </ion-item>
 
@@ -26,11 +26,11 @@
  <ion-item transparent>
    <img icon-small src="../../assets/icon/phone.png"> 
  <ion-input formControlName="number"  (keypress)="keyPress($event)" name="number" 
-   placeholder="Phone Number" type="text"></ion-input>
+   placeholder="Mobile Number" type="text"></ion-input>
 </ion-item>
 
 <div *ngIf="valid">
-  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Number required * </p>
+  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Mobile number is mandatory * </p>
 </div>
 
 

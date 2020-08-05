@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       if (window.location.pathname === "/"){
-        this.route.navigateByUrl('/start');
+        this.route.navigateByUrl('/login');
       }
 
       this.statusBar.styleDefault();
@@ -50,12 +50,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   this.getuserprofiles();
   }
-  doRefresh(event) {
-this.getuserprofiles();
- setTimeout(() => {
-event.target.complete();
-   }, 2000);
- }
+
 
   getuserprofiles() {
     this.rest.userprofile().subscribe((result) => {

@@ -1,51 +1,50 @@
-
-
-
- <ion-header class="ion-no-border">
- 
-  </ion-header>
-
- <ion-content>
+<ion-header class="ion-no-border">
   <div class="login-header">
-    <img class="logo-img" src="../../assets/icon/final-logo.png">
+    <img class="logo-img extra " src="../../assets/icon/Artboard 2.png">
+
   </div>
-  
-   <form [formGroup]="formcontrol">
-   <div class="top">
-     <div class="center">
+</ion-header>
 
-  <div heading-column-lr>
-    <h1 big-heading>Login</h1>
-<!-- <h2 small-heading routerLink="/register">SIgn Up</h2> -->
-  </div>
+<ion-content padding >
 
-  <ion-item transparent>
-    <img icon-small src="../../assets/icon/name.png">
- <ion-input  formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
- </ion-item>
+  <form [formGroup]="formcontrol">
+    <div class="top">
+      <div class="center">
 
- <!-- <div *ngIf="valid">
+        <div heading-column-lr>
+          <h1 big-heading>Login</h1>
+
+        </div>
+
+        <ion-item transparent>
+          <img icon-small src="../../assets/icon/fullname.png">
+          <ion-input formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
+        </ion-item>
+
+        <!-- <div *ngIf="valid">
   <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
 </div> -->
 
-  <ion-item transparent>
-    <img icon-small src="../../assets/icon/phone.png"> 
-  <ion-input formControlName="number"  placeholder="Phone Number" type="text"></ion-input>
- </ion-item>
+        <ion-item transparent>
+          <img icon-small src="../../assets/icon/phone.png">
+          <ion-input formControlName="number" placeholder="Mobile Number" type="text"></ion-input>
+        </ion-item>
 
- <div *ngIf="valid">
-  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Phone must required * </p>
-</div>
+        <div *ngIf="valid">
+          <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Please enter register mobile number </p>
+        </div>
 
-<ion-label class="forgot-password" routerLink="/forgot">Forgot Password?</ion-label>
-<div linespace></div>
+        <ion-label class="forgot-password" routerLink="/forgot">Forgot Password?</ion-label>
+   
+        <ion-button expand="block" fill="solid" (click)="login()">Login</ion-button>
+        <ion-label class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a routerLink="/register">Sign
+            up</a>
+        </ion-label>
 
-<ion-button     expand="block" fill="solid" (click)="login()">Login</ion-button>
-<ion-label class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a routerLink="/register">Sign up</a>
-</ion-label>
+      </div>
+    </div>
 
-</div>
-</div>
-</form>
 
- </ion-content>
+  </form>
+
+</ion-content>

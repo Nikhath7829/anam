@@ -1,6 +1,6 @@
 
-
 *{
+
   font-family: 'Lato', sans-serif!important;
 }
  p{
@@ -41,21 +41,20 @@ font-family:'Lato', sans-serif !important;
 font-size:30px;
 color:var(--theme-black);
 }
-ion-content{
-  --background:#FFFFFF;
-}
+
 [small-heading]{
   font-family:'Lato', sans-serif !important; 
   margin-left:auto;padding-right:40px;font-size: 15px;
 }
 .logo-img{
---background: #FFFFFF;
-    width: 8em;
-    height: 4em;
-    /* align-items: end; */
-    align-items: center;
-    margin: 44px 2px 0px 92px;
-}
+  
+  width: 11em;
+  height: 6em;
+  align-items: center;
+  position: absolute;
+  left: 26%;
+  margin: 17px 0px 0px auto;
+  }
 
 [transparent]{
   --background:transparent;
@@ -65,8 +64,8 @@ ion-input{
   --padding-bottom:15px;
   --padding-top:15px;
   --padding-start:5px;
-
-  font-weight: bold;
+  font-style: normal;
+ 
     font-size: 14px;
   text-indent: 1px;
   padding-left: 10px!important;
@@ -88,7 +87,7 @@ ion-item{
 height:30px;
 }
 ion-label{
-  color:#000;
+  color:green;
   opacity: .8;
   font-size:10px;
   font-weight:bold;
@@ -96,7 +95,7 @@ ion-label{
 }
 
 .forgot-password{
-  color: #000;
+  color: green;
   font-size:10px;
   display: block;
   text-align: right;
@@ -113,24 +112,27 @@ ion-content
     background: linear-gradient(to right, #9dff7d, white 98%);
   }
   ion-button{
-   --background: #27ae60;
+    --background:#42d77d;
+ 
+   }
 
+  //  ion-content {
+  //   --background: url(../../assets/icon/start.jpg) no-repeat center/cover fixed;
+  // }
+
+   @media(min-height:320px){
+
+    .center{
+      position: absolute;
+     left:50%;
+      top:53%;
+      -webkit-transform: translate(-49%, -49%);
+      transform:  translate(-49%, -49%);
+      width:90%;
+    
+    }
+     
   }
-
-
-
-@media(min-height:320px){
-  .center{
-    position: absolute;
-   left:50%;
-    top:55%;
-    -webkit-transform: translate(-49%, -49%);
-    transform:  translate(-49%, -49%);
-    width:90%;
-  
-  }
-   
-}
 @media(min-height:735px){
   .center{
     position: absolute;

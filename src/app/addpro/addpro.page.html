@@ -2,10 +2,11 @@
   <ion-toolbar>
     <!-- <ion-title class="ion-text-right">addpro</ion-title> -->
     <ion-back-button defaultHref="/" slot="start"></ion-back-button>
+    <ion-title>Please fill product details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="success" >
 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
@@ -14,14 +15,14 @@
   </ion-refresher>
   <form [formGroup]="formcontrol">
 
-    <h4 class="ion-text-center" color="danger">Product Details</h4>
+
 
 
     <ion-grid>
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Product Name</ion-label>
+            <ion-label color="success" position="stacked">Product Name</ion-label>
             <ion-input formControlName="name"></ion-input>
           </ion-item>
         </ion-col>
@@ -31,7 +32,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Product Description</ion-label>
+            <ion-label color="success"  position="stacked">Product Description</ion-label>
             <ion-textarea formControlName="desc" rows="6" cols="20"></ion-textarea>
           </ion-item>
         </ion-col>
@@ -40,7 +41,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Product Price</ion-label>
+            <ion-label color="success"  position="stacked">Product Price</ion-label>
             <ion-input formControlName="price" (keypress)="keyPress($event)" minlength=8 maxlength=8
               class="ion-margin-top" type="text"></ion-input>
           </ion-item>
@@ -50,7 +51,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Product Quantity</ion-label>
+            <ion-label color="success"  position="stacked">Product Quantity</ion-label>
             <ion-input formControlName="quant" class="ion-margin-top"  type="text"></ion-input>
           </ion-item>
         </ion-col>
@@ -60,7 +61,7 @@
         <ion-row>
           <ion-col>
             <ion-item>
-              <ion-label color="dark" position="stacked">City</ion-label>
+              <ion-label color="success"  position="stacked">City</ion-label>
               <ion-input formControlName="city"></ion-input>
             </ion-item>
           </ion-col>
@@ -70,7 +71,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-label color="success"  position="stacked">Choose an image</ion-label>
             <ion-input formControlName="image" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
             </ion-input>
           </ion-item>
@@ -80,7 +81,7 @@
       <!-- <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-labelcolor="success"  position="stacked">Choose an image</ion-label>
             <ion-input formControlName="image1" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
             </ion-input>
           </ion-item>
@@ -90,7 +91,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-labelcolor="success"  position="stacked">Choose an image</ion-label>
             <ion-input formControlName="image2" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
             </ion-input>
           </ion-item>
@@ -100,7 +101,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="dark" position="stacked">Choose an image</ion-label>
+            <ion-labelcolor="success"  position="stacked">Choose an image</ion-label>
             <ion-input formControlName="image3" type="file" (change)="selectFiles($event)" class="ion-margin-top ">
             </ion-input>
           </ion-item>
@@ -127,7 +128,7 @@
     </ion-grid>
 
     <p class="ion-text-center">
-      <ion-button  color="danger" expand="block" (click)="add()" class="ion-text-center">POST</ion-button>
+      <ion-button   expand="block" (click)="add()" class="ion-text-center">POST</ion-button>
     </p>
   </form>
 

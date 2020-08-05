@@ -4,82 +4,74 @@
 
       
           <!------ Refresher ------->
-          <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="lines-small"
-              refreshingText="Refreshing...">
-            </ion-refresher-content>
-          </ion-refresher>
+        
 
 
-    <div class="menu-header-bg">  </div>
+    <!-- <div class="menu-header-bg">  </div>
     <div class="header-content">
       <img src="../assets/icon/final-logo.png">
    
-    </div>
+    </div> -->
   
     <!-- Admin Name -->
 <div *ngIf="admin">
-<h5 class="ion-text-center">Hello &nbsp;&nbsp;&nbsp;<ion-label>{{name}}</ion-label></h5>
- <ion-list class="menu-items" lines="none">
+<h5 class="ion-text-center ion-margin-top">Hello &nbsp;&nbsp;&nbsp;<ion-label>{{name}}</ion-label></h5>
+ <ion-list style="    margin-top: 4em;" class="menu-items" lines="none">
 
 
       <ion-menu-toggle auto-hide="true">
       <ion-item  routerLink="/admindashboard">
-        <ion-icon style="font-size:18px;color:black;" name="home" slot="start"></ion-icon>
+        <ion-icon style="font-size:18px;" color="success" name="home" slot="start"></ion-icon>
         <ion-label style="
-          font-size: 12px;
-          font-weight: 700;
-          color: dodgerblue;">Dashboard</ion-label>
+          font-size: 14px;"  color="success" >Dashboard</ion-label>
       </ion-item>
       </ion-menu-toggle>
 
       <ion-menu-toggle auto-hide="true">
 <ion-item  class="active" routerLink="/registeruser" class="item">
-  <ion-icon style="font-size:18px;color:black;" name="people" slot="start"></ion-icon>
-  <ion-label style="
-  font-size: 12px;
-  font-weight: 700;
-  color: dodgerblue;">View Users</ion-label>
+  <ion-icon style="font-size:18px;" color="success" name="eye" slot="start"></ion-icon>  <ion-label style="
+ 
+  font-size: 14px;"  color="success">View Users</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
 <ion-item routerLink="/addpro">
-  <ion-icon style="font-size:18px;color:black;" name="basket" slot="start"></ion-icon>
+  <ion-icon style="font-size:18px;" color="success" name="basket" slot="start"></ion-icon>
   <ion-label style="
-  font-size: 12px;
-  font-weight: 700;
-  color: dodgerblue;">Add Product</ion-label>
+   font-size: 14px;"  color="success">Add Product</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
 <ion-item routerLink="/product-list">
-  <ion-icon style="font-size:18px;color:black;"  name="eye" slot="start"></ion-icon>
+  <ion-icon style="font-size:18px; " color="success"  name="eye" slot="start"></ion-icon>
   <ion-label style="
-  font-size: 12px;
-  font-weight: 700;
-  color: dodgerblue;">All Products</ion-label>
+ font-size: 14px;"  color="success">All Products</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
 <ion-item>
-  <ion-icon style="font-size:18px; color:black;"  name="pricetags" slot="start"></ion-icon>
+  <ion-icon style="font-size:18px; " color="success"  name="pricetags" slot="start"></ion-icon>
   <ion-label style="
-  font-size: 12px;
-  font-weight: 700;
-  color: dodgerblue;">All orders</ion-label>
+ font-size: 14px;"  color="success">All orders</ion-label>
 </ion-item>
 </ion-menu-toggle>
 
 <ion-menu-toggle auto-hide="true">
-  <ion-item (click)="logout()" > 
-    <ion-icon style="font-size:18px; color:black;"  name="power" slot="start"></ion-icon>
+  <ion-item [(ngModel)]="dark" (ionChange)="updateDarkMode()" > 
+    <ion-icon style="font-size:18px;" color="success"  name="bulb" slot="start"></ion-icon>
     <ion-label style="
-    font-size: 12px;
-    font-weight: 700;
-    color: dodgerblue;">Logout</ion-label>
+  font-size: 14px;"  color="success">Dark/Light</ion-label>
+  </ion-item>
+  </ion-menu-toggle>
+
+<ion-menu-toggle auto-hide="true">
+  <ion-item (click)="logout()" > 
+    <ion-icon style="font-size:18px;" color="success"  name="power" slot="start"></ion-icon>
+    <ion-label style="
+    font-size: 14px;"  color="success">Logout</ion-label>
   </ion-item>
   </ion-menu-toggle>
 

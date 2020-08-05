@@ -154,10 +154,6 @@ const routes: Routes = [
     path: 'adsinfo',
     loadChildren: () => import('./adsinfo/adsinfo.module').then( m => m.AdsinfoPageModule)
   },
-  {
-    path: 'start',
-    loadChildren: () => import('./start/start.module').then( m => m.StartPageModule)
-  },
  
 
   

@@ -1,6 +1,13 @@
 ion-title{
     text-transform: uppercase;
 }
+ion-toolbar{
+    --background:#42d77d;
+ 
+   }
+   *{
+    font-family: 'Lato', sans-serif!important;
+  }
 .tagline{
     font-size: 13px;
     font-weight: 500;

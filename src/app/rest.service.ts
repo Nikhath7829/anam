@@ -172,7 +172,7 @@ addProduct(data: Product): Observable<any> {
  // return this.http.get<any>(this.ADD_CART_API+product.productid,{headers:myheader});
 
   return this.http.get<any>(endpoint + 'api/dashproductList', this.httpOptions);
-}
+} 
 
 getAds(): Observable<any> {
   this.httpOptions = {

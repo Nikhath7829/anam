@@ -1,13 +1,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <ion-header>
-<ion-toolbar  color="primary">
-  <ion-buttons><ion-menu-button></ion-menu-button></ion-buttons>  
+<ion-toolbar  color="success">
+  <ion-buttons slot="start">
+    <ion-menu-button>
+       <img style="height: 1em;" src='../../assets/icon/menubar.png'> 
+     </ion-menu-button> 
+   </ion-buttons>
 </ion-toolbar>
    
 <!-- Searchbar -->
 <div class="autocomplete">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success">
 <ion-searchbar   placeholder="Find the User....." type="text" debounce="500" (ionInput)="getItems($event)" ></ion-searchbar>
 </ion-toolbar>
 </div>
