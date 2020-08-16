@@ -1,7 +1,9 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success">
     <ion-buttons>
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button>
+        <img style="height: 1em;" src='../../assets/icon/menubar.png'> 
+      </ion-menu-button> 
     </ion-buttons>
     <!-- <ion-buttons slot="end">
       <ion-button (click)="switchStyle()">
@@ -17,7 +19,7 @@
   </ion-toolbar>
 
 
-  <ion-toolbar color="primary">
+  <ion-toolbar  color="success">
     <div class="autocomplete">
       <ion-searchbar placeholder="Find the Product" type="text" debounce="500" (ionInput)="getItems($event)">
       </ion-searchbar>

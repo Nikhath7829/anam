@@ -1,45 +1,64 @@
 <ion-header class="ion-no-border">
   <div class="login-header">
-    <img class="logo-img extra " src="../../assets/icon/Artboard 2.png"> 
+    <img class="logo-img extra " src="../../assets/icon/Artboard 2.png">
   </div>
- </ion-header>
+</ion-header>
 
 <ion-content class="background">
-  <form [formGroup]="formcontrol">
+  <form  [formGroup]="formcontrol">
+
+    <!--------Heading and positioning----->
     <div class="me">
+      <div heading-column-lr>
+        <h1 big-heading>Sign Up</h1>
+      </div>
 
- <div heading-column-lr>
-   <h1 big-heading>Sign Up</h1>
-<!-- <h2 small-heading routerLink="/register">SIgn Up</h2> -->
- </div>
+      <!-------Register Fullname-------->
+      <ion-item transparent>
+        <img icon-small src="../../assets/icon/fullname.png">
+        <ion-input clearInput formControlName="fullname" type="text" placeholder="Fullname"></ion-input>
+      </ion-item>
 
- <ion-item transparent>
-<img icon-small src="../../assets/icon/fullname.png">
-<ion-input  formControlName="fullname" placeholder="Fullname" type="text"></ion-input>
-</ion-item>
-
-<div *ngIf="valid">
-  <p class="ion-margin-start" *ngIf="formcontrol.get('fullname').hasError('required')">Name required * </p>
- </div>
-
- <ion-item transparent>
-   <img icon-small src="../../assets/icon/phone.png"> 
- <ion-input formControlName="number"  (keypress)="keyPress($event)" name="number" 
-   placeholder="Mobile Number" type="text"></ion-input>
-</ion-item>
-
-<div *ngIf="valid">
-  <p class="ion-margin-start" *ngIf="formcontrol.get('number').hasError('required')">Mobile number is mandatory * </p>
-</div>
+      <!---------Validate Fullname----- -->
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.required">
+        Name is required.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.minlength">
+        Name must be at least 5 characters long.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.pattern">
+        Name must contain only letters.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.maxlength">
+        Name cannot be more than 20 characters long.
+      </p>
 
 
-<div linespace></div>
 
-<ion-button size="small" slot="fixed" expand="block" fill="solid" (click)="register()">Sign Up</ion-button>
-<ion-label class="ion-text-center ion-margin-top">Already have an account? &nbsp;<a routerLink="/login">Login</a>
-</ion-label>
+      <!--------Number ---------->
+      <ion-item transparent>
+        <img icon-small src="../../assets/icon/phone.png">
+        <ion-input placeholder="Phone Number" maxlength="10" formControlName="number" type="text" required></ion-input>
+      </ion-item>
 
-</div>
-</form>
+      <!-----Validate Number ------->
+      <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
+        Phone number is required.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
+        Please enter 10 digit phone number.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
+        Only numeric values allowed.
+      </p>
+
+      <div linespace></div>
+
+      <ion-button  size="small" (click)="getregister()" slot="fixed" expand="block" fill="solid">Sign Up</ion-button>
+      <ion-label class="ion-text-center ion-margin-top">Already have an account? &nbsp;<a routerLink="/login">Login</a>
+      </ion-label>
+
+    </div>
+  </form>
 
 </ion-content>

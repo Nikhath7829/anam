@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import {  AlertController,ModalController } from '@ionic/angular';
 import {Forgot} from '../Model/class';
 import { LoadingController, Platform } from '@ionic/angular';
-
+import {MenuController} from '@ionic/angular';
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.page.html',
@@ -21,12 +21,15 @@ export class ForgotPage implements OnInit {
   public data: Forgot = new Forgot();
    valid: boolean = false;
   user: boolean = false;
-  constructor(public fb: FormBuilder,public loadingController: LoadingController,
+  constructor(public menuCtrl: MenuController,public fb: FormBuilder,public loadingController: LoadingController,
     private alertCtrl: AlertController,public rest: RestService, private myRoute: Router,private modalCtrl:ModalController) { 
       this.formcontrol = this.fb.group({
         fullname: ["", [Validators.required]]
        });
   }
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+   }
 
   ngOnInit() {
     this.valid=false;

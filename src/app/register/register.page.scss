@@ -36,6 +36,27 @@ font-family:'Lato', sans-serif !important;
 font-size:30px;
 color: #006f00;
 }
+ion-item {
+  ion-input{
+      color:#006f00;
+      font-size:14px;
+  }
+}
+.alert-wrapper.sc-ion-alert-md{
+  border-radius: 7%!important;
+ --background: #264733!important;
+}
+.my-class{
+ 
+  border-radius: 7%;
+ --background: #264733;
+ 
+}
+.alert-message {
+font-size: 10px;
+color: white!important;
+}
+
 
 ion-content
   {
@@ -79,7 +100,7 @@ ion-input{
   --padding-start:5px;
 
   font-style: normal;
-    font-size: 14px;
+ 
   text-indent: 1px;
   padding-left: 10px!important;
 }

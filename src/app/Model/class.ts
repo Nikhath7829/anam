@@ -1,9 +1,9 @@
 export class Register {
     fullname: string;
     number:string;
-    phone:string;
+  
     roles: String[];
-  length: number;
+ 
 }
 
 export class Packages{

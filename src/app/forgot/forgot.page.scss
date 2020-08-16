@@ -23,7 +23,7 @@ ion-content
   --padding-start:5px;
 
 
-    font-size: 11px;
+  
   text-indent: 1px;
   padding-left: 10px!important;
 }
@@ -67,7 +67,12 @@ ion-button{
  margin-bottom:-15px;
  }
 
-
+ ion-item {
+  ion-input{
+      color:#006f00;
+      font-size:14px;
+  }
+}
  .logo-img{
   
   width: 11em;

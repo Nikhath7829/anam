@@ -17,7 +17,7 @@
       <div class="center">
         <form [formGroup]="formcontrol">
      <ion-item transparent>
-      <img icon-small src="../../assets/icon/name.png">
+      <img icon-small src="../../assets/icon/fullname.png">
    <ion-input    formControlName="fullname"  [(ngModel)]="name"  placeholder="Fullname" type="text"></ion-input>
     </ion-item>
     <div *ngIf="valid">
@@ -52,36 +52,33 @@
 
 
 <!------------------ Footer---------------------- -->
-<ion-toolbar style="height: 4em;">
-  <ion-grid no-padding>
-    <ion-row no-padding>
-      <ion-col>
-        <div routerLink="/dashboard">
-          <ion-icon color="light" class="ion-margin-start" name="home"></ion-icon>
-          <p color="light" class=" footer_text ion-margin-start ">Home</p>
-        </div>
-      </ion-col>
-      <ion-col routerLink="/offerings">
-        <ion-icon color="light" class="ion-margin-start" name="bookmark"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Ads</p>
+<div id="footer">
+<ion-grid>
+  <ion-row>
+  <ion-col routerLink="/dashboard" class="ion-margin-start">
+   <ion-icon style="margin-left:3px;" color="light"  name="home"></ion-icon>
+   <div  color="light" class="content">Home</div>
+  
+  </ion-col>
+  <ion-col routerLink="/adspage">
+    <ion-icon color="light" name="bookmark"></ion-icon>
+    <div class="content">Ads</div>
+   </ion-col>
 
-      </ion-col>
-      <ion-col >
-        <ion-icon color="light" class="ion-margin-start" name="camera"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Sell</p>
+   <ion-col (click)="getcamera()">
+    <ion-icon (click)="getcamera()" class="me" color="light"  name="camera"></ion-icon>
+ 
+   </ion-col>
 
-
-      </ion-col>
-      <ion-col routerLink="/chatspage">
-        <ion-icon color="light" class="ion-margin-start" name="chatbox"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Chat</p>
-
-      </ion-col>
-      <ion-col routerLink="/userprofile">
-        <ion-icon color="light" class="ion-margin-start" name="person"></ion-icon>
-        <p color="light" class=" footer_text ion-margin-start">Account</p>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-toolbar>
+   <ion-col routerLink="/chatspage">
+    <ion-icon color="light" name="chatbox"></ion-icon>
+    <div class="content">Chat</div>
+   </ion-col>
+   <ion-col  routerLink="/userprofile" >
+    <ion-icon color="light" style="margin-left: 6px;" name="person"></ion-icon>
+    <div class="content " >Account</div>
+   </ion-col>
+   
+  </ion-row>
+</ion-grid>
+</div>

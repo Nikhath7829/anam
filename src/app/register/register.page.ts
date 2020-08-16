@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
-import  {RestService } from '../rest.service';
+import { RestService } from '../rest.service';
 import { Router } from '@angular/router';
-import {  AlertController,ModalController,PopoverController } from '@ionic/angular';
-import {Register} from '../Model/class';
+import { AlertController, ModalController, PopoverController } from '@ionic/angular';
+import { Register } from '../Model/class';
 import { LoadingController } from '@ionic/angular';
-import {NavController } from '@ionic/angular'
-
-
-import { load } from 'google-maps';
-
+import { NavController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  public formcontrol : FormGroup;
+  public formcontrol: FormGroup;
   public formValid = true;
+  isSubmitted = false;
   showMsg: boolean = false;
   valid: boolean;
   flag: any;
@@ -26,139 +24,108 @@ export class RegisterPage implements OnInit {
   currentFileUpload: File;
   errmsg: any;
   public data: Register = new Register();
- // loadingCtrl: any;
-  constructor(private popover:PopoverController, private navCtrl:NavController,public fb: FormBuilder,private loadingCtrl  : LoadingController,
-  private alertCtrl: AlertController,public rest: RestService, private myRoute: Router,private modalCtrl:ModalController) { 
-  this.formcontrol = this.fb.group({
-    fullname: ["", [Validators.required]],
-  number: ["", [Validators.required]],
-  //photo: ["", [Validators.required]],
-  roles: this.fb.array(['USER']),
-   });
-           
-    }
+
+  constructor(public menuCtrl: MenuController, private popover: PopoverController, private navCtrl: NavController, public fb: FormBuilder, private loadingCtrl: LoadingController,
+    private alertController: AlertController, public rest: RestService, private myRoute: Router, private modalCtrl: ModalController) {
+    this.formcontrol = this.fb.group({
+      fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(6))]],
+      number: ['', [Validators.required, (Validators.minLength(10)), Validators.pattern('^[0-9]+$')]],
+      roles: this.fb.array(['USER'])
+    });
+  }
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
+
+  //helps in triggers an error in validation
+  get errorControl() {
+    return this.formcontrol.controls;
+  }
+
+
+  async filldetails() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-class',
+     // header: 'Confirm!',
+      message: 'Please fill out the fields!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'primary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
   ngOnInit() {
-    this.valid=false;
-    this.errmsg=false;
-
+    this.valid = false;
+    this.errmsg = false;
+    this.isSubmitted = false;
   }
-
-  upload() {
-    
-    this.currentFileUpload = this.selectedFile.item(0);
-    this.rest.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        console.log('File is completely uploaded!');
-      } else if (event instanceof HttpResponse) {
-        console.log('File is completely uploaded!');
-      }
+ async createLoader() {
+    let loading = await this.loadingCtrl.create({
+      message: "Registering",
+      duration: 1000,
+      showBackdrop: false,
+      spinner: "lines-small"
     });
-    this.selectedFile = undefined;
-  }
- async createLoader(){
-let loading = await this.loadingCtrl.create({
-  message:"Registering",
-  duration:1000,
-  showBackdrop:false,
-  spinner:"lines-small"
-  });
-  loading.present();
-  setTimeout(()=>{
-    loading.dismiss();
-  },2000)
-  this.myRoute.navigate(["/login"]);
-
-
+    loading.present();
+    setTimeout(() => {
+      loading.dismiss();
+    }, 2000)
+    this.myRoute.navigate(["/login"]);
  }
-
  
-  
-  async confirm() {
-    let alert = await this.alertCtrl.create({
-    message: ' Register Successfully',
-      buttons: ['Click here to Login']
-    });
-    alert.present().then(() => {
-      // this.navCtrl.navigateRoot("/login");
-      this.modalCtrl.dismiss();
+getregister(){
 
-      
-    });
-  }
-
-  keyPress(event: any) {
-    const pattern = /[0-9]/;
-    let inputChar = String.fromCharCode(event.charCode);
-    if (event.keyCode != 8 && !pattern.test(inputChar)) {
-      event.preventDefault();
-    }
-  }
-
- 
-  selectFile(event) {
-    this.selectedFile = event.target.files;
-  }
-
-  register(){
-    this.formcontrol.get("fullname").setValidators(Validators.required);
-    this.formcontrol.get("fullname").updateValueAndValidity();
-     this.formcontrol.get("number").setValidators(Validators.required);
-    this.formcontrol.get("number").updateValueAndValidity();
-   // this.formcontrol.get("photo").setValidators(Validators.required);
-    //this.formcontrol.get("photo").updateValueAndValidity();
-  
+  this.isSubmitted = true;
+  if (!this.formcontrol.valid) {
+   // alert("Please fill out the fields");
+   this.filldetails();
+    return false;
+   
+} else{
+  if (this.formcontrol.valid){
     Object.assign(this.data, this.formcontrol.value);
-      console.log(this.data);
-  
-     if (this.formcontrol.valid) {
-        this.rest.Register(this.data).subscribe((result) => {   
-         if(result === undefined)
-            {
-              console.log(result);
-              this.errmsg=true;
-            
-            }
-            
-           else
-            {
-              this.formcontrol.reset();
-              this.formcontrol = this.fb.group({
-                fullname: ["", [Validators.required]],
-                number: ["", [Validators.required]],
-            
-                 roles: this.fb.array(['USER']),
-                     });
-               
-                    this.createLoader();
-                    this.myRoute.navigate[('/login')]
-               }
-           },(err) => {
-           // err.status(200).send("Error -> " + err);
-          // this.server=true;
-            console.log(err);
-        });
-        }
-else{
-          this.valid=true;
-        }
-        
-        }
-    
-  
-  
+   console.log(this.data);
+    this.rest.Register(this.data).subscribe((result) => {   
+      if(result === undefined)
+         {
+           console.log(result);
+           this.errmsg=true;
+         
+         } else{
+          this.formcontrol.reset();
+          this.formcontrol = this.fb.group({
+            fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(6))]],
+            number: ['', [Validators.required, (Validators.minLength(10)), Validators.pattern('^[0-9]+$')]],
+            roles: this.fb.array(['USER'])
+          });
+          this.createLoader();
+          this.myRoute.navigate[('/login')]
+         }
+  },(err) => {
+    // err.status(200).send("Error -> " + err);
+   // this.server=true;
+     console.log(err);
+ });
+}else{
+  this.valid=true;
+}
+}
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+    }
 }

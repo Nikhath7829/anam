@@ -11,6 +11,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./registeruser.page.scss'],
 })
 export class RegisteruserPage implements OnInit {
+  
   arr;
   value: any[];
   userid;
@@ -18,7 +19,7 @@ export class RegisteruserPage implements OnInit {
   listData;
   isItemAvailable:boolean=false;
   isItemAvailables:boolean=false;
-  scrollTo
+
   public data: Login = new Login();
   displayedColumns: string[] = ['id','fullname','number','delete'];
   //listData: MatTableDataSource<any>;
@@ -27,11 +28,12 @@ export class RegisteruserPage implements OnInit {
   }
 
   ngOnInit() {
-   this.retrieval();
-   
-  // this.isItemAvailable=true;
-   this.isItemAvailables=true;
+    this.isItemAvailable=true;
+    this.isItemAvailables=false;
+     this.retrieval();
+     this.getuserDetails();
   }
+ 
 
   getItems(ev: any) {
     this.listDatas=this.listData;
@@ -54,23 +56,15 @@ export class RegisteruserPage implements OnInit {
 }
   async presentToast() {
     const toast = await this.toastController.create({
-      message: "User  removed Successfully",
+      message: "User removed Successfully",
       cssClass: "toast-scheme ",
-    
-     
-      position: 'top',
+     position: 'top',
       duration: 3000
     });
     toast.present();
   }
 
- doRefresh(event) {
-    this.getuserDetails();
-   this.retrieval();
-   setTimeout(() => {
-  event.target.complete();
-   }, 2000);
- }
+
   retrieval() { 
     this.rest.getuserlist().subscribe((result) => {
       if (result === undefined) {

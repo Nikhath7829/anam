@@ -5,7 +5,7 @@ import { AlertController, ModalController,PopoverController } from '@ionic/angul
 import { RestService } from '../rest.service';
 import {Login} from '../Model/class';
 import { LoadingController } from '@ionic/angular';
-
+import {MenuController} from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -19,12 +19,15 @@ export class LoginPage implements OnInit {
   showMsg: any;
   formValid: any;
    server: any;
-  constructor(private popover:PopoverController, private loadingCtrl  : LoadingController,private fb: FormBuilder,private alertCtrl: AlertController,
+  constructor(  public menuCtrl: MenuController,private popover:PopoverController, private loadingCtrl  : LoadingController,private fb: FormBuilder,private alertCtrl: AlertController,
     public rest: RestService, private myRoute: Router,) {
-    this.formcontrol = this.fb.group({
+  this.formcontrol = this.fb.group({
       fullname: ["",],
       number: ["", []],
     });
+   }
+   ionViewWillEnter() {
+    this.menuCtrl.enable(false);
    }
 
   ngOnInit() {

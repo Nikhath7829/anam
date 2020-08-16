@@ -42,7 +42,7 @@
     "angular-material": "^1.1.21",
     "angular-material-data-table": "^0.10.10",
     "cordova": "^9.0.0",
-    "cordova-android": "^8.1.0",
+    "cordova-android": "^9.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-camera": "^4.1.0",
@@ -54,11 +54,13 @@
     "cordova-plugin-x-socialsharing": "^5.6.5",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
+    "google-libphonenumber": "^3.2.11",
     "hammerjs": "^2.0.8",
     "ionic2-super-tabs": "^4.1.4",
     "ngx-socket-io": "^3.0.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
+    "update": "^0.7.4",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -113,8 +115,8 @@
       "cordova-plugin-file": {}
     },
     "platforms": [
-      "android",
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }

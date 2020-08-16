@@ -5,13 +5,8 @@
     width:12px;
     margin: 0 0 0 18px;
   }
-  ion-label{
-    color:#000;
-    opacity: .8;
-    font-size:10px;
-    font-weight:bold;
-    display: block;
-  }
+  
+
   ion-input{
     font-weight: 700;
     font-size: 12px;
@@ -36,15 +31,12 @@ ion-item{
     --background:#42d77d;
  
    }
+
    ion-button{
     --background:#42d77d;
  
    }
-   .footer_text{
-    font-size: 10px;
-    color:white;
-    font-family: 'Lato', sans-serif!important;
-  }
+ 
   
   .error_msg{
     font-size: 10px;
@@ -54,6 +46,30 @@ ion-item{
     
     --padding-start: 3em!important;
 }
+.me{
+  border-radius: 9px;
+    background: red;
+    /* font-size: xx-large; */
+    font-size: 31px;
+  
+    padding: 2px 2px 2px 2px;
+    position: absolute;
+    top: -31px;
+    left: -5px;
+}
+.content{
+  font-size: 9px;
+  font-weight: bold;
+color:white;
+}
+#footer {
+  position: fixed;
+  bottom: -1%;
+  width: 100%;
+  justify-content: center;
+  background:#42d77d;
+  height:48px;
+  }
   .camera-icon{
     padding: 3px 3px 3px 3px;
     position: absolute;
@@ -112,11 +128,6 @@ ion-item{
    //   background: #648eda;
    background: #efeeee;
   }
-.footer_text{
-    font-size: 10px;
-}
-ion-header::after {
-    background-image: none;
-    }
+
   
     

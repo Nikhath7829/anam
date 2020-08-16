@@ -55,7 +55,12 @@ color: #006f00;
   left: 26%;
   margin: 17px 0px 0px auto;
   }
-
+  ion-item {
+    ion-input{
+        color:#006f00;
+        font-size:14px;
+    }
+  }
 [transparent]{
   --background:transparent;
 }
@@ -66,7 +71,7 @@ ion-input{
   --padding-start:5px;
   font-style: normal;
  
-    font-size: 14px;
+  
   text-indent: 1px;
   padding-left: 10px!important;
 }
