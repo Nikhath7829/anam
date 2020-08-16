@@ -1,5 +1,14 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+.my-custom-class .alert-wrapper {
+  --background: #024a1e;
+ }
+.my-custom-class .alert-message{
+  color: #FFFFFF;
+  font-size:14px;
+  font-family:'Lato', sans-serif!important;
+  font-weight: initial;
+}
 
 /** Ionic CSS Variables **/
 :root {

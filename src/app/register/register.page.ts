@@ -28,8 +28,8 @@ export class RegisterPage implements OnInit {
   constructor(public menuCtrl: MenuController, private popover: PopoverController, private navCtrl: NavController, public fb: FormBuilder, private loadingCtrl: LoadingController,
     private alertController: AlertController, public rest: RestService, private myRoute: Router, private modalCtrl: ModalController) {
     this.formcontrol = this.fb.group({
-      fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(6))]],
-      number: ['', [Validators.required, (Validators.minLength(10)), Validators.pattern('^[0-9]+$')]],
+      fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(5))]],
+      number: ['', [Validators.required, (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
       roles: this.fb.array(['USER'])
     });
   }
@@ -45,7 +45,8 @@ export class RegisterPage implements OnInit {
 
   async filldetails() {
     const alert = await this.alertController.create({
-      cssClass: 'my-class',
+    
+      cssClass: 'my-custom-class',
      // header: 'Confirm!',
       message: 'Please fill out the fields!!!',
       buttons: [
