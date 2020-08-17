@@ -38,12 +38,13 @@
       <!--------Number ---------->
       <ion-item transparent>
         <img icon-small src="../../assets/icon/phone.png">
-        <ion-input placeholder="Phone Number" maxlength="10" formControlName="number" type="text" required></ion-input>
+        <ion-input clearInput  placeholder="Phone Number" maxlength="10" formControlName="number" type="text" required></ion-input>
       </ion-item>
 
       <!-----Validate Number ------->
       <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
         Phone number is required.
+
       </p>
       <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
         Please enter 10 digit phone number.

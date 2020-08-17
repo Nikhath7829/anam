@@ -154,6 +154,7 @@ const routes: Routes = [
     path: 'adsinfo',
     loadChildren: () => import('./adsinfo/adsinfo.module').then( m => m.AdsinfoPageModule)
   }
+
  
  
 

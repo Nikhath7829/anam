@@ -8,6 +8,7 @@ import { Register } from '../Model/class';
 import { LoadingController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import {Platform} from '@ionic/angular';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -25,7 +26,7 @@ export class RegisterPage implements OnInit {
   errmsg: any;
   public data: Register = new Register();
 
-  constructor(public menuCtrl: MenuController, private popover: PopoverController, private navCtrl: NavController, public fb: FormBuilder, private loadingCtrl: LoadingController,
+  constructor(private platform:Platform,public menuCtrl: MenuController, private popover: PopoverController, private navCtrl: NavController, public fb: FormBuilder, private loadingCtrl: LoadingController,
     private alertController: AlertController, public rest: RestService, private myRoute: Router, private modalCtrl: ModalController) {
     this.formcontrol = this.fb.group({
       fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(5))]],
@@ -42,38 +43,49 @@ export class RegisterPage implements OnInit {
     return this.formcontrol.controls;
   }
 
-
+//Empty Fileds Alert
   async filldetails() {
     const alert = await this.alertController.create({
     
       cssClass: 'my-custom-class',
      // header: 'Confirm!',
-      message: 'Please fill out the fields!!!',
+      message: 'Please fill out the fields!',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Okay',
           role: 'cancel',
           cssClass: 'primary',
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Okay',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
-        }
-      ]
-    });
-
-    await alert.present();
+          } },  ]
+    }); await alert.present();
   }
+
+//Success fileds Alert
+  async successalert() {
+    const alert = await this.alertController.create({
+    
+      cssClass: 'my-custom-class',
+     // header: 'Confirm!',
+      message: 'Succesfully Registered!',
+      buttons: [
+        {
+          text: 'Proceed to login',
+          role: 'cancel',
+          cssClass: 'primary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          } },  ]
+    }); await alert.present();
+  }
+  
 
   ngOnInit() {
     this.valid = false;
     this.errmsg = false;
     this.isSubmitted = false;
   }
+ 
  async createLoader() {
     let loading = await this.loadingCtrl.create({
       message: "Registering",
@@ -89,11 +101,10 @@ export class RegisterPage implements OnInit {
  }
  
 getregister(){
-
-  this.isSubmitted = true;
+this.isSubmitted = true;
   if (!this.formcontrol.valid) {
-   // alert("Please fill out the fields");
-   this.filldetails();
+   alert("Please fill out the fields");
+ //  this.filldetails();
     return false;
    
 } else{
@@ -107,15 +118,19 @@ getregister(){
            this.errmsg=true;
          
          } else{
-          this.formcontrol.reset();
+        //  this.formcontrol.reset();
           this.formcontrol = this.fb.group({
-            fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(6))]],
-            number: ['', [Validators.required, (Validators.minLength(10)), Validators.pattern('^[0-9]+$')]],
+            fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(5))]],
+            number: ['', [Validators.required, (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
             roles: this.fb.array(['USER'])
           });
-          this.createLoader();
+          this.successalert();
+          // this.createLoader();
           this.myRoute.navigate[('/login')]
+      
+        
          }
+       
   },(err) => {
     // err.status(200).send("Error -> " + err);
    // this.server=true;

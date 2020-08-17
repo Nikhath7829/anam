@@ -1,13 +1,25 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 .my-custom-class .alert-wrapper {
-  --background: #024a1e;
- }
+  //--background: #024a1e;
+  --background: linear-gradient(#edf656,#1c5b1f);
+}
+
 .my-custom-class .alert-message{
   color: #FFFFFF;
   font-size:14px;
   font-family:'Lato', sans-serif!important;
   font-weight: initial;
+}
+.my-custom-class .alert-button{
+ 
+    text-transform: capitalize;
+    color: white;
+    height: 27px;
+    background: #42d77d;
+    padding: 2px 7px 2px 7px;
+    font-size: 10px;
+    font-family:'Lato', sans-serif!important;
 }
 
 /** Ionic CSS Variables **/
