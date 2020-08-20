@@ -150,10 +150,16 @@ const routes: Routes = [
     loadChildren: () => import('./showpackage/showpackage.module').then( m => m.ShowpackagePageModule)
   },
  
+
   {
-    path: 'adsinfo',
-    loadChildren: () => import('./adsinfo/adsinfo.module').then( m => m.AdsinfoPageModule)
+    path: 'postadd',
+    loadChildren: () => import('./postadd/postadd.module').then( m => m.PostaddPageModule)
+  },
+  {
+    path: 'postadd/:id',
+    loadChildren: () => import('./postadd/postadd.module').then( m => m.PostaddPageModule)
   }
+
 
  
  

@@ -15,6 +15,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import {File} from '@ionic-native/file/ngx';
+import {LanguagesComponent} from './languages/languages.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -24,8 +25,8 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000', options: {} };
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,LanguagesComponent],
+  entryComponents: [LanguagesComponent],
   imports: [
   SocketIoModule.forRoot(config),
     BrowserModule,

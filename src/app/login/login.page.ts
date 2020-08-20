@@ -22,8 +22,8 @@ export class LoginPage implements OnInit {
   constructor(  public menuCtrl: MenuController,private popover:PopoverController, private loadingCtrl  : LoadingController,private fb: FormBuilder,private alertCtrl: AlertController,
     public rest: RestService, private myRoute: Router,) {
   this.formcontrol = this.fb.group({
-      fullname: ["",],
-      number: ["", []],
+      fullname: ["",[Validators.required]],
+      number: ["", [Validators.required]],
     });
    }
    ionViewWillEnter() {
@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
    }
 
   ngOnInit() {
+    this.login();
   }
   async createLoader(){
     let loading = await this.loadingCtrl.create({
@@ -50,8 +51,8 @@ export class LoginPage implements OnInit {
 
   
   login(){
-    // this.formcontrol.get("fullname").setValidators(Validators.required);
-    // this.formcontrol.get("fullname").updateValueAndValidity();
+    this.formcontrol.get("fullname").setValidators(Validators.required);
+    this.formcontrol.get("fullname").updateValueAndValidity();
   this.formcontrol.get("number").setValidators(Validators.required);
   this.formcontrol.get("number").updateValueAndValidity();
   if (this.formcontrol.valid) {

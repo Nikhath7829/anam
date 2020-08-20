@@ -1,0 +1,103 @@
+ion-item{
+  --highlight-color-focused:transparent;
+  --highlight-height:0;
+  --highlight-color-invalid:#000;
+  --highlight-color-valid:#ddd;
+  --min-height:65px;
+ // --padding-start:0;
+  --padding-start: 3%;
+}
+#container {
+  width: 328px; 
+  margin-left:auto; 
+  margin-right: auto; 
+}
+ion-textarea{
+  margin-top: 10%;
+    border: 1px solid  #00c600;
+    font-size:14px;
+    --padding-start: 3%;
+}
+ *{
+font-family: 'Lato', sans-serif!important;
+ }
+// .label-stacked.sc-ion-label-md-h, .label-floating.sc-ion-label-md-h {
+//   margin-left: 0;
+//   margin-right: 0;
+//   margin-top: 0;
+//   margin-bottom: 0;
+//   font-size: 10px!important;
+
+//   font-style: inherit!important;
+//   /* color: deeppink; */
+//   color: black!important;
+// }p{
+// color: red;
+//     font-weight: 500;
+//     text-align: left;
+//     font-size: 10px;
+// }
+// ion-item{
+//    --padding-start: 3%;
+//    --highlight-height:0;
+//   --highlight-color-focused:transparent;
+//    --highlight-color-invalid:#FFFF;
+//    --highlight-color-invalid:#FFFF;
+//    --min-height:65px;
+// }
+#categorytype{
+  color: #00c600;
+    font-weight: 500;
+}
+ion-input{
+  color:#000;
+  --padding-bottom:15px;
+  --padding-top:15px;
+  --padding-start:5px;
+font-style: inherit;
+//  font-weight: bold;
+    font-size: 14px;
+    padding-left: 10px!important;
+}
+
+ion-toolbar{
+  --background:#42d77d;
+
+ }
+@media(min-height:320px){
+  .center{
+    position: absolute;
+   left:50%;
+    top:37%;
+    -webkit-transform: translate(-49%, -49%);
+    transform:  translate(-49%, -49%);
+    width:90%;
+  
+  }
+   
+}
+@media(min-height:735px){
+  .center{
+    position: absolute;
+   left:50%;
+    top:40%;
+    -webkit-transform: translate(-49%, -49%);
+    transform:  translate(-49%, -49%);
+    width:90%;
+  
+  }
+   
+}
+
+@media(min-height:812px){
+  .center{
+    position: absolute;
+   left:50%;
+    top:20%;
+    -webkit-transform: translate(-49%, -49%);
+    transform:  translate(-49%, -49%);
+    width:90%;
+  
+  }
+   
+}

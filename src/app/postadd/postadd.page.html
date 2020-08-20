@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar >
+   <ion-back-button slot="start" defaultHref="/"></ion-back-button> 
+   <ion-title color="light">POST</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formcontrol">
+    <div id="container">
+
+      <ion-item transparent>
+        <ion-label position="floating"></ion-label>
+        <ion-input id="categorytype" >{{demo.categorytype}}</ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-input  id="categorytype" >{{ today | date: 'dd/MM/yyyy HH:mm' }}</ion-input>
+          </ion-item>
+      
+          <ion-item transparent>
+            <ion-label position="floating">Name of the product</ion-label>
+    <ion-input formControlName="postadname" clearInput type="text" ></ion-input>
+          </ion-item>
+
+      <ion-item transparent>
+        <ion-label position="floating">Price of the product</ion-label>
+<ion-input formControlName="postadprice"  clearInput type="number" ></ion-input>
+      </ion-item>
+ 
+      <ion-item transparent>
+        <ion-label position="floating">Quantity of the product</ion-label>
+<ion-input formControlName="postadquant"  placeholder="Kgs" clearInput type="number"></ion-input>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea clearInput formControlName="postaddesc" type="text"  placeholder="Write Something of your product"
+         rows="5" cols="5"></ion-textarea>
+      </ion-item>
+  
+
+     
+</div>
+ </form>
+  
+  
+
+  
+
+ 
+
+</ion-content>
+<!-- <ion-footer>
+  <ion-toolbar >
+    <div  (click)="getimage()"  class="ion-text-center">
+      Choose from gallery
+    </div>
+  
+    </ion-toolbar>
+</ion-footer> -->

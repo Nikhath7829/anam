@@ -12,7 +12,7 @@ import { Register, Product, AdsInfo } from '../Model/class';
 import { AppComponent } from '../app.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
-
+import {LanguagesComponent} from '../languages/languages.component';
 import { style, state, animate, transition, trigger } from '@angular/animations';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
@@ -102,6 +102,16 @@ slideOptions = {
     this.getuserprofile();
     this.getProductName();
  }
+ async chooselangauge(ev: any) {
+  const popover = await this.popoverController.create({
+    component: LanguagesComponent,
+    cssClass: 'language',
+    event: ev,
+    mode: 'md',
+    translucent: true
+  });
+  return await popover.present();
+}
 
  getcamera() {
 const options: CameraOptions = {

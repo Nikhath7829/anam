@@ -1,19 +1,31 @@
 ion-label{
-    font-family: 'Lato', sans-serif!important;
+  
     font-size:13px!important;
     font-weight: bold;
 }
+*{
+    font-family: 'Lato', sans-serif!important;
+}
+ion-toolbar{
+    --background:#27ae60;
+  }
 ion-icon{
-    font-size:14px;
+    font-size:16px;
 }
-.ghgh{
-    font-size:20px!important;
-    color: #262424;
-}
+#footer {
+    position: fixed;
+    bottom: -1%;
+    width: 100%;
+    justify-content: center;
+    background:#42d77d;
+    height:48px;
+    }
+.content{
+    font-size: 9px;
+    font-weight: bold;
+  color:white;
+  }
 
-.footer_text{
-    font-size: 10px;
-}
 #tagline{
     color: darkslategrey;
       font-size: xx-small;
@@ -21,7 +33,4 @@ ion-icon{
       font-weight: 500;
     
     }
-    ion-footer{
-        // --background: blue!important;
-          background-color: #ff1477;
-      }
+  

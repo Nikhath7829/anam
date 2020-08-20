@@ -37,7 +37,7 @@ export class RegisterPage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
   }
-
+ 
   //helps in triggers an error in validation
   get errorControl() {
     return this.formcontrol.controls;
@@ -99,13 +99,20 @@ export class RegisterPage implements OnInit {
     }, 2000)
     this.myRoute.navigate(["/login"]);
  }
- 
+ async fillout() {
+  const alert = await this.alertController.create({
+    cssClass: 'my-custom-class',
+    message: 'Please fill the details.',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
 getregister(){
 this.isSubmitted = true;
   if (!this.formcontrol.valid) {
-   alert("Please fill out the fields");
- //  this.filldetails();
-    return false;
+  this.fillout();
+ return false;
    
 } else{
   if (this.formcontrol.valid){
@@ -121,15 +128,13 @@ this.isSubmitted = true;
         //  this.formcontrol.reset();
           this.formcontrol = this.fb.group({
             fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(5))]],
-            number: ['', [Validators.required, (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
+            number: ['', [Validators.required, (Validators.minLength(10)),Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             roles: this.fb.array(['USER'])
           });
           this.successalert();
           // this.createLoader();
           this.myRoute.navigate[('/login')]
-      
-        
-         }
+         };
        
   },(err) => {
     // err.status(200).send("Error -> " + err);

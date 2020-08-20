@@ -38,7 +38,7 @@
       <!--------Number ---------->
       <ion-item transparent>
         <img icon-small src="../../assets/icon/phone.png">
-        <ion-input clearInput  placeholder="Phone Number" maxlength="10" formControlName="number" type="text" required></ion-input>
+        <ion-input type="number" clearInput  placeholder="Phone Number" maxlength="10" formControlName="number" required></ion-input>
       </ion-item>
 
       <!-----Validate Number ------->
@@ -50,7 +50,8 @@
         Please enter 10 digit phone number.
       </p>
       <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
-        Please enter a valid number.
+        <!-- Please enter a valid number. -->
+     Please enter a valid number.
       </p>
 
       <div linespace></div>

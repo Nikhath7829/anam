@@ -4,9 +4,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AdsinfoPageRoutingModule } from './adsinfo-routing.module';
+import { PostaddPageRoutingModule } from './postadd-routing.module';
 
-import { AdsinfoPage } from './adsinfo.page';
+import { PostaddPage } from './postadd.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { AdsinfoPage } from './adsinfo.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    AdsinfoPageRoutingModule
+    PostaddPageRoutingModule
   ],
-  declarations: [AdsinfoPage]
+  declarations: [PostaddPage]
 })
-export class AdsinfoPageModule {}
+export class PostaddPageModule {}

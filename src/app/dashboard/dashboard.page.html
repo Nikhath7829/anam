@@ -1,30 +1,18 @@
 <ion-header class="ion-no-border">
+  <ion-row style="background: #27ae60;" class="ion-align-items-end">
+    <ion-col size="10">
+      <ion-icon color="primary" name="location" class="
+      location_icon"></ion-icon>
+    </ion-col>
+
+  <ion-col size="2">
+ 
+     <ion-icon id="choose" (click)="chooselangauge()" name="ellipsis-vertical"></ion-icon>
+   </ion-col>
+    
+  </ion-row>
+ 
   <ion-toolbar>
-
-
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-input 
-          >
-            <ion-icon color="primary" name="location" class="ion-margin-start  
-            location_icon"></ion-icon>
-           
-          </ion-input>
-
-        </ion-col>
-        <ion-col size="2">
-    <img class="top-user" src="../../assets/icon/user.png" height="50" width="50">
-     </ion-col>
-        <!-- <ion-col size="2">
-          <p (click)="presentPopover()" style="font-size:8px; color:darkblue;">Language<ion-icon
-              style="font-size:10px!important;" name="chevron-down-outline"></ion-icon>
-          </p>
-
-        </ion-col> -->
-      </ion-row>
-    </ion-grid>
-
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -35,6 +23,7 @@
       </ion-row>
     </ion-grid>
 
+  
   </ion-toolbar>
 </ion-header>
 
