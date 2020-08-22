@@ -158,6 +158,10 @@ const routes: Routes = [
   {
     path: 'postadd/:id',
     loadChildren: () => import('./postadd/postadd.module').then( m => m.PostaddPageModule)
+  },
+  {
+    path: 'game',
+    loadChildren: () => import('./game/game.module').then( m => m.GamePageModule)
   }
 
 

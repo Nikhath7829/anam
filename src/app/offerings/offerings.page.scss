@@ -55,14 +55,16 @@ ion-toolbar
 // box-shadow:  -47px -4px 90px 0px rgba(101,181,36,0.58);
 // }
 ion-card{
- 
+  box-sizing:border-box;
 background: #b5ffb5;
+cursor: pointer;
+display:inline-block; 
+transition:all 0.8s, color 0.3s 0.3s;
 //box-shadow: none;
 border-radius: 7%;
-box-shadow:  -47px -4px 90px 0px rgb(151 255 66 / 58%);
+
 }
-
-
+ion-card:focus{box-shadow: 0 80px 0 0  rgba(0,0,0,0.25) inset, 0 -80px 0 0  rgba(0,0,0,0.25) inset;}
 ion-icon{
     font-size:14px;
 }

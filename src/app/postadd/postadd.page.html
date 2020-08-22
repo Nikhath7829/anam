@@ -23,24 +23,61 @@
     <ion-input formControlName="postadname" clearInput type="text" ></ion-input>
           </ion-item>
 
+          <p class="error" *ngIf="isSubmitted && errorControl.postadname.errors?.required">
+            Name is required.
+          </p>
+
+        <p class="error" *ngIf="isSubmitted && errorControl.postadname.errors?.pattern">
+            Product name must contain only letters.
+          </p>
+         
+
       <ion-item transparent>
         <ion-label position="floating">Price of the product</ion-label>
 <ion-input formControlName="postadprice"  clearInput type="number" ></ion-input>
       </ion-item>
- 
+      <p class="error" *ngIf="isSubmitted && errorControl.postadprice.errors?.required">
+        Price is required.
+      </p>
       <ion-item transparent>
         <ion-label position="floating">Quantity of the product</ion-label>
 <ion-input formControlName="postadquant"  placeholder="Kgs" clearInput type="number"></ion-input>
       </ion-item>
-     
+      <p class="error" *ngIf="isSubmitted && errorControl.postadquant.errors?.required">
+        Quantity is required.
+      </p>
       <ion-item>
         <ion-label position="floating">Description</ion-label>
-        <ion-textarea clearInput formControlName="postaddesc" type="text"  placeholder="Write Something of your product"
+        <ion-textarea class="ion-text-start" clearInput formControlName="postaddesc" type="text"  placeholder="Write Something of your product"
          rows="5" cols="5"></ion-textarea>
       </ion-item>
-  
+      <p class="error" *ngIf="isSubmitted && errorControl.postaddesc.errors?.required">
+        Product description is required.
+      </p>
+      <ion-item>
+   
+        <ion-textarea class="ion-text-start"  type="text"  
+         rows="5" cols="5"></ion-textarea>
+         <img src="{{imgURL}}" height="40" width="40"/>
+      </ion-item>
 
-     
+    <!-- Images Buttons og Choosing  -->
+<ion-row>
+  <ion-col size="6">
+      <ion-button  (click)="getfromgallery()" >Choose Image&nbsp;
+    <ion-icon name="folder"></ion-icon>
+  </ion-button>
+  </ion-col>
+ <ion-col size="6">
+    <ion-button   (click)="getfromcamera()">Choose Image&nbsp;
+      <ion-icon name="camera">Camera</ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+
+
+
 </div>
  </form>
   

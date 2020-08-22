@@ -1,21 +1,23 @@
 export class Register {
-    fullname: string;
-    number:string;
+    fullname: String;
+    number:String;
   
     roles: String[];
  
 }
 
-export class Packages{
-    packageprice:Number;
-    packagetotal:Number;
-    //packagetype:Number;
-    packageId:Number;
+export class PostAds{
+    postadname:String;
+    postadprice:Number;
+    postadquant:Number;
+    postaddesc:String;
+    roles: String[];
+
 }
 
 export class Login {
-    fullname: string;
-    number: string;
+    fullname: String;
+    number: String;
 }
 
  export class Forgot {
@@ -37,13 +39,13 @@ export class Login {
     image3: File[];
 }
 
-export class AdsInfo{
+export class PostAdd{
     proname:String;
     protitle:String;
     proprice:Number;
     prokgs:Number;
     proimage:File[];
-  static ads: AdsInfo[];
+  
 }
 
 

@@ -23,6 +23,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 // import {NavParams} from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
+
 const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000', options: {} };
 @NgModule({
   declarations: [AppComponent,LanguagesComponent],

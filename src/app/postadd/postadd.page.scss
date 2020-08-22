@@ -12,6 +12,20 @@ ion-item{
   margin-left:auto; 
   margin-right: auto; 
 }
+p{
+  font-size: 9px;
+  color: #fb3434;
+    font-weight: bold;
+    text-decoration: none;
+     text-align: inherit;
+}
+ion-button{
+  text-transform: capitalize;
+  --background: #42d77d;
+  position: relative;
+  font-size: 13px;
+    width: 100%;
+}
 ion-textarea{
   margin-top: 10%;
     border: 1px solid  #00c600;
@@ -100,4 +114,36 @@ ion-toolbar{
   
   }
    
+}
+.nik{
+  min-height: 80px;
+  min-width: 80px;
+  background-size: cover;
+}
+
+.image-container {
+  min-height: 200px;
+  background-size: cover;
+}
+
+@media (min-width: 0px) {
+  .images {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 420px) {
+  .images {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 720px) {
+  .images {
+    column-count: 4;
+  }
+}
+
+.one-image {
+  margin: 2px;
 }

@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, merge } from 'rxjs'
 import { RestService } from '../rest.service';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { Register, Product, AdsInfo } from '../Model/class';
+import { Register, Product, PostAdd } from '../Model/class';
 import { AppComponent } from '../app.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
@@ -62,7 +62,7 @@ export class DashboardPage implements OnInit {
   fileUploads: Observable<string[]>;
   @Input() fileUpload: string;
   products: Product[] = [];
-  ads: AdsInfo[] = [];
+  ads: PostAdd[] = [];
   isDisplay = false;
   show: boolean = false;
   toggleDisplay() {

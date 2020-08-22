@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login,Forgot ,Product,AddtoCart, AdsInfo} from '../app/Model/class';
+import { Register, Login,Forgot ,Product,AddtoCart, PostAdd} from '../app/Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 
 // const endpoint = 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000/';
@@ -126,16 +126,7 @@ removefromlist(id){
   return this.http.delete<Register>(endpoint + 'api/destroyUser/'+id, this.httpOptions);
 }
 
-//AdsInfo
-AdsInfo(data:AdsInfo ): Observable<any> {
-  this.httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-     'x-access-token': this.getToken()
-        })          
-  };
-    return this.http.post<Product>(endpoint + 'api/auth/adsinfo' , data,this.httpOptions); 
- }
+
 //Admin Upload Product to UserDashboard
 
 addProduct(data: Product): Observable<any> {

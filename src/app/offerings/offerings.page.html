@@ -12,7 +12,7 @@
    <ion-row class="ion-align-items-end">
     <ion-col size="6">
       <!-- <ion-card *ngFor="let c of category" routerLink="/postadd/{{c.id}}"> -->
-        <ion-card *ngFor="let c of category" (click)="gotopostadd(c)">
+        <ion-card  class="btn-left" *ngFor="let c of category" (click)="gotopostadd(c)">
         <img [src]="c.ImageCategory">
         <p class="tagline ion-text-center ion-margin-top">{{c.categorytype}}</p>
       </ion-card>
