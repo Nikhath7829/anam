@@ -16,7 +16,8 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 export class PostaddPage implements OnInit {
   public formcontrol: FormGroup;
   public formValid = true;
- imgURL;
+  imgURL;
+ images:any;
   isSubmitted = false;
   today = Date.now();
  myphoto: any;
@@ -34,6 +35,7 @@ private camera: Camera) {
       postadprice: ['', [Validators.required,(Validators.minLength(10),(Validators.pattern(/^[0-9]\d{9}$/)) )]],
       postadquant: ['', [Validators.required, (Validators.minLength(10))]],
       postaddesc: ['', [Validators.required, ]],
+      postadimage: ['', [Validators.required, ]],
       roles: this.fb.array(['USER'])
     });
     }
@@ -69,31 +71,24 @@ alert("Nikhu");
 
  //GET IMAGE FROM GALLERY
  getfromgallery(){
-//   this.camera.getPicture({
-   
-//     sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,
-//     destinationType:this.camera.DestinationType.DATA_URL
-//   }).then((res)=>{
-//     this.imgURL =  'data:image/jpeg;base64,' + res;
-// }).catch(e =>{
-//   console.log(e);
-// })
-let options: ImagePickerOptions = {  
-  quality: 100,  
- width: 100,  
-  height: 100,  
+// let options: ImagePickerOptions = {  
+//   quality: 100,  
+//  width: 100,  
+//   height: 100,  
+//   maximumImagesCount: 5,
+//   }
+//   this.imagePicker.getPictures({
+//     maximumImagesCount: 5,
+//     outputType: 1
+//   }).then(selectedImg => {
+//     selectedImg.forEach(i => this.images.push("data:image/jpeg;base64," + i));
+//   });
+this.imagePicker.getPictures({
   maximumImagesCount: 5,
-  };
-  this.imagePicker.getPictures(options).then((results) => {  
-    for (let index = 0; index < results.length; index++) {  
-        //here iam converting image data to base64 data and push a data to array value.  
-        this.imageLists.push('data:image/jpeg;base64,' + results[index]);  
-    }  
-    console.log(this.imageLists);  
-}, (error) => {  
-    // Handle error   
-    console.log(error);  
-});  
+  outputType: 1
+}).then(selectedImg => {
+  selectedImg.forEach(i => this.images.push("data:image/jpeg;base64," + i));
+})
 }
-
+  
 }

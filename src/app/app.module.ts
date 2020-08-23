@@ -18,11 +18,13 @@ import {File} from '@ionic-native/file/ngx';
 import {LanguagesComponent} from './languages/languages.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { Globalization } from '@ionic-native/globalization/ngx';
 // import {NavParams} from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 
 const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.compute.amazonaws.com:3000', options: {} };
 @NgModule({
@@ -35,7 +37,13 @@ const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
- 
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
      IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule
@@ -47,7 +55,7 @@ const config: SocketIoConfig = { url: 'http://ec2-18-141-240-226.ap-southeast-1.
     SocialSharing,
     ImagePicker,
     Camera,
-
+    Globalization,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeGeocoder,
    

@@ -56,11 +56,16 @@
       </p>
       <ion-item>
    
-        <ion-textarea class="ion-text-start"  type="text"  
-         rows="5" cols="5"></ion-textarea>
+        <ion-textarea  formControlName="postadimage" class="ion-text-start"  type="text"  
+         rows="5" cols="5">
          <img src="{{imgURL}}" height="40" width="40"/>
+        </ion-textarea>
       </ion-item>
-
+      <ion-grid >
+        <ion-col *ngFor="let image of images">
+            <img src="{{image}}" style="height: 150px;width:150px" />
+        </ion-col>
+    </ion-grid>
     <!-- Images Buttons og Choosing  -->
 <ion-row>
   <ion-col size="6">
@@ -69,7 +74,7 @@
   </ion-button>
   </ion-col>
  <ion-col size="6">
-    <ion-button   (click)="getfromcamera()">Choose Image&nbsp;
+    <ion-button   (click)="getfromcamera()">Capture&nbsp;
       <ion-icon name="camera">Camera</ion-icon>
     </ion-button>
   </ion-col>

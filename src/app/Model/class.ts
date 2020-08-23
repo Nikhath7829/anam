@@ -6,11 +6,12 @@ export class Register {
  
 }
 
-export class PostAds{
+export class PostAdd{
     postadname:String;
     postadprice:Number;
     postadquant:Number;
     postaddesc:String;
+    postadimage:File[];
     roles: String[];
 
 }
@@ -39,14 +40,7 @@ export class Login {
     image3: File[];
 }
 
-export class PostAdd{
-    proname:String;
-    protitle:String;
-    proprice:Number;
-    prokgs:Number;
-    proimage:File[];
-  
-}
+
 
 
     export class AddtoCart {
