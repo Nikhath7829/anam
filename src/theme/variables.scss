@@ -21,7 +21,9 @@
     font-size: 10px;
     font-family:'Lato', sans-serif!important;
 }
-
+.my-custom-class .popover-content {
+  background: #222!important;
+}
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

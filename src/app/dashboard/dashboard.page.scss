@@ -1,20 +1,50 @@
-.locate{
-    border:1px solid grey;
-    width:306px;
+
+.right_search-icon{
+   margin-left: 7px;
+    height: 82%;
+    display: inline-block;
+    border-radius: 21px;
+    margin-top: 5px;
 }
-ion-button{
-    --background: #27ae60;
+.top-starter{
+   // background: #27ae60;
+    text-transform: capitalize;
+    color:white;
 }
+.language_top{
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-style: normal;
+}
+.search{
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    border-radius: 5px;
+   margin: 5px 1px 3px 0px;
+    border: 1px solid #63e474;
+    background: white;
+    width: 108%;
+    }
+     
+ 
+    ion-toolbar{
+        --background: #27ae60;
+    }
+    ion-button{
+        --background: #63e474;
+        // --background: #27ae60;
+    }
+    
+
 *{
     font-family: 'Lato', sans-serif!important;
 }
 .location_icon{
 font-size: 20px;
+margin-top: 9px;
 }
-ion-button{
-    height: 2em;
-    text-transform: capitalize;
-}
+
 .content{
     font-size: 9px;
     font-weight: bold;
@@ -30,9 +60,9 @@ ion-button{
     }
 
 
-ion-toolbar{
-    --background: #27ae60;
-}
+ion-header{
+ --background: #27ae60;
+ }
 #cat1{
     // background: bisque;
     background: #FFFFFF;
@@ -106,7 +136,9 @@ position: absolute;
 .search_box{
     border:1px solid white;
 }
-
+.my-custom-class .popover-content {
+    background: #222;
+  }
 #choose{
     font-size: 18px;
     color: white;

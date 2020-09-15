@@ -7,23 +7,24 @@ import { AlertController, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker/ngx';
 import {File} from '@ionic-native/file/ngx';
+
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 @Component({
   selector: 'app-postadd',
-  templateUrl: './postadd.page.html',
+  templateUrl: './postadd.page.html',   
   styleUrls: ['./postadd.page.scss'],
 })
 export class PostaddPage implements OnInit {
   public formcontrol: FormGroup;
   public formValid = true;
-  imgURL;
- images:any;
   isSubmitted = false;
   today = Date.now();
- myphoto: any;
+ cameraphotos: any;
+ galleryphotos:any;
  demo:any= {};
  public data: PostAdd = new PostAdd();
- public imageLists: any[] = [];  
+images:any=[];
+
   constructor(public imagePicker: ImagePicker,public file:File,private fb: FormBuilder,private route:ActivatedRoute,public rest: RestService,
 private camera: Camera) { 
      this.route.queryParams.subscribe(res =>{
@@ -59,36 +60,32 @@ alert("Nikhu");
   }
   //GET IMAGE FROM CAMERA
   getfromcamera() {
-   this.camera.getPicture({
-     sourceType:this.camera.PictureSourceType.CAMERA,
-     destinationType:this.camera.DestinationType.FILE_URI
-   }).then((res)=>{
-     this.imgURL = res;
- }).catch(e =>{
-   console.log(e);
- })
+    const options: CameraOptions = {
+      quality: 70,
+      
+      sourceType:this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      //encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((ImageData) => {
+      this.cameraphotos = 'data:image/jpeg;base64,' + ImageData;
+    }, (err) => {
+      //Handle error
+    });
  }
 
- //GET IMAGE FROM GALLERY
- getfromgallery(){
-// let options: ImagePickerOptions = {  
-//   quality: 100,  
-//  width: 100,  
-//   height: 100,  
-//   maximumImagesCount: 5,
-//   }
-//   this.imagePicker.getPictures({
-//     maximumImagesCount: 5,
-//     outputType: 1
-//   }).then(selectedImg => {
-//     selectedImg.forEach(i => this.images.push("data:image/jpeg;base64," + i));
-//   });
-this.imagePicker.getPictures({
-  maximumImagesCount: 5,
-  outputType: 1
-}).then(selectedImg => {
-  selectedImg.forEach(i => this.images.push("data:image/jpeg;base64," + i));
-})
-}
+ getfromgallery() {
+  var options : ImagePickerOptions ={
+    maximumImagesCount:5,
+    width:100,
+    height:100  
+   }
+   this.imagePicker.getPictures(options).then((results) =>{
+    for (var i = 0; i < results.length; i++) {
+      console.log('Image URI: ' + results[i]);
+ }
   
+}, (err) => { });
+}
 }

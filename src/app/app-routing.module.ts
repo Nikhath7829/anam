@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: ' ' ,
-    redirectTo: 'start',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
 
@@ -123,10 +123,7 @@ const routes: Routes = [
     path: 'selcat',
     loadChildren: () => import('./selcat/selcat.module').then( m => m.SelcatPageModule)
   },
-  {
-    path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
-  },
+ 
   {
     path: 'veglist',
     loadChildren: () => import('./veglist/veglist.module').then( m => m.VeglistPageModule)
@@ -159,14 +156,25 @@ const routes: Routes = [
     path: 'postadd/:id',
     loadChildren: () => import('./postadd/postadd.module').then( m => m.PostaddPageModule)
   },
-  {
-    path: 'game',
-    loadChildren: () => import('./game/game.module').then( m => m.GamePageModule)
-  },
+ 
   {
     path: 'trans',
     loadChildren: () => import('./trans/trans.module').then( m => m.TransPageModule)
-  }
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
+  },
+  {
+    path: 'test2',
+    loadChildren: () => import('./test2/test2.module').then( m => m.Test2PageModule)
+  },
+  {
+    path: 'partner',
+    loadChildren: () => import('./partner/partner.module').then( m => m.PartnerPageModule)
+  },
+  
+  
 
 
  

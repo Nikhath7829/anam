@@ -1,34 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Codesundar.com
-    </ion-title>
-  </ion-toolbar>
+  <ion-toolbar >
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button> 
+    <ion-title color="light">POST</ion-title>
+   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-segment [(ngModel)]="selectTabs">
-    <ion-segment-button value="recent">
-      <ion-label>Recents</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="missed">
-      <ion-label>Missed</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="contact">
-      <ion-icon name="person-circle-outline"></ion-icon>
-      <ion-label>Contact</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-  <div *ngIf="selectTabs == 'recent'">
-    <h3>Recent</h3>
-  </div>
-
-  <div *ngIf="selectTabs == 'missed'">
-    <h3>Missed</h3>
-  </div>
-
-  <div *ngIf="selectTabs == 'contact'">
-    <h3>Contact</h3>
-  </div>
+<ion-content >
+  <ion-button (click)="location()">ll</ion-button>
+<p>{{data}}</p>
 </ion-content>

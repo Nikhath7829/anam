@@ -8,7 +8,7 @@ import { Register } from '../Model/class';
 import { LoadingController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
-import {Platform} from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -26,10 +26,10 @@ export class RegisterPage implements OnInit {
   errmsg: any;
   public data: Register = new Register();
 
-  constructor(private platform:Platform,public menuCtrl: MenuController, private popover: PopoverController, private navCtrl: NavController, public fb: FormBuilder, private loadingCtrl: LoadingController,
+  constructor(private platform: Platform, public menuCtrl: MenuController, private popover: PopoverController, private navCtrl: NavController, public fb: FormBuilder, private loadingCtrl: LoadingController,
     private alertController: AlertController, public rest: RestService, private myRoute: Router, private modalCtrl: ModalController) {
     this.formcontrol = this.fb.group({
-      fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(5))]],
+      fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'), (Validators.maxLength(20)), (Validators.minLength(5))]],
       number: ['', [Validators.required, (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
       roles: this.fb.array(['USER'])
     });
@@ -37,18 +37,18 @@ export class RegisterPage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
   }
- 
+
   //helps in triggers an error in validation
   get errorControl() {
     return this.formcontrol.controls;
   }
 
-//Empty Fileds Alert
+  //Empty Fileds Alert
   async filldetails() {
     const alert = await this.alertController.create({
-    
+
       cssClass: 'my-custom-class',
-     // header: 'Confirm!',
+      // header: 'Confirm!',
       message: 'Please fill out the fields!',
       buttons: [
         {
@@ -57,96 +57,74 @@ export class RegisterPage implements OnInit {
           cssClass: 'primary',
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
-          } },  ]
+          }
+        },]
     }); await alert.present();
   }
 
-//Success fileds Alert
+  //Success fileds Alert
   async successalert() {
     const alert = await this.alertController.create({
-    
-      cssClass: 'my-custom-class',
-     // header: 'Confirm!',
-      message: 'Succesfully Registered!',
+   cssClass: 'my-custom-class',
+     message: 'Succesfully Registered!',
       buttons: [
         {
           text: 'Proceed to login',
           role: 'cancel',
           cssClass: 'primary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          } },  ]
+            console.log('Confirm Cancel: proceed');
+          }
+        },]
     }); await alert.present();
   }
-  
+
 
   ngOnInit() {
     this.valid = false;
     this.errmsg = false;
     this.isSubmitted = false;
   }
- 
- async createLoader() {
-    let loading = await this.loadingCtrl.create({
-      message: "Registering",
-      duration: 1000,
-      showBackdrop: false,
-      spinner: "lines-small"
-    });
-    loading.present();
-    setTimeout(() => {
-      loading.dismiss();
-    }, 2000)
-    this.myRoute.navigate(["/login"]);
- }
- async fillout() {
-  const alert = await this.alertController.create({
-    cssClass: 'my-custom-class',
-    message: 'Please fill the details.',
-    buttons: ['OK']
-  });
 
-  await alert.present();
-}
-getregister(){
-this.isSubmitted = true;
-  if (!this.formcontrol.valid) {
-  this.fillout();
- return false;
-   
-} else{
-  if (this.formcontrol.valid){
-    Object.assign(this.data, this.formcontrol.value);
-   console.log(this.data);
-    this.rest.Register(this.data).subscribe((result) => {   
-      if(result === undefined)
-         {
-           console.log(result);
-           this.errmsg=true;
-         
-         } else{
-        //  this.formcontrol.reset();
-          this.formcontrol = this.fb.group({
-            fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),(Validators.maxLength(20)), (Validators.minLength(5))]],
-            number: ['', [Validators.required, (Validators.minLength(10)),Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-            roles: this.fb.array(['USER'])
-          });
-          this.successalert();
-          // this.createLoader();
-          this.myRoute.navigate[('/login')]
-         };
-       
-  },(err) => {
-    // err.status(200).send("Error -> " + err);
-   // this.server=true;
-     console.log(err);
- });
-}else{
-  this.valid=true;
-}
-}
- 
+  
+  getregister() {
+    this.isSubmitted = true;
+    if (!this.formcontrol.valid) {
+      
+      return false;
 
- 
+    } else {
+      if (this.formcontrol.valid) {
+        Object.assign(this.data, this.formcontrol.value);
+        console.log(this.data);
+        this.rest.Register(this.data).subscribe((result) => {
+          if (result === undefined) {
+            console.log(result);
+            this.errmsg = true;
+
+          } else {
+            //  this.formcontrol.reset();
+            // this.formcontrol = this.fb.group({
+            //   fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'), (Validators.maxLength(20)), (Validators.minLength(5))]],
+            //   number: ['', [Validators.required, (Validators.minLength(10)), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+            //   roles: this.fb.array(['USER'])
+            // });
+           console.log("Registered");
+            this.successalert();
+         this.myRoute.navigate[('/login')]
+          };
+
+        }, (err) => {
+          // err.status(200).send("Error -> " + err);
+          // this.server=true;
+          console.log(err);
+        });
+      } else {
+        this.valid = true;
+      }
     }
+
+
+
+  }
 }

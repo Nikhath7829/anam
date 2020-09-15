@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       if (window.location.pathname === "/"){
-        this.route.navigateByUrl('postadd');
+        this.route.navigateByUrl('test');
       }
 
       this.statusBar.styleDefault();

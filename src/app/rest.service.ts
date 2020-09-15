@@ -116,6 +116,8 @@ getuserlist(): Observable<any> {
   return this.http.get<any>(endpoint + 'api/userList', this.httpOptions);
 }
 
+
+
 removefromlist(id){
   this.httpOptions = {
     headers: new HttpHeaders({
@@ -212,9 +214,9 @@ productname(): Observable<any>{
     reportProgress: true,
     responseType: 'text'
   });
-
-  return this.http.request(req);
+return this.http.request(req);
 }
+
  pushfileproducts(file: File): Observable<HttpEvent<{}>> {
   const formdata: FormData = new FormData();
 formdata.append('file', file);
@@ -240,15 +242,12 @@ UpdateRegister(data: Register): Observable<any> {
   //Edit Profile to store in the folder
   profile(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
-  
-    formdata.append('file', file);
-  
-    const req = new HttpRequest('POST', '', formdata, {
+   formdata.append('file', file);
+  const req = new HttpRequest('POST', 'http://localhost:8080/api/file/profile', formdata, {
       reportProgress: true,
       responseType: 'text'
     });
-  
-    return this.http.request(req);
+  return this.http.request(req);
   }
   
   getCartList(): Observable<any> {

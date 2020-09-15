@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RestService } from '../rest.service';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
@@ -13,8 +13,12 @@ import { UserprofilePage } from '../userprofile/userprofile.page';
   styleUrls: ['./finaledit.page.scss'],
 })
 export class FinaleditPage implements OnInit {
+  @ViewChild('fileButton', { static: false }) fileButton;
+  defaultimgURL: any;
   images:any=[];
   myphoto:any;
+  
+  myprofilephoto:any;
   public formcontrol:FormGroup;
   valid: boolean = false;
   selectedFiles: FileList;
@@ -23,7 +27,7 @@ export class FinaleditPage implements OnInit {
   userid;
   arr;
   imageUrl:File;
-  image: any;
+  progress: { percentage: number } = { percentage: 0 };
   errmsg: boolean = false;
   ar;
   role;
@@ -32,9 +36,8 @@ export class FinaleditPage implements OnInit {
   user: boolean = false;
   name;
   fullname;
-  progress: { percentage: number } = { percentage: 0 };
-
-  constructor(private fb:FormBuilder
+  profilephoto;
+constructor(private fb:FormBuilder
     ,private rest:RestService,
     private camera: Camera
    
@@ -45,25 +48,26 @@ export class FinaleditPage implements OnInit {
     this.getuserprofiles()
   }
 
-
+  
   getimage(){
-    
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
    sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,
       saveToPhotoAlbum:false,
-      allowEdit:true,
-      targetWidth:300,
-targetHeight:300
+   
+     
     }
     this.camera.getPicture(options).then((ImageData)=>{
-    
-      this.myphoto= 'data:image/jpeg;base64,' + ImageData;
-  }, (err) => {
-    //Handle error
-  });
-  }
+  this.myprofilephoto= 'data:image/jpeg;base64,' + ImageData;
+ });
+ }
+ 
+
+//  changeListener($event) : void {
+//   this.file = $event.target.files[0];
+// }
+
 
   getcamera() {
     const options: CameraOptions = {
@@ -76,6 +80,7 @@ targetHeight:300
     
           this.myphoto = 'data:image/jpeg;base64,' + ImageData;
         }, (err) => {
+          
           //Handle error
         });
       }
@@ -88,7 +93,7 @@ targetHeight:300
     this.formcontrol = this.fb.group({
       fullname: ["", [Validators.required]],
       number: ["", [Validators.required]],
-    
+      
        });
   }
 
@@ -134,14 +139,13 @@ targetHeight:300
   }
 
   update(){
-
+    
     this.formcontrol.get("number").setValidators(Validators.required);
     this.formcontrol.get("number").updateValueAndValidity();
     this.formcontrol.get("fullname").setValidators(Validators.required);
     this.formcontrol.get("fullname").updateValueAndValidity();
-  
     
-    if (this.formcontrol.valid) {
+   if (this.formcontrol.valid) {
       console.log('no error');
     }
     else {

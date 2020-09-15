@@ -14,7 +14,7 @@ export class TransPage implements OnInit {
   public language: string;
   constructor(private globalization: Globalization, private _translate: TranslateService) { }
   ionViewDidEnter(): void {
-    this.getDeviceLanguage()
+    //this.getDeviceLanguage()
   }
   ngOnInit() {
   }
@@ -52,16 +52,16 @@ export class TransPage implements OnInit {
     }
     this._translateLanguage();
   }
-  getDeviceLanguage() {
-    if (window.Intl && typeof window.Intl === 'object') {
-      this._initTranslate(navigator.language)
-    }
-    else {
-      this.globalization.getPreferredLanguage()
-        .then(res => {
-          this._initTranslate(res.value)
-        })
-        .catch(e => {console.log(e);});
-    }
-  }
+  // getDeviceLanguage() {
+  //   if (window.Intl && typeof window.Intl === 'object') {
+  //     this._initTranslate(navigator.language)
+  //   }
+  //   else {
+  //     this.globalization.getPreferredLanguage()
+  //       .then(res => {
+  //         this._initTranslate(res.value)
+  //       })
+  //       .catch(e => {console.log(e);});
+  //   }
+  // }
 }

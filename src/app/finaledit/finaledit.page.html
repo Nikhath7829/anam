@@ -5,37 +5,61 @@
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="formcontrol">
   <div class="top-head">
  <!-- <img src="http://localhost:8080/profile/{{photo?.split('\\')[2]}}" style="height:70px; width:80px;"> -->
- <ion-avatar >
-   <img src="{{myphoto}}" ><ion-icon   (click)="getimage()" class="camera-icon" name="camera"></ion-icon>
- </ion-avatar>
+ <!-- <ion-avatar >
+   <img src="{{myprofilephoto}}" ><ion-icon   (click)="getimage()" class="camera-icon" name="camera"></ion-icon>
+ </ion-avatar> -->
+
+  <!-- <ion-avatar >
+  <img class="profile_border"  src= "{{myprofilephoto}} ">
+<ion-icon  type="file" (click)="getimage()"  
+  class="camera-icon" name="camera"></ion-icon> 
+</ion-avatar> -->
+
+<ion-avatar>
+  <img src=""  style="height:70px; width:80px;">
+</ion-avatar>
+  <ion-input style="--padding-left: 18em; color: transparent; margin-left: 5em;width: 8em;background: transparent;
+  box-shadow: none;"placeholder="photo" (change)="selectFiles($event)" id="photo" type="file" 
+  class="ion-margin-top ion-margin-start"></ion-input>
+
+
      </div>
    
-     <div class="top">
+  
       <div class="center">
-        <form [formGroup]="formcontrol">
+        
      <ion-item transparent>
       <img icon-small src="../../assets/icon/fullname.png">
-   <ion-input    formControlName="fullname"  [(ngModel)]="name"  placeholder="Fullname" type="text"></ion-input>
+   <ion-input     formControlName="fullname"  [(ngModel)]="name"  placeholder="Fullname" type="text"></ion-input>
     </ion-item>
     <div *ngIf="valid">
       <p  class="error_msg" no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
     </div>
 
+    <ion-item transparent>
+      <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
+      <ion-input type="file" accept="image/*" (change)="changeListener($event)"></ion-input>
+    </ion-item>
 
    <ion-item transparent>
   <img icon-small src="../../assets/icon/phone.png">
- <ion-input  formControlName="number"  [(ngModel)]="number"  placeholder="Phone Number" type="number"></ion-input>
+ <ion-input   formControlName="number"  [(ngModel)]="number"  placeholder="Phone Number" type="number"></ion-input>
 </ion-item>
 <div *ngIf="valid">
   <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
 </div>
+
+<ion-input type="multiple"></ion-input>
+
+
  <ion-button class="ion-margin-top"  expand="block" (click)="update()">Save</ion-button>
+</div>
 </form>
-</div>
-</div>
+
+
 </ion-content>
 
 

@@ -54,18 +54,30 @@
       <p class="error" *ngIf="isSubmitted && errorControl.postaddesc.errors?.required">
         Product description is required.
       </p>
-      <ion-item>
+      <!-- <ion-item>
    
         <ion-textarea  formControlName="postadimage" class="ion-text-start"  type="text"  
          rows="5" cols="5">
-         <img src="{{imgURL}}" height="40" width="40"/>
+         <img src="{{cameraphotos}}" height="40" width="40"/>
         </ion-textarea>
-      </ion-item>
-      <ion-grid >
+      </ion-item> -->
+      <ion-grid>  
+      <ion-row>
+        <ion-col>
+          <!-- More Pinterest floating gallery style -->
+          <div class="images">
+            <div class="one-image" *ngFor="let img of imageResponse">
+              <img src="{{img}}" alt="" srcset="">
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <!-- <ion-grid >
         <ion-col *ngFor="let image of images">
             <img src="{{image}}" style="height: 150px;width:150px" />
         </ion-col>
-    </ion-grid>
+    </ion-grid> -->
     <!-- Images Buttons og Choosing  -->
 <ion-row>
   <ion-col size="6">

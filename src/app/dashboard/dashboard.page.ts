@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-
-//import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
+import { Component, OnInit, Input,ElementRef , ViewChild } from '@angular/core';
 import { LoadingController, Platform, IonSlides } from '@ionic/angular';
 import { AlertController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -11,12 +9,13 @@ import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators'
 import { Register, Product, PostAdd } from '../Model/class';
 import { AppComponent } from '../app.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 import {LanguagesComponent} from '../languages/languages.component';
 import { style, state, animate, transition, trigger } from '@angular/animations';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
-
+declare var google;
 
 @Component({
   selector: 'app-dashboard',
@@ -39,13 +38,14 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-
+  address: string;        // Users Address
+  @ViewChild('map', { static: false }) mapElement: ElementRef;
+  latitude: number;     //Users latitiude
+  longitude: number;  //Users longitiude
   myphoto: any;
   states: any;
   image: SafeResourceUrl;
-  timestamp: any;
-  latitude: any = '';
-  longitude: any = '';
+  
   role;
   ar;
   cart;
@@ -65,22 +65,17 @@ export class DashboardPage implements OnInit {
   ads: PostAdd[] = [];
   isDisplay = false;
   show: boolean = false;
+  map: any;
   toggleDisplay() {
     this.isDisplay = !this.isDisplay;
   }
+  
   @ViewChild(IonSlides, { static: false }) slides: IonSlides
-  constructor(private domsanitizer: DomSanitizer, public platform: Platform, public popoverController: PopoverController, private fb: FormBuilder,
-    public rest: RestService, public loadingController: LoadingController,
-    public alertController: AlertController, private route: Router, private camera: Camera, private test: AppComponent) {
-    // this.platform.ready().then(()=>{
-    //   var mapOptions = {
-    //     center:{lat:23.2366,lng:79.3822},
-    //   zoom:7
-    //   }
-    //   this.map = new google.maps.Map(document.getElementById("map"),mapOptions);
-    //   this.GetLocation();
-    // }
-    // )
+  constructor(public platform: Platform, public popoverController: PopoverController, 
+    private fb: FormBuilder, public rest: RestService, public loadingController: LoadingController,
+    public alertController: AlertController, private route: Router, private camera: Camera, 
+    private test: AppComponent,private geolocation:Geolocation,private nativeGeocoder:NativeGeocoder) {
+   
   }
   SlideChanged() {
   }
@@ -101,13 +96,68 @@ slideOptions = {
     this.retrievals();
     this.getuserprofile();
     this.getProductName();
- }
+   
+   }
+
+   loadMap() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+    this.latitude = resp.coords.latitude;
+    this.longitude = resp.coords.longitude;
+    let latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+      let mapOptions = {
+        center: latLng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+    this.getAddressFromCoords(resp.coords.latitude, resp.coords.longitude);
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    this.map.addListener('dragend', () => {
+       this.latitude = this.map.center.lat();
+       this.longitude = this.map.center.lng();
+       this.getAddressFromCoords(this.map.center.lat(), this.map.center.lng())
+      });
+}).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  }
+
+  getAddressFromCoords(lattitude, longitude) {
+    console.log("getAddressFromCoords " + lattitude + " " + longitude);
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
+
+    this.nativeGeocoder.reverseGeocode(lattitude, longitude, options)
+      .then((result: NativeGeocoderResult[]) => {
+        this.address = "";
+        let responseAddress = [];
+        for (let [key, value] of Object.entries(result[0])) {
+          if (value.length > 0)
+            responseAddress.push(value);
+
+        }
+        responseAddress.reverse();
+        for (let value of responseAddress) {
+          this.address += value + ", ";
+        }
+        this.address = this.address.slice(0, -2);
+      })
+      .catch((error: any) => {
+        this.address = "Address Not Available!";
+      });
+
+  }
+ 
+
+
+
  async chooselangauge(ev: any) {
   const popover = await this.popoverController.create({
     component: LanguagesComponent,
-    cssClass: 'language',
+    cssClass: 'my-class',
     event: ev,
-    mode: 'md',
+    mode:'md',
     translucent: true
   });
   return await popover.present();
